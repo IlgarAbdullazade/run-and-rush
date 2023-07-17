@@ -1,7 +1,8 @@
 import classNames from 'classnames'
+import { Link } from 'react-router-dom'
 
+import Button from '@/components/UI/Button'
 import runnerBgImg from '@/assets/images/runner-bg.png'
-import OutlineButton from '@/components/UI/OutlineButton'
 
 import styles from './style.module.scss'
 
@@ -42,12 +43,14 @@ const NotFoundView = () => {
               The page you looking for is could not be found. Click the button
               below to go back to home page
             </div>
-            <OutlineButton
+            <Link
               to="/"
               className={classNames(styles['notfound-context__button'])}
             >
-              Go home
-            </OutlineButton>
+              <Button isOutline={true} className="w-full">
+                Go home
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

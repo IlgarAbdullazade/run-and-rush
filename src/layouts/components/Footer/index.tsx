@@ -26,7 +26,7 @@ const Footer = () => {
                   <NavLink
                     className={({ isActive }) =>
                       classNames(
-                        styles['header-menu__link'],
+                        styles['footer-menu__link'],
                         isActive ? 'text-gradient' : ''
                       )
                     }
@@ -39,11 +39,11 @@ const Footer = () => {
                   <NavLink
                     className={({ isActive }) =>
                       classNames(
-                        styles['header-menu__link'],
+                        styles['footer-menu__link'],
                         isActive ? 'text-gradient' : ''
                       )
                     }
-                    to=""
+                    to="whitepaper"
                   >
                     Whitepaper
                   </NavLink>
@@ -52,11 +52,11 @@ const Footer = () => {
                   <NavLink
                     className={({ isActive }) =>
                       classNames(
-                        styles['header-menu__link'],
+                        styles['footer-menu__link'],
                         isActive ? 'text-gradient' : ''
                       )
                     }
-                    to=""
+                    to="linktree"
                   >
                     Linktree
                   </NavLink>

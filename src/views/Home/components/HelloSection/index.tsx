@@ -6,9 +6,10 @@ import AppButton from '@/components/UI/AppButton'
 import runnerBgImg from '@/assets/images/runner-bg.png'
 import merTickerImg from '@/assets/images/mer-ticker.png'
 import appsImg from '@/assets/images/home/hello/apps.png'
-import OutlineButton from '@/components/UI/OutlineButton'
 
 import styles from './style.module.scss'
+import Button from '@/components/UI/Button'
+import { Link } from 'react-router-dom'
 
 const HelloSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -38,9 +39,9 @@ const HelloSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             )}
           >
             <h1 className={classNames(styles['hello-context__title'])}>
-              <strong className={classNames('text-gradient')}>Run&Rush</strong>{' '}
+              <strong className={classNames('text-gradient')}>Run&Rush</strong>
               App
-              <br /> Let's{' '}
+              <br /> Let's
               <strong className={classNames('text-gradient')}>
                 Move To Earn
               </strong>
@@ -70,13 +71,15 @@ const HelloSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 )}
                 store="ios"
               />
-              <OutlineButton
-                to={''}
+
+              <Link
+                to="how-to-play"
                 className={classNames(styles['hello-actions__item'])}
-                icon="icon-play"
               >
-                How to play
-              </OutlineButton>
+                <Button icon="icon-play" isOutline={true}>
+                  How to play
+                </Button>
+              </Link>
             </div>
           </div>
           <div className={classNames(styles['hello__decoration'])}>
