@@ -18,7 +18,6 @@ const HeaderProfile: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   const isAuthenticated = useSelector(
     (state: RootState) => state.auth.isAuthenticated
   )
-  const user = useSelector((state: RootState) => state.auth.user)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
