@@ -1,3 +1,5 @@
+import { HTMLAttributes } from 'react'
+
 import classNames from 'classnames'
 
 import coin from '@/assets/icons/coin.svg'

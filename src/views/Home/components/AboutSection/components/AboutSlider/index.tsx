@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { Swiper as SwiperCore } from 'swiper/types'
 import { Navigation, Pagination } from 'swiper/modules'
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 import AboutSlide from '../AboutSlide'
 import styles from './style.module.scss'
