@@ -1,0 +1,58 @@
+import classNames from 'classnames'
+
+import runnerBgImg from '@/assets/images/runner-bg.png'
+import OutlineButton from '@/components/UI/OutlineButton'
+
+import styles from './style.module.scss'
+
+const NotFoundView = () => {
+  return (
+    <section className={classNames(styles['notfound'])}>
+      <div className={classNames(styles['notfound__container'])}>
+        <div className={classNames(styles['notfound__background'])}>
+          <div
+            className={classNames(styles['notfound__background-runner'])}
+            style={{
+              backgroundImage: `url(${runnerBgImg})`,
+            }}
+          ></div>
+          <div
+            className={classNames(
+              styles['notfound__background-circle'],
+              'blur-circle-big'
+            )}
+          ></div>
+        </div>
+        <div className={classNames(styles['notfound__wrapper'])}>
+          <div
+            className={classNames(
+              styles['notfound__context'],
+              styles['notfound-context']
+            )}
+          >
+            <h3
+              className={classNames(
+                styles['notfound-context__title'],
+                'text-gradient'
+              )}
+            >
+              Page not found
+            </h3>
+            <div className={classNames(styles['notfound-context__caption'])}>
+              The page you looking for is could not be found. Click the button
+              below to go back to home page
+            </div>
+            <OutlineButton
+              to="/"
+              className={classNames(styles['notfound-context__button'])}
+            >
+              Go home
+            </OutlineButton>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default NotFoundView

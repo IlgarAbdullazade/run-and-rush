@@ -1,0 +1,19 @@
+.gmt-slider {
+  @apply relative -mx-4;
+
+  // .gmt-slider__wrapper
+
+  &__wrapper {
+  }
+
+  // .gmt-slider__slide
+
+  &__slide {
+    @apply px-4;
+  }
+
+  // .gmt-slider__item
+
+  &__item {
+  }
+}

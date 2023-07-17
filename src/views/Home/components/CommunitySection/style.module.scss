@@ -1,0 +1,60 @@
+.community {
+  @apply pt-10;
+  // .community__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .community__background
+
+  &__background {
+  }
+
+  // .community__background-circle
+
+  &__background-circle {
+    @apply absolute top-0 z-0 max-w-xl -right-40 max-lg:right-0;
+  }
+
+  // .community__wrapper
+
+  &__wrapper {
+    @apply relative z-10 flex gap-20 max-2xl:gap-16 max-xl:gap-8 max-lg:flex-col-reverse;
+  }
+
+  // .community__context
+
+  &__context {
+    @apply max-w-[44rem] w-full pt-40 max-2xl:pt-16 max-xl:pt-10 max-lg:pt-0;
+  }
+
+  // .community__title
+
+  &__title {
+    @apply mb-6;
+  }
+
+  // .community__text
+
+  &__text {
+    @apply mb-16 text-4xl text-textSecondary font-secondary max-xl:text-3xl max-lg:text-2xl max-xl:mb-10 max-lg:mb-6;
+  }
+
+  // .community__socials
+
+  &__socials {
+  }
+
+  // .community__decoration
+
+  &__decoration {
+    @apply w-full -mr-40 max-2xl:-mr-16 max-xl:-mr-8 max-lg:m-0;
+  }
+
+  // .community__decoration-image
+
+  &__decoration-image {
+    @apply select-none;
+  }
+}

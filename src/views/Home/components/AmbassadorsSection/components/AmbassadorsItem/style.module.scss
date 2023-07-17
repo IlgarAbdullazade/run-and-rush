@@ -1,0 +1,45 @@
+.ambassadors-item {
+  @apply w-full max-w-md max-lg:max-w-xs;
+  // .ambassadors-item__wrapper
+
+  &__wrapper {
+    @apply flex items-center gap-7 max-2xl:gap-6 max-xl:gap-5;
+  }
+
+  // .ambassadors-item__leading
+
+  &__leading {
+    @include adaptiveValue('max-width', 148, 72);
+    @apply relative w-full;
+  }
+
+  // .ambassadors-item__rect
+
+  &__rect {
+    @apply relative overflow-hidden -skew-x-6 border bg-gradient-135 aspect-square border-secondary;
+  }
+
+  // .ambassadors-item__image
+
+  &__image {
+    @apply absolute object-cover h-full -translate-x-1/2 -translate-y-1/2 skew-x-6 max-w-none top-1/2 left-1/2;
+  }
+
+  // .ambassadors-item__context
+
+  &__context {
+    @apply pb-3;
+  }
+
+  // .ambassadors-item__name
+
+  &__name {
+    @apply mb-1 text-4xl max-2xl:text-3xl max-xl:text-xl;
+  }
+
+  // .ambassadors-item__location
+
+  &__location {
+    @apply text-xl max-xl:text-base font-secondary text-textSecondary;
+  }
+}

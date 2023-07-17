@@ -1,0 +1,46 @@
+.auth {
+  // .auth__body
+
+  &__body {
+    @apply flex flex-col max-w-md;
+  }
+
+  // .auth__title
+
+  &__title {
+    @apply text-xl mb-6 text-center;
+  }
+
+  // .auth__form
+
+  &__form {
+  }
+}
+.auth-form {
+  // .auth-form__wrapper
+
+  &__wrapper {
+    @apply flex flex-col w-full;
+  }
+
+  // .auth-form__group
+
+  &__group {
+    @apply mb-4 last:mb-0;
+    input {
+      @apply text-center;
+    }
+  }
+
+  // .auth-form__checkbox
+
+  &__checkbox {
+    @apply px-4 mb-6 max-lg:px-0;
+  }
+
+  // .auth-form__submit
+
+  &__submit {
+    @apply w-full text-base h-14;
+  }
+}

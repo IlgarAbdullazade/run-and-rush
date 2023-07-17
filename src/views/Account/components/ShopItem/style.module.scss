@@ -1,0 +1,61 @@
+.shop-item {
+  // .shop-item__wrapper
+
+  &__wrapper {
+    @apply relative flex flex-col items-center justify-center h-full p-5 pb-0 max-lg:p-4 max-lg:pb-0;
+    @apply border-2 rounded-2xl border-stroke bg-black/20 bg-blend-overlay backdrop-blur-3xl;
+  }
+
+  // .shop-item__rect
+
+  &__rect {
+    @apply w-full p-4 mb-3 border-2 border-dashed border-stroke rounded-2xl aspect-[12/11];
+  }
+
+  // .shop-item__image
+
+  &__image {
+    @apply w-full h-full;
+  }
+
+  // .shop-item__info
+
+  &__info {
+    @apply -mx-2 text-center;
+  }
+
+  // .shop-item__title
+
+  &__title {
+    @apply flex gap-1.5 mb-2;
+    span {
+      @apply font-secondary;
+    }
+  }
+
+  // .shop-item__id
+
+  &__id {
+  }
+
+  // .balance-info__bonus
+
+  &__bonus {
+    @apply flex items-center justify-center gap-2 pt-2 text-center mb-7;
+  }
+
+  // .balance-info__bonus-coin
+
+  &__bonus-coin {
+    @apply w-4;
+  }
+
+  // .balance-info__button
+
+  &__button {
+    @apply absolute -bottom-4;
+    > button {
+      @apply px-8 py-2 text-base text-mainText;
+    }
+  }
+}

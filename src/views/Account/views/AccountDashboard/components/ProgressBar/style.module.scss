@@ -1,0 +1,26 @@
+.progress-bar {
+  @apply relative w-full overflow-hidden rounded-5xl backdrop-blur-2xl bg-blend-overlay bg-black/30;
+
+  // .progress-bar__line
+
+  &__line {
+    @apply absolute top-0 left-0 z-0 w-0 h-full transition-all bg-primary rounded-5xl;
+  }
+
+  // .progress-bar__wrapper
+
+  &__wrapper {
+    @apply relative z-10 flex items-center justify-between px-4 pt-1;
+  }
+
+  // .progress-bar__icon
+
+  &__icon {
+    @apply text-4xl -mt-1.5;
+  }
+
+  // .progress-bar__text
+
+  &__text {
+  }
+}

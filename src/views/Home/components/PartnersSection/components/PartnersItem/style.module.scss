@@ -1,0 +1,15 @@
+.partners-item {
+  @apply relative w-full transition-transform lg:hover:scale-110;
+  // .partners-item__wrapper
+
+  &__wrapper {
+    @apply flex items-center justify-center h-24 p-6 max-lg:h-14 max-lg:p-4 bg-gradient-135 from-tertiary to-gray-700;
+    @apply after:absolute after:content-[''] after:left-0 after:p-0.5 after:bg-clip-content after:bottom-0 after:w-full after:h-full after:bg-[#1D1E20] after:backdrop-blur-2xl after:z-0;
+  }
+
+  // .partners-item__logo
+
+  &__logo {
+    @apply relative z-10 w-full h-full drop-shadow-md;
+  }
+}

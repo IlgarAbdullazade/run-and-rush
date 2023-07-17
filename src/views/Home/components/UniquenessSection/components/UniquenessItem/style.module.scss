@@ -1,0 +1,63 @@
+.uniqueness-item {
+  @apply relative -skew-x-6;
+  // .uniqueness-item__wrapper
+
+  &__wrapper {
+    @apply p-20 pb-6 bg-gradient-135 from-tertiary to-gray-700 max-2xl:p-16 max-2xl:pb-4 max-xl:p-12 max-lg:p-8;
+    @apply after:absolute after:content-[''] after:left-0 after:p-0.5 after:bg-clip-content after:bottom-0 after:w-full after:h-full after:bg-[#1D1E20]/80 after:backdrop-blur-2xl after:z-0;
+  }
+
+  // .uniqueness-item__context
+
+  &__context {
+    @apply relative z-10 mb-10 max-xl:mb-6;
+  }
+
+  // .uniqueness-item__title
+
+  &__title {
+    @apply mb-4 text-7xl max-xl:text-6xl max-lg:text-5xl max-sm:text-4xl max-xl:mb-3 max-lg:mb-2;
+  }
+
+  // .uniqueness-item__caption
+
+  &__caption {
+    @apply mb-10 text-5xl max-xl:text-4xl max-lg:text-3xl max-sm:text-2xl max-xl:mb-6 max-lg:mb-4;
+  }
+
+  // .uniqueness-item__text
+
+  &__text {
+    @apply text-xl font-secondary text-textSecondary max-lg:text-lg max-sm:text-sm;
+  }
+
+  // .uniqueness-item__footer
+
+  &__footer {
+    @apply relative z-10 flex;
+  }
+
+  // .uniqueness-item__links
+
+  &__links {
+    @apply flex flex-col flex-1 flex-grow gap-10 max-xl:gap-6 max-lg:gap-4;
+  }
+
+  // .uniqueness-item__link
+
+  &__link {
+    @apply text-xl text-secondary max-lg:text-lg max-sm:text-sm;
+  }
+
+  // .uniqueness-item__decoration
+
+  &__decoration {
+    @apply max-w-[15rem] mt-5 -mr-8 flex-1;
+  }
+
+  // .uniqueness-item__decoration-image
+
+  &__decoration-image {
+    @apply ml-auto select-none;
+  }
+}

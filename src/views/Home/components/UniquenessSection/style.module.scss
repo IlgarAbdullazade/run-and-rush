@@ -1,0 +1,41 @@
+.uniqueness {
+  // .uniqueness__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .uniqueness__background
+
+  &__background {
+  }
+
+  // .uniqueness__background-circle
+
+  &__background-circle {
+    @apply absolute top-0 z-0 max-w-xl -translate-x-1/2 left-1/2 max-lg:left-1/2 max-lg:top-0;
+  }
+
+  // .uniqueness__wrapper
+
+  &__wrapper {
+  }
+
+  // .uniqueness__title
+
+  &__title {
+    @apply max-w-[52rem] ml-auto text-right mb-20 max-lg:mb-10;
+  }
+
+  // .uniqueness__body
+
+  &__body {
+    @apply grid grid-cols-2 mr-20 max-2xl:mr-0 max-lg:grid-cols-1 max-lg:gap-10;
+  }
+
+  // .uniqueness__item
+
+  &__item {
+    @apply mr-28 h-min max-lg:mx-2 first:-translate-y-40 first:translate-x-40 max-2xl:first:-translate-y-20 max-xl:first:translate-x-36 max-lg:first:translate-x-0 max-lg:first:translate-y-0;
+  }
+}

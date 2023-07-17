@@ -1,0 +1,14 @@
+.shop {
+  @apply h-full;
+  // .shop__wrapper
+
+  &__wrapper {
+    @apply h-full;
+  }
+
+  // .shop__tabs
+
+  &__tabs {
+    @apply h-full p-4;
+  }
+}

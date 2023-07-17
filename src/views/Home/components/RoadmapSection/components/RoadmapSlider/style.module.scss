@@ -1,0 +1,25 @@
+.roadmap-slider {
+  @apply relative -mx-4;
+
+  // .roadmap-slider__wrapper
+
+  &__wrapper {
+  }
+
+  // .roadmap-slider__slide
+
+  &__slide {
+  }
+
+  // .roadmap-slider__item
+
+  &__item {
+    @apply px-4;
+  }
+
+  // .roadmap-slider__pagination
+
+  &__pagination {
+    @apply flex justify-center mt-10;
+  }
+}

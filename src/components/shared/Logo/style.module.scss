@@ -1,0 +1,8 @@
+.logo {
+  @apply flex;
+  // .logo__image
+
+  &__image {
+    @apply aspect-[1.95];
+  }
+}

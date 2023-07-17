@@ -1,0 +1,8 @@
+.app-button {
+  @apply flex py-2 px-4 justify-center items-center bg-white rounded-lg transition-transform lg:hover:scale-110 max-xl:px-3 max-xl:py-1.5 max-lg:rounded-full max-lg:w-full;
+
+  // .app-button__image
+  &__image {
+    @apply max-xl:h-8 max-xl:w-32 max-lg:h-9 max-lg:w-36 h-9 w-36;
+  }
+}

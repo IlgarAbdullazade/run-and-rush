@@ -1,0 +1,20 @@
+html,
+body {
+  @apply h-full;
+}
+
+body {
+  @apply min-w-[360px] overflow-x-hidden bg-background font-primary text-base font-normal text-mainText antialiased scrollbar-thin scrollbar-thumb-primary;
+}
+
+img {
+  @apply object-contain;
+}
+
+#root {
+  @apply h-full;
+}
+
+[class*='__container'] {
+  @apply container;
+}

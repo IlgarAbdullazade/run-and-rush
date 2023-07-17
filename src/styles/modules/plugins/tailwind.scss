@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-primary;
+  }
+
+  .text-gradient-hover {
+    @apply lg:hover:text-transparent lg:hover:bg-clip-text lg:hover:bg-gradient-primary;
+  }
+
+  [class*='blur-circle'] {
+    @apply bg-secondary bg-opacity-50 rounded-full blur-[400px] aspect-square select-none w-full max-lg:blur-[200px];
+  }
+
+  .blur-circle-big {
+    @apply max-w-[62.5rem];
+  }
+
+  .blur-circle-middle {
+    @apply max-w-[49rem];
+  }
+
+  .blur-circle-small {
+    @apply max-w-xl;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-7xl max-xl:text-6xl max-lg:text-5xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}

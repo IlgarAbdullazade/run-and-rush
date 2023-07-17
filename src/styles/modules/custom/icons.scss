@@ -1,0 +1,79 @@
+$fonts-path: '../fonts/';
+
+@font-face {
+  font-family: 'icons';
+  src: url('#{$fonts-path}icons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add:before {
+  content: '\e900';
+}
+.icon-avatar:before {
+  content: '\e901';
+}
+.icon-back:before {
+  content: '\e902';
+}
+.icon-buy:before {
+  content: '\e903';
+}
+.icon-checkbox:before {
+  content: '\e904';
+}
+.icon-chevrone:before {
+  content: '\e905';
+}
+.icon-durability:before {
+  content: '\e906';
+}
+.icon-map:before {
+  content: '\e907';
+}
+.icon-pause:before {
+  content: '\e908';
+}
+.icon-play:before {
+  content: '\e909';
+}
+.icon-power:before {
+  content: '\e90a';
+}
+.icon-sell:before {
+  content: '\e90b';
+}
+.icon-settings:before {
+  content: '\e90c';
+}
+.icon-steps:before {
+  content: '\e90d';
+}
+.icon-runner:before {
+  content: '\e90e';
+}
+.icon-referral:before {
+  content: '\e90f';
+}
+.icon-shop:before {
+  content: '\e910';
+}
+.icon-time:before {
+  content: '\e911';
+}

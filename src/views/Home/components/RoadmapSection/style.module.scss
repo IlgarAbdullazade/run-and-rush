@@ -1,0 +1,44 @@
+.roadmap {
+  // .roadmap__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .roadmap__background
+  &__background {
+  }
+
+  // .roadmap__background-circle
+  &__background-circle {
+    @apply hidden max-lg:block max-lg:absolute max-lg:left-1/2 max-lg:top-0 max-lg:-translate-x-1/2;
+  }
+
+  // .roadmap__wrapper
+
+  &__wrapper {
+    @apply relative z-20;
+  }
+
+  // .roadmap__grid
+
+  &__grid {
+    @apply grid grid-cols-3 gap-x-10 gap-y-32;
+  }
+
+  // .roadmap__slider
+
+  &__slider {
+  }
+
+  // .roadmap__title
+
+  &__title {
+    @apply lg:translate-y-full max-lg:mb-6;
+  }
+
+  // .roadmap__item
+
+  &__item {
+  }
+}

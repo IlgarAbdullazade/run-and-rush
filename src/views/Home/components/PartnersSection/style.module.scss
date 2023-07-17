@@ -1,0 +1,42 @@
+.partners {
+  // .partners__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .partners__background
+
+  &__background {
+  }
+
+  // .partners__background-topography
+
+  &__background-topography {
+    @apply absolute bottom-0 z-0 object-contain w-full scale-150 -translate-x-1/2 aspect-square left-1/2;
+  }
+
+  // .partners__wrapper
+
+  &__wrapper {
+    @apply relative;
+  }
+
+  // .partners__title
+
+  &__title {
+    @apply mb-16 text-center;
+  }
+
+  // .partners__body
+
+  &__body {
+    @apply flex flex-wrap justify-center -mr-10 max-lg:-mr-6;
+  }
+
+  // .partners__item
+
+  &__item {
+    @apply max-w-[calc(25%-40px)] mb-10 mr-10 max-lg:max-w-[calc(50%-24px)] max-lg:mr-6 max-lg:mb-6;
+  }
+}

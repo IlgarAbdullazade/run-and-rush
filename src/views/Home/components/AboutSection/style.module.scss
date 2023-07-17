@@ -1,0 +1,39 @@
+.about {
+  // .about__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .about__wrapper
+
+  &__wrapper {
+    @apply max-w-[1264px] mx-auto;
+  }
+
+  // .about__context
+
+  &__context {
+    @apply mb-16;
+  }
+
+  // .about__slider
+
+  &__slider {
+    @apply px-8;
+  }
+}
+
+.about-context {
+  @apply relative py-24 mx-auto text-center px-36 max-xl:px-32 max-xl:py-20 max-lg:p-0 max-lg:max-w-xl max-sm:max-w-sm;
+  // .about-context__text
+
+  &__text {
+    @apply relative z-10 text-5xl leading-normal font-secondary max-xl:text-4xl max-lg:text-3xl max-sm:text-2xl;
+  }
+
+  // .about-context__background
+  &__background {
+    @apply absolute top-0 left-0 z-0 w-full h-full bg-center bg-no-repeat bg-contain max-lg:-top-32 max-sm:-top-64;
+  }
+}

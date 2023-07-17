@@ -1,0 +1,38 @@
+@import 'swiper/scss';
+@import 'swiper/scss/pagination';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/effect-fade';
+
+:root {
+  --swiper-theme-color: #5a57ac;
+}
+
+//.swiper-button-custom {
+//  @apply w-16 h-16 -mt-16 transition-transform rounded-full bg-tertiary after:hidden lg:hover:scale-125;
+//  & > svg {
+//    @apply h-10 fill-background aspect-square;
+//  }
+//}
+
+//.swiper-button-next-custom {
+//  @extend .swiper-button-next;
+//}
+
+//.swiper-button-prev-custom {
+//  @extend .swiper-button-prev;
+//}
+
+.swiper-pagination-bullet {
+  @apply w-3 h-3 border opacity-100 border-s border-textSecondary;
+}
+
+.swiper-pagination-bullet-active {
+  @apply border-tertiary;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  @apply static w-auto;
+}

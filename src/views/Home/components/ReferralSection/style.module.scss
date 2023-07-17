@@ -1,0 +1,53 @@
+.referral {
+  // .referral__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .referral__background
+
+  &__background {
+  }
+
+  // .referral__background-circle
+
+  &__background-circle {
+    @apply absolute top-0 left-0 z-0 max-w-xl -translate-x-1/2 max-lg:left-1/2 max-lg:top-1/2;
+  }
+
+  // .referral__wrapper
+
+  &__wrapper {
+    @apply relative z-10 flex items-center max-lg:flex-col;
+  }
+
+  // .referral__decoration
+
+  &__decoration {
+    @apply flex-1 mr-20 -ml-44 -mt-36 max-2xl:mr-6 max-2xl:-ml-36 max-2xl:-mt-16 max-xl:-ml-28 max-xl:mr-0 max-lg:ml-0 max-lg:pl-10 max-lg:-mr-5;
+  }
+
+  // .referral__decoration-image
+
+  &__decoration-image {
+  }
+
+  // .referral__context
+
+  &__context {
+    @apply flex-1 max-w-3xl pt-16 pl-8 ml-auto max-lg:max-w-none max-lg:p-0;
+  }
+
+  // .referral__title
+
+  &__title {
+    @apply mb-6;
+  }
+
+  // .referral__text
+
+  &__text {
+    @apply text-4xl text-textSecondary font-secondary max-xl:text-3xl max-lg:text-2xl;
+  }
+}

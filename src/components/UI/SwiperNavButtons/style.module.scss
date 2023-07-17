@@ -1,0 +1,22 @@
+.swiper-nav {
+  @apply flex items-center gap-8;
+  // .swiper-nav__btn
+
+  &__btn {
+    @apply flex items-center justify-center w-12 transition-opacity rounded-full disabled:opacity-30 aspect-square bg-tertiary lg:opacity-80 after:hidden lg:hover:enabled:opacity-100;
+
+    & > svg {
+      @apply h-6 fill-background aspect-square;
+    }
+  }
+
+  // .swiper-nav__btn--prev
+
+  &__btn--prev {
+  }
+
+  // .swiper-nav__btn--next
+
+  &__btn--next {
+  }
+}

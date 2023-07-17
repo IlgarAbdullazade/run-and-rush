@@ -1,0 +1,53 @@
+.react-select {
+  // .react-select__control
+
+  &__control {
+    @apply min-h-[28px];
+
+    &--menu-is-open {
+      .react-select__dropdown-indicator {
+        @apply rotate-180;
+      }
+    }
+  }
+
+  // .react-select__value-container
+
+  &__value-container {
+    @apply text-xs;
+  }
+
+  // .react-select__indicators
+
+  &__indicators {
+  }
+
+  // .react-select__dropdown-indicator
+
+  &__dropdown-indicator {
+  }
+
+  // .react-select__menu
+
+  &__menu {
+    width: auto !important;
+  }
+
+  // .react-select__menu-list
+
+  &__menu-list {
+    @apply w-full p-4 border-2 rounded-2xl border-stroke bg-background bg-blend-overlay backdrop-blur-3xl shadow-sneaker;
+  }
+
+  // .react-select__option
+
+  &__option {
+    @apply mb-4 last:mb-0 whitespace-nowrap;
+  }
+
+  // .react-select__option-wrapper
+
+  &__option-wrapper {
+    @apply flex items-center gap-1 text-xs cursor-pointer;
+  }
+}

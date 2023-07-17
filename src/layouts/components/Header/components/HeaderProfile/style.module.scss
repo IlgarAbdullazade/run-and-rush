@@ -1,0 +1,50 @@
+.header-profile {
+  // .header-profile__wrapper
+
+  &__wrapper {
+    @apply flex items-center gap-4;
+  }
+
+  // .header-profile__leading
+
+  &__leading {
+    @apply cursor-pointer;
+  }
+
+  // .header-profile__body
+
+  &__body {
+    @apply flex flex-col items-end;
+  }
+
+  // .header-profile__name
+
+  &__name {
+    @apply text-xl;
+  }
+
+  // .header-profile__logout
+
+  &__logout {
+    @apply py-1 text-xs transition-colors text-textSecondary font-secondary lg:hover:text-error;
+  }
+}
+.header-profile-leading {
+  // .header-profile-leading__wrapper
+
+  &__wrapper {
+    @apply w-14 aspect-square rounded-full lg:bg-[#202023] lg:border lg:border-[#424345] p-0.5 max-sm:w-9;
+  }
+
+  // .header-profile-leading__circle
+
+  &__circle {
+    @apply flex items-center justify-center w-full h-full rounded-full bg-customBlue;
+  }
+
+  // .header-profile-leading__icon
+
+  &__icon {
+    @apply text-2xl text-background max-lg:text-xl max-sm:text-base;
+  }
+}

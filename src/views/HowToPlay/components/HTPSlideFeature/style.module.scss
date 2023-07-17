@@ -1,0 +1,19 @@
+.htp-context-feature {
+  // .htp-context-feature__wrapper
+
+  &__wrapper {
+    @apply flex flex-col max-w-sm gap-2 max-lg:gap-1 max-lg:max-w-[12rem];
+  }
+
+  // .htp-context-feature__title
+
+  &__title {
+    @apply text-4xl max-xl:text-3xl max-lg:text-2xl;
+  }
+
+  // .htp-context-feature__caption
+
+  &__caption {
+    @apply text-xl max-xl:text-lg font-secondary text-textSecondary max-lg:text-sm;
+  }
+}

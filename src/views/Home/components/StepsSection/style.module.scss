@@ -1,0 +1,85 @@
+.steps {
+  // .steps__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .steps__wrapper
+
+  &__wrapper {
+    @apply flex gap-24 max-2xl:gap-0 lg:items-center max-lg:flex-col-reverse max-lg:gap-10;
+  }
+
+  // .steps__context
+
+  &__context {
+    @apply flex-1;
+  }
+
+  // .steps__decoration
+
+  &__decoration {
+    @apply relative flex-1;
+  }
+
+  // .steps__decoration-image
+
+  &__decoration-image {
+    @apply w-full pl-24 select-none max-2xl:pl-10 max-xl:pl-0;
+  }
+
+  // .steps__decoration-circle
+
+  &__decoration-circle {
+    @apply absolute -translate-x-1/2 lg:hidden left-1/2 -top-20;
+  }
+}
+.steps-context {
+  // .steps-context__title
+
+  &__title {
+    @apply mb-20 max-lg:mb-10;
+  }
+
+  // .steps-context__body
+
+  &__body {
+    @apply flex flex-col gap-16 max-xl:gap-14 max-lg:gap-10;
+  }
+
+  // .steps-context__counter
+
+  &__counter {
+  }
+}
+.steps-counter {
+  @apply flex gap-8 lg:items-center max-xl:gap-6 max-lg:gap-8 max-lg:flex-col;
+  // .steps-counter__leading
+
+  &__leading {
+  }
+
+  // .steps-counter__icon
+
+  &__icon {
+    @apply w-20 select-none max-xl:w-16;
+  }
+
+  // .steps-counter__info
+
+  &__info {
+  }
+
+  // .steps-counter__title
+
+  &__title {
+    @apply text-5xl mb-1.5 max-xl:text-4xl;
+  }
+
+  // .steps-counter__caption
+
+  &__caption {
+    @apply text-3xl max-lg:text-2xl font-secondary text-textSecondary;
+  }
+}

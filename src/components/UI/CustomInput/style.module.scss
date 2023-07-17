@@ -1,0 +1,19 @@
+.form-group {
+  // .form-group__input
+
+  &__input {
+    @apply w-full rounded-full caret-primary bg-white shadow-border px-8 py-4 outline-none placeholder:font-secondary placeholder-textSecondary text-background;
+    @apply disabled:bg-stroke disabled:shadow-none;
+  }
+
+  // .form-group__error
+
+  &__error {
+    @apply font-secondary text-error mt-1 px-4;
+  }
+
+  // .form-group__label
+
+  &__label {
+  }
+}

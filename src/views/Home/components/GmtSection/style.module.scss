@@ -1,0 +1,96 @@
+.gmt {
+  @apply relative pt-28;
+
+  // .gmt__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .gmt__tapes
+
+  &__tapes {
+  }
+
+  // .gmt__background
+  &__background {
+  }
+
+  // .gmt__background
+  &__background-grid {
+    @apply absolute z-0 w-full bg-center bg-no-repeat bg-contain aspect-square max-lg:hidden -scale-x-100 -left-80 -top-20;
+  }
+
+  // .gmt__background
+  &__background-circle {
+    @apply absolute bottom-0 right-0 z-0 max-w-xl translate-x-1/2 translate-y-1/2 max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:top-0;
+  }
+
+  // .gmt__floating-coins
+
+  &__floating-coins {
+    @apply absolute h-full aspect-[1.4] bg-center bg-no-repeat bg-contain -top-24 right-1/4 z-10 max-lg:hidden max-2xl:right-40;
+  }
+
+  // .gmt__wrapper
+
+  &__wrapper {
+  }
+
+  // .gmt__context
+
+  &__context {
+  }
+}
+
+.gmt-tapes {
+  @apply absolute z-20 w-full pb-48 -translate-y-1/2 top-1/2 max-lg:pb-0;
+  // .gmt-tapes__item
+
+  &__item {
+    @apply w-[calc(100%+4rem)] max-lg:w-[calc(100%+1rem)] bg-amber-300 shadow-tape h-28 max-lg:h-14 absolute left-1/2 -translate-x-1/2 bg-contain max-lg:bg-cover bg-center;
+  }
+
+  // .gmt-tapes__item--above
+
+  &__item--above {
+    @apply rotate-7;
+  }
+
+  // .gmt-tapes__item--under
+
+  &__item--under {
+    @apply -rotate-7;
+  }
+}
+.gmt-context {
+  @apply relative z-0;
+  // .gmt-context__title
+
+  &__title {
+    @apply mb-4 text-center;
+  }
+
+  // .gmt-context__caption
+
+  &__caption {
+    @apply mb-20 text-4xl text-center text-textSecondary font-secondary max-xl:text-3xl max-lg:text-2xl max-lg:mb-12;
+  }
+
+  // .gmt-context__slider
+
+  &__slider {
+  }
+
+  // .gmt-context__body
+
+  &__body {
+    @apply flex justify-center gap-10;
+  }
+
+  // .gmt-context__item
+
+  &__item {
+    @apply relative px-24 max-lg:px-10;
+  }
+}

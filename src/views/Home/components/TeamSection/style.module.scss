@@ -1,0 +1,38 @@
+.team {
+  // .team__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .team__background
+  &__background {
+  }
+
+  // .background__background-circle
+  &__background-circle {
+    @apply absolute bottom-0 right-0 z-0 max-w-xl translate-x-1/2 translate-y-1/2 max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:top-0;
+  }
+
+  // .team__wrapper
+
+  &__wrapper {
+  }
+
+  // .team__title
+
+  &__title {
+    @apply mb-20 text-right max-lg:text-center max-lg:mb-16 max-md:mb-10;
+  }
+
+  // .team__slider
+
+  &__slider {
+  }
+
+  // .team__members
+
+  &__members {
+    @apply relative z-10;
+  }
+}

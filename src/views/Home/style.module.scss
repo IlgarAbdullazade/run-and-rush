@@ -1,0 +1,79 @@
+.home {
+  // .home__hello
+
+  &__hello {
+    @apply mb-48 max-xl:mb-20;
+  }
+
+  // .home__about
+
+  &__about {
+    @apply mb-28 max-xl:mb-24;
+  }
+
+  // .home__sneakers
+
+  &__sneakers {
+    @apply mb-60 max-xl:mb-40 max-lg:mb-32;
+  }
+
+  // .home__steps
+
+  &__steps {
+    @apply mb-60 max-xl:mb-40 max-lg:mb-6;
+  }
+
+  // .home__gmt
+
+  &__gmt {
+    @apply mb-48 max-xl:mb-36 max-lg:mb-28;
+  }
+
+  // .home__team
+
+  &__team {
+    @apply mb-48 max-xl:mb-36 max-lg:mb-28;
+  }
+
+  // .home__advisors
+
+  &__advisors {
+    @apply mb-64 max-xl:mb-36 max-lg:mb-28;
+  }
+
+  // .home__uniqueness
+
+  &__uniqueness {
+    @apply mb-64 max-xl:mb-36 max-lg:mb-28;
+  }
+
+  // .home__ambassadors
+
+  &__ambassadors {
+    @apply mb-64 max-xl:mb-36 max-lg:mb-28;
+  }
+
+  // .home__partners
+
+  &__partners {
+    @apply mb-28;
+  }
+
+  // .home__roadmap
+
+  &__roadmap {
+    @apply mb-0;
+  }
+
+  // .home__referral
+
+  &__referral {
+    @apply mb-16;
+  }
+
+  // .home__community
+
+  &__community {
+    @apply mb-32 max-xl:mb-24 max-lg:mb-16;
+  }
+}

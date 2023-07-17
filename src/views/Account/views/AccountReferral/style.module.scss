@@ -1,0 +1,128 @@
+.referral {
+  // referral__wrapper
+
+  &__wrapper {
+    @apply p-4;
+  }
+
+  // .referral__context
+
+  &__info {
+    @apply mb-6;
+  }
+
+  // .referral__context
+
+  &__context {
+    @apply mb-6;
+  }
+
+  // .referral__history
+
+  &__history {
+  }
+}
+
+.referral-info {
+  // referral-info__wrapper
+
+  &__wrapper {
+    @apply flex justify-around gap-2 p-4 rounded-2xl bg-tertiary;
+  }
+
+  // referral-info__column
+
+  &__column {
+    @apply text-center;
+  }
+
+  // referral-info__title
+
+  &__title {
+    @apply flex items-center justify-center gap-2 mb-2 text-3xl;
+  }
+
+  // referral-info__caption
+
+  &__caption {
+    @apply text-xs font-secondary text-textSecondary;
+  }
+
+  // referral-info__title-coin
+
+  &__title-coin {
+    @apply w-4;
+  }
+}
+
+.referral-context {
+  // .referral-context__wrapper
+
+  &__wrapper {
+    @apply flex flex-col items-center px-6 text-center max-lg:px-0;
+  }
+
+  // .referral-context__title
+
+  &__title {
+    @apply mb-2 text-3xl;
+  }
+
+  // .referral-context__text
+
+  &__text {
+    @apply mb-4 font-secondary;
+  }
+
+  // .referral-context__textfield
+
+  &__textfield {
+    @apply flex flex-col items-center justify-center w-full text-center;
+  }
+
+  // .referral-context__textfield--caption
+
+  &__textfield--caption {
+    @apply mb-1 text-xs last:mb-0 font-secondary text-textSecondary;
+  }
+
+  // .referral-context__textfield--block
+
+  &__textfield--block {
+    @apply inline-flex items-center justify-center w-full px-4 py-3 text-xl bg-white border rounded-full border-violet-100 text-background;
+  }
+
+  // .referral-context__button
+
+  &__button {
+    @apply w-full mt-4;
+  }
+}
+
+.referral-history {
+  // referral-history__wrapper
+
+  &__wrapper {
+    @apply px-6 max-lg:px-0;
+  }
+
+  // referral-history__title
+
+  &__title {
+    @apply mb-4;
+  }
+
+  // referral-history__body
+
+  &__body {
+    > [data-simplebar] {
+      @apply lg:max-h-[14rem] max-h-[calc(100vh-23.5rem)] -mx-8 px-8 max-lg:-mr-4 max-lg:pr-4;
+    }
+  }
+
+  // referral-history__item
+
+  &__item {
+    @apply mb-4;
+  }
+}

@@ -1,0 +1,31 @@
+.htp-slider {
+  @apply relative max-lg:-ml-4;
+
+  // .htp-slider__wrapper
+
+  &__wrapper {
+  }
+
+  // .htp-slider__slide
+
+  &__slide {
+  }
+
+  // .htp-slider__actions
+
+  &__actions {
+    @apply relative flex items-center w-full pb-8 mt-24 max-lg:mt-16 max-lg:pl-4;
+  }
+
+  // .htp-slider__pagination
+
+  &__pagination {
+    @apply flex justify-center;
+  }
+
+  // .htp-slider__navigation
+
+  &__navigation {
+    @apply absolute z-10 flex justify-center w-full;
+  }
+}

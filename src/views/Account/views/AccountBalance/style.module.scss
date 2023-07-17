@@ -1,0 +1,78 @@
+.balance {
+  // .balance__wrapper
+
+  &__wrapper {
+    @apply p-4;
+  }
+
+  // .balance__info
+
+  &__info {
+    @apply mb-6;
+  }
+
+  // .balance__transactions
+
+  &__transactions {
+  }
+}
+
+.balance-info {
+  // .balance-info__wrapper
+
+  &__wrapper {
+    @apply p-4 rounded-2xl bg-tertiary;
+  }
+
+  // .balance-info__title
+
+  &__title {
+    @apply flex items-center justify-center gap-2 pt-2 mb-4 text-3xl text-center;
+  }
+
+  // .balance-info__title-coin
+
+  &__title-coin {
+    @apply w-4;
+  }
+
+  // .balance-info__actions
+
+  &__actions {
+    @apply flex gap-2;
+  }
+
+  // .balance-info__button
+
+  &__button {
+    @apply w-full uppercase;
+  }
+}
+
+.balance-transactions {
+  // .balance-transactions__wrapper
+
+  &__wrapper {
+    @apply px-6 max-lg:px-0;
+  }
+
+  // .balance-transactions__title
+
+  &__title {
+    @apply mb-4;
+  }
+
+  // .balance-transactions__body
+
+  &__body {
+    > [data-simplebar] {
+      @apply lg:max-h-[31rem] max-h-[calc(100vh-23.3rem)] -mx-8 px-8 max-lg:-mr-4 max-lg:pr-4;
+    }
+  }
+
+  // .balance-transactions__item
+
+  &__item {
+    @apply mb-4;
+  }
+}

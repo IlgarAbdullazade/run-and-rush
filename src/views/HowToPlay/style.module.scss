@@ -1,0 +1,32 @@
+.htp {
+  @apply flex flex-col flex-auto;
+
+  // .htp__container
+
+  &__container {
+    @apply relative flex flex-col flex-auto;
+  }
+
+  // .htp__background
+
+  &__background {
+  }
+
+  // .htp__background-runner
+
+  &__background-runner {
+    @apply bg-cover bg-no-repeat absolute w-full aspect-[4/3] -left-1/3 -top-24 max-lg:left-0 max-lg:top-0;
+  }
+
+  // .htp__background-circle
+
+  &__background-circle {
+    @apply absolute z-0 -left-40 -top-1/4 max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:top-0;
+  }
+
+  // .htp__wrapper
+
+  &__wrapper {
+    @apply pb-6 pt-28 max-lg:py-7;
+  }
+}

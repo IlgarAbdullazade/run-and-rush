@@ -1,0 +1,19 @@
+.socials {
+  // .socials__wrapper
+
+  &__wrapper {
+    @apply flex gap-8 max-xl:gap-6;
+  }
+
+  // .socials__link
+
+  &__link {
+    @apply w-24 max-xl:w-20 aspect-square transition-transform lg:hover:scale-110 lg:hover:translate-x-1.5 lg:hover:-translate-y-1.5;
+  }
+
+  // .socials__image
+
+  &__image {
+    @apply drop-shadow-social;
+  }
+}

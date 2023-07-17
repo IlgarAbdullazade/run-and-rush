@@ -1,0 +1,30 @@
+.form-checkbox {
+  @apply relative text-sm;
+  // .form-checkbox__input
+
+  &__input {
+    @apply absolute w-0 h-0 opacity-0;
+    &:checked + .form-checkbox__label svg {
+      @apply visible;
+    }
+  }
+
+  // .form-checkbox__error
+
+  &__error {
+    @apply font-secondary text-error mt-0.5 px-4;
+  }
+
+  // .form-checkbox__label
+
+  &__label {
+    @apply relative cursor-pointer inline-flex items-center gap-1.5 font-secondary text-textSecondary  max-lg:text-xs;
+    @apply before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 max-lg:before:w-4 before:self-start before:w-4 before:aspect-square before:border before:rounded-full;
+  }
+
+  // .form-checkbox__label-check
+
+  &__label-check {
+    @apply invisible text-base text-mainText  min-w-[1rem];
+  }
+}

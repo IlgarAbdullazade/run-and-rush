@@ -1,0 +1,16 @@
+.page {
+  @apply relative flex flex-col min-h-full overflow-hidden;
+
+  > main {
+    @apply flex-auto;
+  }
+
+  > * {
+    @apply min-w-0;
+  }
+  // .page__main
+
+  &__main {
+    @apply flex flex-col;
+  }
+}

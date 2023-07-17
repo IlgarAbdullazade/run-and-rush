@@ -1,0 +1,107 @@
+.dashboard {
+  // .dashboard__wrapper
+
+  &__wrapper {
+    @apply p-10 max-lg:p-5;
+  }
+
+  // .dashboard__user
+
+  &__user {
+    @apply py-4 mb-12 max-lg:py-0 max-lg:mb-10;
+  }
+
+  // .dashboard__sneaker
+
+  &__sneaker {
+    @apply mb-4;
+  }
+
+  // .dashboard__actions
+
+  &__actions {
+    @apply mb-10 max-lg:mb-8;
+  }
+
+  // .dashboard__progress
+
+  &__progress {
+  }
+}
+.dashboard-user {
+  @apply flex flex-col items-center justify-center text-center;
+  // .dashboard-user__name
+
+  &__name {
+    @apply mb-2 text-2xl max-lg:text-xl;
+  }
+
+  // .dashboard-user__balance
+
+  &__balance {
+    @apply flex items-center gap-2 text-xl max-lg:text-base;
+  }
+
+  // .dashboard-user__balance-coin
+
+  &__balance-coin {
+    @apply w-4;
+  }
+}
+
+.dashboard-sneaker {
+  // .dashboard-sneaker__wrapper
+
+  &__wrapper {
+    @apply flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-black/30 backdrop-blur-2xl bg-blend-overlay max-lg:px-7;
+  }
+
+  // .dashboard-sneaker__info
+
+  &__info {
+    @apply flex flex-col flex-1 gap-3 max-lg:gap-2;
+  }
+
+  // .dashboard-sneaker__title
+
+  &__title {
+    @apply text-xl max-lg:text-lg;
+  }
+
+  // .dashboard-sneaker__id
+
+  &__id {
+    @apply text-base;
+  }
+
+  // .dashboard-sneaker__rect
+
+  &__rect {
+  }
+
+  // .dashboard-sneaker__image
+
+  &__image {
+    @apply max-w-[6rem];
+  }
+}
+.dashboard-actions {
+  @apply grid grid-cols-4 gap-4 max-lg:gap-3;
+  // .dashboard-actions__item
+
+  &__item {
+    @apply flex items-center justify-center transition-colors border-2 border-dashed h-14 rounded-2xl border-primary-300/30 lg:hover:border-primary-300 text-primary-400;
+  }
+
+  // .dashboard-actions__item--icon
+
+  &__item--icon {
+  }
+}
+.dashboard-progress {
+  @apply flex flex-col gap-4;
+  // .dashboard-progress__item
+
+  &__item {
+  }
+}

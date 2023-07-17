@@ -1,0 +1,24 @@
+.about-slider {
+  // .about-slider__wrapper
+
+  &__wrapper {
+    @apply relative px-20;
+  }
+
+  // .about-slider__slide
+
+  &__slide {
+  }
+
+  // .about-slider__navigation
+
+  &__navigation {
+    @apply absolute z-10 justify-between w-full h-0 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2;
+  }
+
+  // .about-slider__pagination
+
+  &__pagination {
+    @apply flex justify-center mt-10;
+  }
+}

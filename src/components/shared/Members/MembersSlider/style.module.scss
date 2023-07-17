@@ -1,0 +1,25 @@
+.members-slider {
+  @apply relative -mx-4;
+
+  // .members-slider__wrapper
+
+  &__wrapper {
+  }
+
+  // .members-slider__slide
+
+  &__slide {
+  }
+
+  // .members-slider__item
+
+  &__item {
+    @apply mx-auto max-w-fit;
+  }
+
+  // .members-slider__pagination
+
+  &__pagination {
+    @apply flex justify-center mt-10;
+  }
+}

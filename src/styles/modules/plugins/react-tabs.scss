@@ -1,0 +1,35 @@
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+
+  &__header {
+    @apply flex items-center justify-between gap-10 px-4 mb-4 max-lg:px-2;
+  }
+
+  &__tab-list {
+    @apply p-0.5 rounded-xl bg-secondary/20 overflow-hidden flex ml-auto w-fit;
+  }
+
+  &__tab {
+    @apply inline-block px-2 py-1 text-xs list-none transition-colors cursor-pointer rounded-xl;
+
+    &--selected {
+      @apply bg-secondary;
+    }
+
+    &--disabled {
+      cursor: default;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__tab-panel {
+    display: none;
+
+    &--selected {
+      display: block;
+    }
+  }
+}

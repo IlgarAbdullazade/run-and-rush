@@ -1,0 +1,25 @@
+.account-navbar {
+  // .account-navbar__wrapper
+
+  &__wrapper {
+  }
+
+  // .account-navbar__list
+
+  &__list {
+    @apply flex flex-col gap-8 max-lg:flex-row max-lg:overflow-auto max-lg:pb-4 max-lg:-mx-4 max-lg:px-4;
+  }
+
+  // .account-navbar__item
+
+  &__item {
+    @apply relative text-2xl text-right max-lg:text-xl max-md:text-lg max-lg:whitespace-nowrap;
+    > a {
+      @apply inline-block w-full h-full p-1 pr-16 max-lg:p-1;
+    }
+
+    > a[aria-current='page'] {
+      @apply lg:before:content-[''] lg:before:w-1 lg:before:h-full lg:before:absolute lg:before:top-0 lg:before:right-0 lg:before:bg-gradient-primary lg:before:rounded-s;
+    }
+  }
+}

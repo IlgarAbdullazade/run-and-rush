@@ -1,0 +1,31 @@
+.gmt-item {
+  // .gmt-item__wrapper
+
+  &__wrapper {
+    @apply flex flex-col;
+  }
+
+  // .gmt-item__rect
+
+  &__rect {
+    @apply mb-10;
+  }
+
+  // .gmt-item__image
+
+  &__image {
+    @apply w-full select-none max-lg:px-14;
+  }
+
+  // .gmt-item__blur
+
+  &__blur {
+    @apply mb-4 text-4xl text-center blur-lg;
+  }
+
+  // .gmt-item__caption
+
+  &__caption {
+    @apply text-4xl text-center text-textSecondary font-secondary max-xl:text-3xl max-lg:text-2xl;
+  }
+}

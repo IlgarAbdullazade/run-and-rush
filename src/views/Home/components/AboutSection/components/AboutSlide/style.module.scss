@@ -1,0 +1,24 @@
+.about-slide {
+  // .about-slide__wrapper
+
+  &__wrapper {
+  }
+
+  // .about-slide__rect
+
+  &__rect {
+    @apply rounded-2xl mb-6 overflow-hidden aspect-[3/2];
+  }
+
+  // .about-slide__image
+
+  &__image {
+    @apply object-cover w-full h-full;
+  }
+
+  // .about-slide__caption
+
+  &__caption {
+    @apply text-xl text-textSecondary font-secondary;
+  }
+}

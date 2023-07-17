@@ -1,0 +1,64 @@
+.transaction-item {
+  // .transaction-item__wrapper
+
+  &__wrapper {
+    @apply flex items-center gap-1 py-3 border-b border-tertiary;
+  }
+
+  // .transaction-item__leading
+
+  &__leading {
+    @apply flex items-center justify-center w-10 rounded-full aspect-square bg-primary shadow-border;
+  }
+
+  // .transaction-item__icon
+
+  &__icon {
+    @apply text-2xl;
+  }
+
+  // .transaction-item__body
+
+  &__body {
+    @apply flex items-end justify-between flex-1;
+  }
+
+  // .transaction-item__info
+
+  &__info {
+    @apply flex flex-col gap-0.5;
+  }
+
+  // .transaction-item__info--date
+
+  &__info--date {
+    @apply text-xs font-secondary text-textSecondary;
+  }
+
+  // .transaction-item__info--type
+
+  &__info--type {
+  }
+
+  // .transaction-item__value
+
+  &__value {
+    @apply flex gap-1;
+  }
+
+  // .transaction-item__value--type
+
+  &__value--type {
+  }
+
+  // .transaction-item__value--coin
+
+  &__value--coin {
+    @apply w-4;
+  }
+
+  // .transaction-item__value--count
+
+  &__value--count {
+  }
+}
