@@ -2,7 +2,7 @@
   // .members__wrapper
 
   &__wrapper {
-    @apply grid grid-cols-4 px-6 gap-x-20 gap-y-10 max-xl:grid-cols-2;
+    @apply grid grid-cols-4 px-6 gap-x-20 gap-y-10 max-xl:grid-cols-2 max-2xl:gap-x-16;
   }
 
   // .members__item

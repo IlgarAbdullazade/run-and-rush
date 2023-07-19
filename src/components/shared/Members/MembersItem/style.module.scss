@@ -32,12 +32,12 @@
   // .members-item__name
 
   &__name {
-    @apply mb-3 text-4xl;
+    @apply mb-3 text-4xl max-2xl:text-3xl;
   }
 
   // .members-item__position
 
   &__position {
-    @apply text-xl font-secondary text-textSecondary;
+    @apply text-xl max-2xl:text-lg font-secondary text-textSecondary;
   }
 }
