@@ -10,25 +10,25 @@
   // .uniqueness-item__context
 
   &__context {
-    @apply relative z-10 mb-10 max-xl:mb-6;
+    @apply relative z-10 mb-10 max-2xl:mb-6;
   }
 
   // .uniqueness-item__title
 
   &__title {
-    @apply mb-4 text-7xl max-xl:text-6xl max-lg:text-5xl max-sm:text-4xl max-xl:mb-3 max-lg:mb-2;
+    @apply mb-4 text-7xl max-2xl:text-6xl max-xl:text-5xl max-sm:text-4xl max-2xl:mb-3 max-lg:mb-2;
   }
 
   // .uniqueness-item__caption
 
   &__caption {
-    @apply mb-10 text-5xl max-xl:text-4xl max-lg:text-3xl max-sm:text-2xl max-xl:mb-6 max-lg:mb-4;
+    @apply mb-10 text-5xl max-2xl:text-4xl max-xl:text-3xl max-sm:text-2xl max-2xl:mb-6 max-lg:mb-4;
   }
 
   // .uniqueness-item__text
 
   &__text {
-    @apply text-xl font-secondary text-textSecondary max-lg:text-lg max-sm:text-sm;
+    @apply text-xl font-secondary text-textSecondary max-xl:text-lg max-sm:text-sm;
   }
 
   // .uniqueness-item__footer
@@ -40,13 +40,13 @@
   // .uniqueness-item__links
 
   &__links {
-    @apply flex flex-col flex-1 flex-grow gap-10 max-xl:gap-6 max-lg:gap-4;
+    @apply flex flex-col flex-1 flex-grow gap-10 max-2xl:gap-6 max-xl:gap-4;
   }
 
   // .uniqueness-item__link
 
   &__link {
-    @apply text-xl text-secondary max-lg:text-lg max-sm:text-sm;
+    @apply text-xl text-secondary max-xl:text-lg max-sm:text-sm;
   }
 
   // .uniqueness-item__decoration
