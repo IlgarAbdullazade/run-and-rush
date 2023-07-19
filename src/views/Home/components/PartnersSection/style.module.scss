@@ -37,6 +37,6 @@
   // .partners__item
 
   &__item {
-    @apply max-w-[calc(25%-40px)] mb-10 mr-10 max-lg:max-w-[calc(50%-24px)] max-lg:mr-6 max-lg:mb-6;
+    @apply max-w-[calc(25%-2.5rem)] max-xl:max-w-[calc(25%-1.5rem)] max-xl:mr-6 max-xl:mb-6 mb-10 mr-10 max-lg:max-w-[calc(50%-1.5rem)];
   }
 }

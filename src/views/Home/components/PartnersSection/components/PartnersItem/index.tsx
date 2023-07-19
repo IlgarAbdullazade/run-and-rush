@@ -1,33 +1,25 @@
+import { HTMLAttributes } from 'react'
+
 import classNames from 'classnames'
 
 import styles from './style.module.scss'
-import { AnchorHTMLAttributes } from 'react'
+import { IPartnerItem } from '../../types'
 
-type PartnersItemType = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  name: string
-  logo: string
+type PartnersItemType = HTMLAttributes<HTMLDivElement> & {
+  partner: IPartnerItem
 }
 
-const PartnersItem: React.FC<PartnersItemType> = ({
-  className,
-  href,
-  logo,
-  name,
-}) => {
+const PartnersItem: React.FC<PartnersItemType> = ({ className, partner }) => {
   return (
-    <a
-      href={href}
-      target="_blank"
-      className={classNames(styles['partners-item'], className)}
-    >
+    <div className={classNames(styles['partners-item'], className)}>
       <div className={classNames(styles['partners-item__wrapper'])}>
         <img
-          src={logo}
-          alt={name}
+          src={partner.logo}
+          alt={partner.name}
           className={classNames(styles['partners-item__logo'])}
         />
       </div>
-    </a>
+    </div>
   )
 }
 

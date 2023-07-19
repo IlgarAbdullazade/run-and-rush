@@ -3,14 +3,8 @@ import { HTMLAttributes } from 'react'
 import classNames from 'classnames'
 
 import topographyImg from '@/assets/images/topography.png'
-import asicsImg from '@/assets/images/home/partners/asics.png'
-import ghostImg from '@/assets/images/home/partners/ghost.png'
-import foliusImg from '@/assets/images/home/partners/folius.png'
-import sequoiaImg from '@/assets/images/home/partners/sequoia.png'
-import whatfinImg from '@/assets/images/home/partners/whatfin.png'
-import atleticoImg from '@/assets/images/home/partners/atletico.png'
-import flexibitImg from '@/assets/images/home/partners/flexibit.png'
 
+import { partners } from './data'
 import styles from './style.module.scss'
 import PartnersItem from './components/PartnersItem'
 
@@ -33,48 +27,12 @@ const PartnersSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             Our <strong className="text-gradient">Partners</strong>
           </h1>
           <div className={classNames(styles['partners__body'])}>
-            <PartnersItem
-              className={classNames(styles['partners__item'])}
-              logo={sequoiaImg}
-              href=""
-              name="Sequiola"
-            />
-            <PartnersItem
-              className={classNames(styles['partners__item'])}
-              logo={foliusImg}
-              href=""
-              name="Folius"
-            />
-            <PartnersItem
-              className={classNames(styles['partners__item'])}
-              logo={flexibitImg}
-              href=""
-              name="Flexibit"
-            />
-            <PartnersItem
-              className={classNames(styles['partners__item'])}
-              logo={whatfinImg}
-              href=""
-              name="Sequiola"
-            />
-            <PartnersItem
-              className={classNames(styles['partners__item'])}
-              logo={atleticoImg}
-              href=""
-              name="Atletico"
-            />
-            <PartnersItem
-              className={classNames(styles['partners__item'])}
-              logo={asicsImg}
-              href=""
-              name="Asics"
-            />
-            <PartnersItem
-              className={classNames(styles['partners__item'])}
-              logo={ghostImg}
-              href=""
-              name="Ghost"
-            />
+            {partners.map((partner) => (
+              <PartnersItem
+                className={classNames(styles['partners__item'])}
+                partner={partner}
+              />
+            ))}
           </div>
         </div>
       </div>

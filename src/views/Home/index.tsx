@@ -25,8 +25,8 @@ const HomeView = () => {
         <AboutSection className={classNames(styles['home__about'])} />
         <SneakersSection className={classNames(styles['home__sneakers'])} />
         <StepsSection className={classNames(styles['home__steps'])} />
-        <GmtSection className={classNames(styles['home__gmt'])} />
         <TeamSection className={classNames(styles['home__team'])} />
+        <GmtSection className={classNames(styles['home__gmt'])} />
         <AdvisorsSection className={classNames(styles['home__advisors'])} />
         <UniquenessSection className={classNames(styles['home__uniqueness'])} />
         <AmbassadorsSection
