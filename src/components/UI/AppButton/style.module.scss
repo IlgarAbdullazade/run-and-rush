@@ -3,6 +3,6 @@
 
   // .app-button__image
   &__image {
-    @apply max-xl:h-8 max-xl:w-32 max-lg:h-9 max-lg:w-36 h-9 w-36;
+    @apply max-xl:w-28 max-2xl:w-32 max-lg:w-36 w-36 aspect-[4];
   }
 }
