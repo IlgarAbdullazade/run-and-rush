@@ -82,7 +82,7 @@
         '5xl': '2rem',
       },
       maxWidth: {
-        '2xl': '1552px',
+        '2xl': '1536px',
         full: '1920px',
       },
       rotate: {

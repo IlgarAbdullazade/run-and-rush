@@ -34,10 +34,7 @@ const UniquenessSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               title="100%"
               caption="Data privacy"
               text="We do not sell your data. The safety of your data is our top priority. It is not for sale to any third party, and never will be."
-              links={[
-                { href: '', title: 'Verification algorithm' },
-                { href: '', title: 'Find out more' },
-              ]}
+              links={[{ href: '', title: 'Find out more' }]}
               image={safetyImg}
             />
             <UniquenessItem
