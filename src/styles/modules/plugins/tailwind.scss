@@ -30,7 +30,7 @@
 
 @layer base {
   h1 {
-    @apply text-7xl max-xl:text-6xl max-lg:text-5xl;
+    @apply text-7xl max-2xl:text-6xl max-xl:text-5xl;
   }
   h2 {
     @apply text-xl;

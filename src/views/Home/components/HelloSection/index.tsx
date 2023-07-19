@@ -39,15 +39,16 @@ const HelloSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             )}
           >
             <h1 className={classNames(styles['hello-context__title'])}>
-              <strong className={classNames('text-gradient')}>Run&Rush</strong>
+              <strong className={classNames('text-gradient')}>Run&Rush </strong>
               App
-              <br /> Let's
+              <br /> Let's{' '}
               <strong className={classNames('text-gradient')}>
                 Move To Earn
               </strong>
             </h1>
             <div className={classNames(styles['hello-context__caption'])}>
-              Join today and make your steps count!
+              Experience the difference and ensuring your steps are truly
+              valued!
             </div>
             <div
               className={classNames(
@@ -58,20 +59,17 @@ const HelloSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               <AppButton
                 className={classNames(
                   styles['hello-actions__item'],
-                  'rounded-full',
-                  'px-8'
+                  styles['hello-actions__item--app']
                 )}
                 store="android"
               />
               <AppButton
                 className={classNames(
                   styles['hello-actions__item'],
-                  'rounded-full',
-                  'px-8'
+                  styles['hello-actions__item--app']
                 )}
                 store="ios"
               />
-
               <Link
                 to="how-to-play"
                 className={classNames(styles['hello-actions__item'])}

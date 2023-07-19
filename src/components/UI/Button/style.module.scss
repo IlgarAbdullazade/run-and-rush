@@ -1,6 +1,6 @@
 .button {
   @apply flex items-center justify-center gap-3 px-12 py-3.5 text-2xl transition-shadow rounded-full disabled:shadow-none shadow-border md:hover:shadow-none;
-  @apply max-2xl:px-8 max-xl:text-xl max-xl:py-3 max-lg:w-full;
+  @apply max-2xl:px-8 max-2xl:text-xl max-2xl:py-3 max-lg:w-full;
 }
 
 .primary {

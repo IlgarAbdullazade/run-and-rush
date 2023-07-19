@@ -45,13 +45,13 @@
   // .hello__context
 
   &__context {
-    @apply flex-1 pb-24;
+    @apply flex-1 2xl:pb-24 xl:pb-20 lg:pb-16 lg:max-w-3xl;
   }
 
   // .hello__decoration
 
   &__decoration {
-    @apply flex-1 -mr-32 -ml-44 max-2xl:-ml-16 max-2xl:-mr-10 max-lg:m-0;
+    @apply flex-1 -ml-8 -mr-36 max-2xl:-ml-16 max-2xl:-mr-10 max-lg:mr-0 max-lg:-ml-3;
   }
 
   // .hello__decoration-image
@@ -64,13 +64,13 @@
   // .hello-context__title
 
   &__title {
-    @apply mb-12 max-xl:mb-8 max-lg:mb-6;
+    @apply mb-12 max-2xl:mb-8 max-xl:mb-6;
   }
 
   // .hello-context__caption
 
   &__caption {
-    @apply mb-12 text-4xl text-textSecondary font-secondary max-xl:text-3xl max-xl:mb-8 max-lg:text-xl max-lg:mb-10;
+    @apply mb-12 text-4xl xl:pr-28 lg:pr-16 text-textSecondary font-secondary max-2xl:text-2xl max-2xl:mb-8 max-xl:text-xl max-xl:mb-6 max-lg:mb-10;
   }
 
   // .hello-context__actions
@@ -80,10 +80,19 @@
 }
 
 .hello-actions {
-  @apply relative z-10 flex flex-wrap gap-6 max-xl:gap-x-4;
+  @apply relative z-10 flex flex-wrap gap-6 max-2xl:gap-4 max-lg:gap-6;
   // .hello-actions__item
 
   &__item {
-    @apply max-lg:h-14;
+    @apply max-lg:w-full max-2xl:h-14 max-xl:h-12;
+    > button {
+      @apply h-full;
+    }
+  }
+
+  // .hello-actions__item--app
+
+  &__item--app {
+    @apply px-8 rounded-full max-2xl:px-6;
   }
 }
