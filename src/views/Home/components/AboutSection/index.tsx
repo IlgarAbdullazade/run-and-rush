@@ -32,7 +32,7 @@ const AboutSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               }}
             ></div>
             <p className={classNames(styles['about-context__text'])}>
-              Sweatcoin is a free app that rewards your daily steps with a new
+              Run&Rush is a free app that rewards your daily steps with a new
               generation currency that you can spend on cool products or donate
               to charity. <br />
               <br /> Why? Because when you take care of your health, you benefit

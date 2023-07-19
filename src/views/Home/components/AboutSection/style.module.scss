@@ -8,13 +8,13 @@
   // .about__wrapper
 
   &__wrapper {
-    @apply max-w-[1264px] mx-auto;
+    @apply mx-auto max-w-7xl;
   }
 
   // .about__context
 
   &__context {
-    @apply mb-16;
+    @apply mb-16 max-2xl:mb-12 max-xl:mb-8;
   }
 
   // .about__slider
@@ -25,11 +25,11 @@
 }
 
 .about-context {
-  @apply relative py-24 mx-auto text-center px-36 max-xl:px-32 max-xl:py-20 max-lg:p-0 max-lg:max-w-xl max-sm:max-w-sm;
+  @apply relative py-24 mx-auto text-center px-36 max-2xl:px-32 max-2xl:py-20 max-xl:px-28 max-xl:py-16 max-lg:p-0 max-lg:max-w-xl max-sm:max-w-sm;
   // .about-context__text
 
   &__text {
-    @apply relative z-10 text-5xl leading-normal font-secondary max-xl:text-4xl max-lg:text-3xl max-sm:text-2xl;
+    @apply relative z-10 text-5xl leading-normal font-secondary max-2xl:text-[2rem] max-xl:text-4xl max-lg:text-3xl max-sm:text-2xl;
   }
 
   // .about-context__background
