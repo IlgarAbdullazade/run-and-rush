@@ -35,14 +35,14 @@
   &__logo {
     @apply relative z-50;
     img {
-      @apply w-44 max-xl:w-32 max-lg:w-28 max-sm:w-16;
+      @apply w-44 max-2xl:w-40 max-xl:w-32 max-lg:w-28 max-sm:w-16;
     }
   }
 
   // .header__rightside
 
   &__rightside {
-    @apply flex items-center gap-10 lg:flex-1 lg:justify-end max-xl:gap-5;
+    @apply flex items-center gap-10 lg:flex-1 lg:justify-end max-2xl:gap-8 max-xl:gap-5;
   }
 
   // .header__apps
@@ -67,7 +67,7 @@
   // .header-menu__list
 
   &__list {
-    @apply flex gap-2.5 max-xl:gap-1 max-lg:flex-col max-lg:mt-36 max-sm:mt-24 max-lg:mb-14 max-sm:mb-8 max-lg:gap-7;
+    @apply flex gap-2.5 max-2xl:gap-2 max-xl:gap-1 max-lg:flex-col max-lg:mt-36 max-sm:mt-24 max-lg:mb-14 max-sm:mb-8 max-lg:gap-7;
   }
 
   // .header-menu__item
@@ -78,7 +78,7 @@
   // .header-menu__link
 
   &__link {
-    @apply inline-flex p-5 text-xl lg:hover:underline underline-offset-4 max-xl:p-2 max-lg:px-0 max-lg:text-6xl max-sm:text-5xl;
+    @apply inline-flex p-5 text-xl lg:hover:underline max-xl:text-lg underline-offset-4 max-2xl:p-3.5  max-lg:px-0 max-lg:text-6xl max-sm:text-5xl;
   }
 
   // .header-menu__apps
@@ -115,7 +115,7 @@
 }
 
 .header-apps {
-  @apply flex gap-10 max-xl:gap-5 max-lg:hidden;
+  @apply flex gap-10 max-2xl:gap-5 max-lg:hidden;
 
   // .header-app__button
 
