@@ -63,46 +63,43 @@
   // .ambassadors__item--first
 
   &__item--first {
-    @include adaptiveValue('left', 170, 40);
-    @include adaptiveValue('bottom', 245, -92);
-    @media (min-width: 1024px) {
-      @include adaptiveValue('left', 294, 100);
-      @include adaptiveValue('top', 24, -50);
-      svg {
-        @include adaptiveValue('width', 126, 60);
-        @include adaptiveValue('top', 64, 0);
-      }
-    }
+    //@include adaptiveValue('left', 170, 40);
+    //@include adaptiveValue('bottom', 245, -92);
+    //@media (min-width: 1024px) {
+    //  @include adaptiveValue('left', 294, 100);
+    //  @include adaptiveValue('top', 24, -50);
+    //  svg {
+    //    @include adaptiveValue('width', 126, 60);
+    //    @include adaptiveValue('top', 64, 0);
+    //  }
+    //}
+    //svg {
+    //  @apply lg:right-full bottom-full;
+    //}
+    @apply 2xl:left-[290px] 2xl:top-[25px] xl:left-[265px] xl:-top-[16px] lg:left-[238px] lg:-top-[48px] top-auto md:left-[85px] md:bottom-[25px] sm:left-[74px] sm:-bottom-[18px];
     svg {
       @apply lg:right-full bottom-full;
+    }
+    svg {
+      @apply bottom-full xl:top-[65px] lg:top-[55px] lg:right-full;
     }
   }
 
   // .ambassadors__item--second
 
   &__item--second {
-    @media (min-width: 1024px) {
-      @include adaptiveValue('left', 587, 110);
-      @include adaptiveValue('top', 295, 120);
-      svg {
-        @apply left-1/2 bottom-full;
-      }
+    @apply 2xl:left-[582px] 2xl:top-[290px] xl:left-[483px] xl:top-[256px] lg:left-[387px] lg:top-[225px];
+    svg {
+      @apply left-1/2 bottom-full;
     }
   }
 
   // .ambassadors__item--third
 
   &__item--third {
-    @include adaptiveValue('right', 500, -5);
-    @apply pr-0 -top-[6.25rem];
+    @apply 2xl:top-[14px] 2xl:right-[36px] xl:-right-[60px] xl:top-[8px] lg:-right-[155px] lg:top-[9px] md:right-[165px] md:-top-[100px] sm:right-[120px] sm:-top-[106px];
     svg {
       @apply max-lg:left-full max-lg:top-full max-lg:-translate-x-10 right-full top-1/2 lg:-translate-y-1/2;
-    }
-
-    @media (min-width: 1024px) {
-      @include adaptiveValue('right', 36, -400);
-      @include adaptiveValue('top', 14, -16);
-      @include adaptiveValue('padding-right', 0, 340);
     }
   }
 }

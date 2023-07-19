@@ -9,8 +9,8 @@
   // .ambassadors-item__leading
 
   &__leading {
-    @include adaptiveValue('max-width', 148, 72);
-    @apply relative w-full;
+    //@include adaptiveValue('max-width', 148, 72);
+    @apply relative w-full max-w-[144px] max-2xl:max-w-[128px] max-xl:max-w-[96px];
   }
 
   // .ambassadors-item__rect

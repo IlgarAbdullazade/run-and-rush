@@ -14,49 +14,49 @@
   // .home__sneakers
 
   &__sneakers {
-    @apply mb-60 max-xl:mb-40 max-lg:mb-32;
+    @apply mb-60 max-2xl:mb-40 max-xl:mb-32 max-lg:mb-32;
   }
 
   // .home__steps
 
   &__steps {
-    @apply mb-60 max-xl:mb-40 max-lg:mb-6;
+    @apply mb-60 max-2xl:mb-40 max-xl:mb-32 max-lg:mb-6;
   }
 
   // .home__gmt
 
   &__gmt {
-    @apply mb-48 max-xl:mb-36 max-lg:mb-28;
+    @apply mb-48 max-2xl:mb-36 max-xl:mb-28;
   }
 
   // .home__team
 
   &__team {
-    @apply mb-48 max-xl:mb-36 max-lg:mb-28;
+    @apply mb-48 max-2xl:mb-36 max-xl:mb-28;
   }
 
   // .home__advisors
 
   &__advisors {
-    @apply mb-64 max-xl:mb-36 max-lg:mb-28;
+    @apply mb-64 max-2xl:mb-36 max-xl:mb-28;
   }
 
   // .home__uniqueness
 
   &__uniqueness {
-    @apply mb-64 max-xl:mb-36 max-lg:mb-28;
+    @apply mb-64 max-2xl:mb-36 max-xl:mb-28;
   }
 
   // .home__ambassadors
 
   &__ambassadors {
-    @apply mb-64 max-xl:mb-36 max-lg:mb-28;
+    @apply mb-64 max-2xl:mb-36 max-xl:mb-28;
   }
 
   // .home__partners
 
   &__partners {
-    @apply mb-28;
+    @apply mb-28 max-2xl:mb-24 max-xl:mb-20;
   }
 
   // .home__roadmap
@@ -68,12 +68,12 @@
   // .home__referral
 
   &__referral {
-    @apply mb-16;
+    @apply lg:mb-16;
   }
 
   // .home__community
 
   &__community {
-    @apply mb-32 max-xl:mb-24 max-lg:mb-16;
+    @apply mb-32 max-2xl:mb-24 max-xl:mb-16;
   }
 }
