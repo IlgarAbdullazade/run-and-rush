@@ -2,7 +2,7 @@
   // .header-profile__wrapper
 
   &__wrapper {
-    @apply flex items-center gap-4;
+    @apply flex items-center gap-4 max-lg:gap-2;
   }
 
   // .header-profile__leading
@@ -20,13 +20,13 @@
   // .header-profile__name
 
   &__name {
-    @apply text-xl;
+    @apply text-xl max-lg:hidden;
   }
 
   // .header-profile__logout
 
   &__logout {
-    @apply py-1 text-xs transition-colors text-textSecondary font-secondary lg:hover:text-error;
+    @apply py-1 text-sm transition-colors max-sm:text-xs text-textSecondary font-secondary lg:hover:text-error;
   }
 }
 .header-profile-leading {

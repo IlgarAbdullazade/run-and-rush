@@ -27,6 +27,7 @@
   // .header__menu
 
   &__menu {
+    @apply flex-1;
   }
 
   // .header__logo
@@ -41,7 +42,7 @@
   // .header__rightside
 
   &__rightside {
-    @apply flex items-center gap-10 max-xl:gap-5;
+    @apply flex items-center gap-10 lg:flex-1 lg:justify-end max-xl:gap-5;
   }
 
   // .header__apps
