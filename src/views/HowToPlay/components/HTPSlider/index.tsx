@@ -11,11 +11,15 @@ import styles from './style.module.scss'
 import { htpSteps } from '../../data'
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
 import SwiperNavButtons from '@/components/UI/SwiperNavButtons'
+import { useMediaQuery } from 'react-responsive'
 
 register()
 
 const HTPSlider: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
   const swiperRef = useRef<SwiperCore>()
+  const isTabletOrMobile = useMediaQuery({
+    query: 'not all and (min-width: 1024px)',
+  })
 
   const params: SwiperProps = {
     modules: [Navigation, Pagination, EffectFade],
@@ -28,7 +32,7 @@ const HTPSlider: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
       clickable: true,
     },
     speed: 1000,
-    allowTouchMove: false,
+    allowTouchMove: isTabletOrMobile,
   }
   return (
     <div className={classNames(styles['htp-slider'], className)}>
