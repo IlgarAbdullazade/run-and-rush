@@ -2,13 +2,13 @@
   // .sneakers-card__wrapper
 
   &__wrapper {
-    @apply flex flex-col items-center justify-center px-16 pt-12 pb-16 max-xl:pt-8 max-xl:px-12 max-xl:pb-12 rounded-4xl border-6 border-stroke bg-black/20 bg-blend-overlay backdrop-blur-3xl shadow-sneaker -skew-x-8 max-lg:border-4 max-lg:px-10 max-lg:pb-10;
+    @apply flex flex-col items-center justify-center px-16 pt-12 pb-16 max-2xl:pt-8 max-2xl:px-12 max-2xl:pb-12 rounded-4xl border-6 border-stroke bg-black/20 bg-blend-overlay backdrop-blur-3xl shadow-sneaker -skew-x-8 max-lg:border-4 max-lg:px-10 max-lg:pb-10;
   }
 
   // .sneakers-card__rect
 
   &__rect {
-    @apply w-full px-12 py-20 mb-6 border-dashed border-6 border-stroke rounded-4xl max-xl:py-16 max-xl:px-8 max-lg:border-4 max-lg:py-10 max-lg:px-6;
+    @apply w-full px-12 py-20 mb-6 border-dashed border-6 border-stroke rounded-4xl max-2xl:py-16 max-2xl:px-8 max-lg:border-4 max-lg:py-10 max-lg:px-6;
   }
 
   // .sneakers-card__image
@@ -20,13 +20,13 @@
   // .sneakers-card__info
 
   &__info {
-    @apply text-5xl text-center max-xl:text-4xl max-lg:text-2xl;
+    @apply text-5xl text-center max-2xl:text-4xl max-lg:text-2xl;
   }
 
   // .sneakers-card__title
 
   &__title {
-    @apply flex gap-5 mb-6 whitespace-nowrap max-xl:gap-3 max-xl:mb-4;
+    @apply flex gap-5 mb-6 whitespace-nowrap max-2xl:gap-3 max-2xl:mb-4;
     span {
       @apply font-secondary;
     }

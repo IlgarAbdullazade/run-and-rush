@@ -26,7 +26,7 @@
   // sneakers__wrapper
 
   &__wrapper {
-    @apply flex relative justify-end max-2xl:items-center ml-auto max-lg:pl-0 pl-10 max-w-[1410px] w-full gap-40 max-2xl:max-w-none max-xl:gap-36 max-lg:flex-col max-lg:justify-stretch max-lg:gap-10;
+    @apply flex relative justify-end max-2xl:items-center ml-auto max-lg:pl-0 pl-10 max-w-[1410px] w-full gap-40 max-2xl:max-w-none max-2xl:gap-36 max-lg:flex-col max-lg:justify-stretch max-lg:gap-10;
   }
 
   // sneakers__card
@@ -53,7 +53,7 @@
   // sneakers-context__text
 
   &__text {
-    @apply text-4xl text-textSecondary font-secondary max-xl:text-3xl max-lg:text-2xl;
+    @apply text-4xl text-textSecondary font-secondary max-2xl:text-2xl;
   }
 
   // .sneakers-context__feature
@@ -74,30 +74,30 @@
   // .sneakers-feature__leading--power
 
   &__leading--power {
-    @apply -left-48 -top-16 max-xl:-top-12 max-xl:-left-44;
+    @apply -left-48 -top-16 max-2xl:-top-12 max-2xl:-left-44;
   }
 
   // .sneakers-feature__leading--durability
 
   &__leading--durability {
-    @apply -left-56 top-1 max-xl:top-0 max-xl:-left-48;
+    @apply -left-56 top-1 max-2xl:top-0 max-2xl:-left-48;
   }
   // .sneakers-feature__circle
 
   &__circle {
-    @apply relative flex items-center justify-center w-24 border-4 rounded-full max-xl:w-20 max-lg:w-12 max-lg:border-2 border-stroke bg-black/20 bg-blend-overlay backdrop-blur-3xl aspect-square shadow-feature bg-secondary -skew-x-8 max-lg:skew-x-0;
+    @apply relative flex items-center justify-center w-24 border-4 rounded-full max-2xl:w-20 max-lg:w-12 max-lg:border-2 border-stroke bg-black/20 bg-blend-overlay backdrop-blur-3xl aspect-square shadow-feature bg-secondary -skew-x-8 max-lg:skew-x-0;
   }
 
   // .sneakers-feature__stroke
 
   &__stroke {
-    @apply absolute left-20 max-xl:left-10 max-lg:hidden;
+    @apply absolute left-20 max-2xl:left-10 max-lg:hidden;
   }
 
   // .sneakers-feature__stroke--power
 
   &__stroke--power {
-    @apply bottom-3 max-xl:left-14;
+    @apply bottom-3 max-2xl:left-14;
   }
 
   // .sneakers-feature__stroke--durability
@@ -109,18 +109,18 @@
   // .sneakers-feature__icon
 
   &__icon {
-    @apply text-6xl max-xl:text-5xl max-lg:text-4xl;
+    @apply text-6xl max-2xl:text-5xl max-lg:text-4xl;
   }
 
   // .sneakers-feature__caption
 
   &__caption {
-    @apply text-4xl max-xl:text-3xl max-lg:text-2xl;
+    @apply text-4xl max-2xl:text-3xl max-xl:text-2xl mb-0.5 inline-block;
   }
 
   // .sneakers-feature__text
 
   &__text {
-    @apply text-4xl text-textSecondary font-secondary max-xl:text-3xl max-lg:text-2xl;
+    @apply text-4xl text-textSecondary font-secondary max-2xl:text-2xl;
   }
 }

@@ -91,7 +91,7 @@ const SneakersSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 Daily power
               </strong>
               <p className={classNames(styles['sneakers-feature__text'])}>
-                how many EZY tokens you can get every day
+                How many RARE tokens you can get every day
               </p>
             </div>
             <div
