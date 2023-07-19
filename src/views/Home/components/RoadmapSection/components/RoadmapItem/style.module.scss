@@ -3,24 +3,26 @@
   // .roadmap-item__icon
 
   &__icon {
-    @apply max-h-[4.5rem];
+    @apply max-h-[4.5rem] relative;
+    @apply max-lg:before:h-1 max-lg:before:w-screen max-lg:before:content-[''] max-lg:before:absolute max-lg:before:-left-1/2 max-lg:before:-translate-x-1/2 max-lg:before:top-1/2 max-lg:before:mt-2 max-lg:before:translate-y-1/2 max-lg:before:bg-primary-900 max-lg:before:z-0;
   }
 
   // .roadmap-item__icon-image
 
   &__icon-image {
-    @apply h-full select-none max-lg:max-h-[4.5rem];
+    @apply h-full select-none max-lg:max-h-[4.5rem] relative z-10;
   }
 
   // .roadmap-item__caption
 
   &__caption {
-    @apply text-xl font-secondary text-textSecondary;
+    @apply pr-10 text-xl font-secondary text-textSecondary;
   }
 
   // .roadmap-item__todo
 
   &__todo {
+    @apply pr-10;
   }
 }
 .roadmap-todo {
@@ -58,6 +60,6 @@
   // .todo-item__text
 
   &__text {
-    @apply text-4xl max-xl:text-2xl max-lg:text-lg;
+    @apply text-4xl max-2xl:text-3xl max-xl:text-2xl max-lg:text-lg;
   }
 }

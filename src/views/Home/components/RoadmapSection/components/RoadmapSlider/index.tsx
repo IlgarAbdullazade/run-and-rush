@@ -28,7 +28,7 @@ const RoadmapSlider: React.FC<HTMLAttributes<HTMLDivElement>> = ({
     breakpoints: {
       320: {
         slidesPerView: 1.25,
-        spaceBetween: 20,
+        spaceBetween: 0,
       },
     },
   }
