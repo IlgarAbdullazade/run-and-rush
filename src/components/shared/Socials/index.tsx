@@ -2,7 +2,7 @@ import { HTMLAttributes } from 'react'
 
 import classNames from 'classnames'
 
-import tiktok from '@/assets/images/socials/tiktok.png'
+import reddit from '@/assets/images/socials/reddit.png'
 import twitter from '@/assets/images/socials/twitter.png'
 import youtube from '@/assets/images/socials/youtube.png'
 import telegram from '@/assets/images/socials/telegram.png'
@@ -54,8 +54,8 @@ const Socials: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
         >
           <img
             className={classNames(styles['socials__image'])}
-            src={tiktok}
-            alt="Tik Tok"
+            src={reddit}
+            alt="Reddit"
           />
         </a>
         <a
