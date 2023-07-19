@@ -32,7 +32,7 @@ const AboutSlider: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         slidesPerView: 2,
         spaceBetween: 30,
       },
-      1552: {
+      1536: {
         slidesPerView: 3,
         spaceBetween: 40,
       },
