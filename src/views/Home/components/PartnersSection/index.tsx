@@ -29,6 +29,7 @@ const PartnersSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <div className={classNames(styles['partners__body'])}>
             {partners.map((partner) => (
               <PartnersItem
+                key={partner.name}
                 className={classNames(styles['partners__item'])}
                 partner={partner}
               />
