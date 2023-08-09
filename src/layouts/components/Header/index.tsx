@@ -1,22 +1,19 @@
-import { useEffect, useState } from 'react'
-
 import classNames from 'classnames'
-import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { NavLink, useLocation } from 'react-router-dom'
 
-import { RootState } from '@/store'
-import Logo from '@/components/shared/Logo'
 import AppButton from '@/components/UI/AppButton'
+import Logo from '@/components/shared/Logo'
 import Socials from '@/components/shared/Socials'
 
-import styles from './style.module.scss'
+import { useAppSelector } from '@/store/hooks'
+
 import HeaderProfile from './components/HeaderProfile'
+import styles from './style.module.scss'
 
 const Header = () => {
-  const isAuthenticated = useSelector(
-    (state: RootState) => state.auth.isAuthenticated
-  )
+  const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated)
   const [menuIsOpen, setMenuIsOpen] = useState(false)
   const isTabletOrMobile = useMediaQuery({
     query: 'not all and (min-width: 1024px)',

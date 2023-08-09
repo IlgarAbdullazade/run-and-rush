@@ -1,9 +1,23 @@
 .form-group {
+  // .form-group__wrapper
+
+  &__wrapper {
+    @apply relative;
+  }
   // .form-group__input
 
   &__input {
     @apply w-full rounded-full caret-primary bg-white shadow-border px-8 py-4 outline-none placeholder:font-secondary placeholder-textSecondary text-background;
     @apply disabled:bg-stroke disabled:shadow-none;
+  }
+
+  // .form-group__button
+
+  &__button {
+    @apply absolute right-0 top-1/2 -translate-y-1/2 text-primary h-full;
+    > button {
+      @apply h-full px-4 disabled:opacity-50;
+    }
   }
 
   // .form-group__error
