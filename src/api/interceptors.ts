@@ -1,8 +1,11 @@
 import axios from 'axios'
-import { errorCatch } from './helpers'
+
 import { removeTokensStorage } from '@/services/auth/authHelper'
 import { AuthService } from '@/services/auth/authService'
+
 import { API_URL } from '@/configs/apiConfig'
+
+import { errorCatch } from './helpers'
 
 const instance = axios.create({
   baseURL: API_URL,
@@ -33,7 +36,7 @@ instance.interceptors.response.use(
     ) {
       originalRequest._isRetry = true
       try {
-        await AuthService.getNewTokens()
+        await AuthService.refreshToken()
 
         return instance.request(originalRequest)
       } catch (e) {
