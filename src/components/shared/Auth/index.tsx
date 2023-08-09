@@ -1,19 +1,24 @@
+import { HTMLAttributes } from 'react'
+
 import classNames from 'classnames'
-import { FormikProps, useFormik } from 'formik'
-import { HTMLAttributes, useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useCountdown } from 'usehooks-ts'
+import { FormikProps, useFormik } from 'formik'
 import { boolean, object, Schema, string } from 'yup'
 
 import Button from '@/components/UI/Button'
-import CustomCheckbox from '@/components/UI/CustomCheckbox'
+import { login } from '@/store/slices/authSlice'
 import CustomInput from '@/components/UI/CustomInput'
-
-import { loginOrSignUp, sendCode } from '@/store/auth/authActions'
-import { IAuthFormValues } from '@/store/auth/authTypes'
-import { useAppDispatch } from '@/store/hooks'
+import CustomCheckbox from '@/components/UI/CustomCheckbox'
 
 import styles from './style.module.scss'
+
+interface IAuthFormValues {
+  email: string
+  verification: string
+  referral?: string
+  agreeToTerms: boolean
+}
 
 type SchemaObject = {
   [key in keyof IAuthFormValues]: Schema<unknown>
@@ -21,10 +26,10 @@ type SchemaObject = {
 
 const validationSchema = object().shape<SchemaObject>({
   email: string().email('Invalid email').required('Email is required'),
-  code: string()
+  verification: string()
     .min(6, 'Verification code must be 6 characters')
     .required('Verification code is required'),
-  referal_code: string().optional(),
+  referral: string().optional(),
   agreeToTerms: boolean().oneOf(
     [true],
     'You must agree to the terms and conditions'
@@ -32,40 +37,26 @@ const validationSchema = object().shape<SchemaObject>({
 })
 
 const Auth: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
-  const [hasSent, setHasSent] = useState(false)
   const navigate = useNavigate()
-  const dispatch = useAppDispatch()
-  const [count, { startCountdown, resetCountdown }] = useCountdown({
-    countStart: 30,
-  })
-
-  useEffect(() => {
-    if (count === 0) {
-      resetCountdown()
-      setHasSent(false)
-    }
-  }, [count, resetCountdown])
+  const dispatch = useDispatch()
 
   const formik: FormikProps<IAuthFormValues> = useFormik<IAuthFormValues>({
     initialValues: {
       email: '',
-      code: '',
-      referal_code: '',
+      verification: '',
+      referral: '',
       agreeToTerms: false,
     },
     validationSchema: validationSchema,
     onSubmit: (values: IAuthFormValues) => {
       formik.resetForm()
-      dispatch(loginOrSignUp(values))
+      handleLogin(values)
       navigate('/account')
     },
   })
 
-  const sendCodeDispatch = () => {
-    const email = formik.values.email
-    dispatch(sendCode(email))
-    setHasSent(true)
-    startCountdown()
+  const handleLogin = (user: IAuthFormValues) => {
+    dispatch(login(user))
   }
 
   return (
@@ -96,36 +87,25 @@ const Auth: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
                 className={classNames(styles['auth-form__group'])}
                 placeholder="Verification code"
                 type="text"
-                id="code"
-                name="code"
+                id="verification"
+                name="verification"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.code}
-                hasError={!!(formik.touched.code && formik.errors.code)}
-                errorText={formik.errors.code}
-                button={
-                  <button
-                    type="button"
-                    disabled={
-                      !formik.values.email || !!formik.errors.email || hasSent
-                    }
-                    onClick={sendCodeDispatch}
-                  >
-                    {hasSent
-                      ? `00:${count.toString().padStart(2, '0')}`
-                      : 'Send Code'}
-                  </button>
+                value={formik.values.verification}
+                hasError={
+                  !!(formik.touched.verification && formik.errors.verification)
                 }
+                errorText={formik.errors.verification}
               />
               <CustomInput
                 className={classNames(styles['auth-form__group'])}
                 placeholder="Referral ID (Optional)"
                 type="text"
-                id="referal_code"
-                name="referal_code"
+                id="referral"
+                name="referral"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.referal_code}
+                value={formik.values.referral}
               />
               <CustomCheckbox
                 className={classNames(styles['auth-form__checkbox'])}
@@ -134,6 +114,7 @@ const Auth: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
                 name="agreeToTerms"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                value={formik.values.referral}
                 checked={formik.values.agreeToTerms}
                 hasError={
                   !!(formik.touched.agreeToTerms && formik.errors.agreeToTerms)

@@ -1,5 +1,6 @@
+import React, { InputHTMLAttributes } from 'react'
+
 import classNames from 'classnames'
-import React, { InputHTMLAttributes, ReactNode } from 'react'
 
 import styles from './style.module.scss'
 
@@ -7,7 +8,6 @@ type CustomInputPropsType = InputHTMLAttributes<HTMLInputElement> & {
   label?: string
   errorText?: string
   hasError?: boolean
-  button?: ReactNode
 }
 
 const CustomInput: React.FC<CustomInputPropsType> = ({
@@ -16,7 +16,6 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
   id,
   hasError = false,
   errorText,
-  button,
   ...rest
 }) => {
   return (
@@ -26,22 +25,11 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
           {label}
         </label>
       )}
-      <div className={classNames(styles['form-group__wrapper'])}>
-        <input
-          className={classNames(
-            styles['form-group__input'],
-            button ? 'px-20' : ''
-          )}
-          id={id}
-          {...rest}
-        />
-        {button && (
-          <div className={classNames(styles['form-group__button'])}>
-            {button}
-          </div>
-        )}
-      </div>
-
+      <input
+        className={classNames(styles['form-group__input'])}
+        id={id}
+        {...rest}
+      />
       {hasError && (
         <div className={classNames(styles['form-group__error'])}>
           {errorText}

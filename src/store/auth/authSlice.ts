@@ -1,26 +1,28 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { loginOrSignUp, logout } from './authActions'
-import { IAuthErrorResponse, IAuthResponse, IUser } from './authTypes'
+import { IAuthResponse, IUser } from './authTypes'
 
 interface AuthState {
   user: IUser | null
   isAuthenticated: boolean
   isLoading: boolean
-  error: IAuthErrorResponse | null
+  error: string
 }
 
 const initialState: AuthState = {
   isAuthenticated: false,
   user: null,
   isLoading: false,
-  error: null,
+  error: '',
 }
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: () => initialState,
+  },
   extraReducers: (builder) => {
     builder
       .addCase(
@@ -28,13 +30,12 @@ const authSlice = createSlice({
         (state, action: PayloadAction<IAuthResponse>) => {
           state.isAuthenticated = true
           state.isLoading = false
-          state.error = null
+          state.error = ''
           state.user = action.payload.user
         }
       )
       .addCase(loginOrSignUp.pending, (state) => {
         state.isLoading = true
-        state.error = null
       })
       .addCase(loginOrSignUp.rejected, (state, action: any) => {
         state.isAuthenticated = false
@@ -44,7 +45,7 @@ const authSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.isAuthenticated = false
         state.isLoading = false
-        state.error = null
+        state.error = ''
         state.user = null
       })
   },

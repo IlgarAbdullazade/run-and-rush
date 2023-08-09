@@ -2,7 +2,7 @@
   // .auth__body
 
   &__body {
-    @apply flex flex-col lg:w-[29rem];
+    @apply flex flex-col max-w-md;
   }
 
   // .auth__title

@@ -1,22 +1,25 @@
-import classNames from 'classnames'
 import React, { HTMLAttributes, useEffect, useState } from 'react'
-import { IoCloseSharp } from 'react-icons/io5'
+
+import classNames from 'classnames'
 import Modal from 'react-responsive-modal'
-import { useLocation, useNavigate } from 'react-router-dom'
 
 import Auth from '@/components/shared/Auth'
-
-import { logout } from '@/store/auth/authActions'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { IoCloseSharp } from 'react-icons/io5'
 
 import styles from './style.module.scss'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@/store'
+import { logout } from '@/store/slices/authSlice'
 
 const HeaderProfile: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated)
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated
+  )
 
-  const dispatch = useAppDispatch()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const [showModal, setShowModal] = useState(false)
