@@ -1,8 +1,11 @@
-import googlePlay from '../../../assets/images/google-play.png'
-import appStore from '../../../assets/images/app-store.png'
 import classNames from 'classnames'
-import styles from './style.module.scss'
+import Image from 'next/image'
 import { AnchorHTMLAttributes } from 'react'
+
+import appStore from '../../../assets/images/app-store.png'
+import googlePlay from '../../../assets/images/google-play.png'
+
+import styles from './style.module.scss'
 
 type StoreType = 'android' | 'ios'
 
@@ -21,10 +24,10 @@ const AppButton: React.FC<AppButtonPropsType> = ({
       className={classNames(styles['app-button'], className)}
       {...rest}
     >
-      <img
+      <Image
         className={classNames(styles['app-button__image'])}
         src={store === 'android' ? googlePlay : appStore}
-        alt="Run and Rush"
+        alt={`${store} app download`}
       />
     </a>
   )

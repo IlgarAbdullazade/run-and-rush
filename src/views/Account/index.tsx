@@ -1,29 +1,27 @@
-import { HTMLAttributes } from 'react'
+'use client'
 
 import classNames from 'classnames'
-import { Outlet } from 'react-router-dom'
-import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from 'usehooks-ts'
+
+import { useClientSideValue } from '@/hooks/useClientSideValue'
 
 import runnerBgImg from '@/assets/images/runner-bg.png'
 
-import styles from './style.module.scss'
 import AccountNavBar from './components/AccountNavBar'
+import styles from './style.module.scss'
 
-const AccountView: React.FC<HTMLAttributes<HTMLDivElement>> = ({
-  className,
-}) => {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1024px)',
-  })
+const AccountView = ({ children }: { children: React.ReactNode }) => {
+  const isDesktopOrLaptopValue = useMediaQuery('(min-width: 1024px)')
+  const isDesktopOrLaptop = useClientSideValue(isDesktopOrLaptopValue, false)
 
   return (
-    <div className={classNames(styles['account'], className)}>
+    <div className={classNames(styles['account'])}>
       <div className={classNames(styles['account__container'])}>
         <div className={classNames(styles['account__background'])}>
           <div
             className={classNames(styles['account__background-runner'])}
             style={{
-              backgroundImage: `url(${runnerBgImg})`,
+              backgroundImage: `url(${runnerBgImg.src})`,
             }}
           ></div>
           <div
@@ -40,9 +38,7 @@ const AccountView: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               styles['account__side']
             )}
           />
-          <div className={classNames(styles['account__body'])}>
-            <Outlet />
-          </div>
+          <div className={classNames(styles['account__body'])}>{children}</div>
           {isDesktopOrLaptop && (
             <div className={classNames(styles['account__side'])} />
           )}

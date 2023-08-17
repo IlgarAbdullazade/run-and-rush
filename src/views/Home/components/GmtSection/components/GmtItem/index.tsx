@@ -1,6 +1,6 @@
-import { HTMLAttributes } from 'react'
-
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes } from 'react'
 
 import coinRect from '@/assets/images/home/gmt/coin-rect.png'
 
@@ -15,7 +15,7 @@ const GmtItem: React.FC<GmtItemProps> = ({ className, text }) => {
     <div className={classNames(styles['gmt-item'], className)}>
       <div className={classNames(styles['gmt-item__wrapper'])}>
         <div className={classNames(styles['gmt-item__rect'])}>
-          <img
+          <Image
             src={coinRect}
             alt="GMT"
             className={classNames(styles['gmt-item__image'])}

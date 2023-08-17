@@ -1,0 +1,15 @@
+.preloader {
+  @apply fixed top-0 left-0 z-[9999] flex items-center justify-center w-full h-screen transition-all bg-background;
+
+  // .preloader__loader
+
+  &__loader {
+    @apply flex items-center justify-center space-x-3;
+  }
+
+  // .preloader__loader--dot
+
+  &__loader--dot {
+    @apply w-5 h-5 rounded-full animate-pulse bg-primary;
+  }
+}

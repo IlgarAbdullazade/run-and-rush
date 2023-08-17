@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Cookies from 'js-cookie'
 
 import { removeTokensStorage } from '@/services/auth/authHelper'
 import { AuthService } from '@/services/auth/authService'
@@ -7,22 +8,22 @@ import { API_URL } from '@/configs/apiConfig'
 
 import { errorCatch } from './helpers'
 
-const instance = axios.create({
+const axiosInstance = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
 })
 
-instance.interceptors.request.use((config) => {
-  const accessToken = localStorage.getItem('accessToken')
+axiosInstance.interceptors.request.use((config) => {
+  const accessToken = Cookies.get('accessToken')
   if (config.headers && accessToken)
     config.headers.Authorization = `Bearer ${accessToken}`
 
   return config
 })
 
-instance.interceptors.response.use(
+axiosInstance.interceptors.response.use(
   (config) => config,
   async (error) => {
     const originalRequest = error.config
@@ -38,7 +39,7 @@ instance.interceptors.response.use(
       try {
         await AuthService.refreshToken()
 
-        return instance.request(originalRequest)
+        return axiosInstance.request(originalRequest)
       } catch (e) {
         if (errorCatch(e) === 'jwt expired') removeTokensStorage()
       }
@@ -48,11 +49,4 @@ instance.interceptors.response.use(
   }
 )
 
-export default instance
-
-export const axiosClassic = axios.create({
-  baseURL: API_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-})
+export default axiosInstance

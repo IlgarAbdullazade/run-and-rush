@@ -1,6 +1,6 @@
-import { HTMLAttributes } from 'react'
-
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes } from 'react'
 
 import dotImg from '@/assets/images/home/roadmap/dot.png'
 
@@ -12,9 +12,10 @@ const RoadmapSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div className={classNames(styles['roadmap-item'], className)}>
       <div className={classNames(styles['roadmap-item__icon'])}>
-        <img
+        <Image
           src={dotImg}
           alt="Roadmap Icon"
+          height={72}
           className={classNames(styles['roadmap-item__icon-image'])}
         />
       </div>

@@ -1,21 +1,24 @@
-import { HTMLAttributes } from 'react'
+'use client'
 
 import classNames from 'classnames'
-import { useMediaQuery } from 'react-responsive'
+import { HTMLAttributes } from 'react'
+import { useMediaQuery } from 'usehooks-ts'
+
+import { MembersGrid } from '@/components/shared/Members'
+import MembersSlider from '@/components/shared/Members/MembersSlider'
+
+import { useClientSideValue } from '@/hooks/useClientSideValue'
 
 import gridBgImg from '@/assets/images/grid-bg.png'
 import merTickerImg from '@/assets/images/mer-ticker.png'
-import { MembersGrid } from '@/components/shared/Members'
-import MembersSlider from '@/components/shared/Members/MembersSlider'
 
 import styles from './style.module.scss'
 
 const AdvisorsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const isTabletOrMobile = useMediaQuery({
-    query: 'not all and (min-width: 768px)',
-  })
+  const isTabletOrMobileValue = useMediaQuery('not all and (min-width: 768px)')
+  const isTabletOrMobile = useClientSideValue(isTabletOrMobileValue, false)
 
   return (
     <section className={classNames(styles['advisors'], className)}>
@@ -24,7 +27,7 @@ const AdvisorsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <div
             className={classNames(styles['advisors__background-grid'])}
             style={{
-              backgroundImage: `url(${gridBgImg})`,
+              backgroundImage: `url(${gridBgImg.src})`,
             }}
           ></div>
           <div
@@ -49,7 +52,7 @@ const AdvisorsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         <div
           className={classNames(styles['advisors__ticker-image'])}
           style={{
-            backgroundImage: `url(${merTickerImg})`,
+            backgroundImage: `url(${merTickerImg.src})`,
           }}
         ></div>
       </div>

@@ -1,8 +1,10 @@
-import { ITokens, IAuthResponse } from '@/store/auth/authTypes'
+import Cookies from 'js-cookie'
+
+import { IAuthResponse, ITokens } from '@/store/auth/authTypes'
 
 export const saveTokensStorage = (data: ITokens) => {
-  localStorage.setItem('accessToken', data.access)
-  localStorage.setItem('refreshToken', data.refresh)
+  Cookies.set('accessToken', data.access)
+  Cookies.set('refreshToken', data.refresh)
 }
 
 export const saveToStorage = (data: IAuthResponse) => {
@@ -11,6 +13,6 @@ export const saveToStorage = (data: IAuthResponse) => {
 }
 
 export const removeTokensStorage = () => {
-  localStorage.removeItem('accessToken')
-  localStorage.removeItem('refreshToken')
+  Cookies.remove('accessToken')
+  Cookies.remove('refreshToken')
 }

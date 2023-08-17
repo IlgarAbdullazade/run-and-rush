@@ -1,21 +1,20 @@
 import classNames from 'classnames'
 
-import Footer from '@/layouts/components/Footer'
-
-import styles from './style.module.scss'
-import GmtSection from './components/GmtSection'
-import TeamSection from './components/TeamSection'
-import HelloSection from './components/HelloSection'
 import AboutSection from './components/AboutSection'
-import StepsSection from './components/StepsSection'
-import SneakersSection from './components/SneakersSection'
 import AdvisorsSection from './components/AdvisorsSection'
+import AmbassadorsSection from './components/AmbassadorsSection'
+import CommunitySection from './components/CommunitySection'
+import GmtSection from './components/GmtSection'
+import HelloSection from './components/HelloSection'
 import PartnersSection from './components/PartnersSection'
 import ReferralSection from './components/ReferralSection'
-import CommunitySection from './components/CommunitySection'
-import UniquenessSection from './components/UniquenessSection'
-import AmbassadorsSection from './components/AmbassadorsSection'
 import RoadmapSection from './components/RoadmapSection'
+import SneakersSection from './components/SneakersSection'
+import StepsSection from './components/StepsSection'
+import TeamSection from './components/TeamSection'
+import UniquenessSection from './components/UniquenessSection'
+import styles from './style.module.scss'
+import Footer from '@/layouts/components/Footer'
 
 const HomeView = () => {
   return (

@@ -16,6 +16,9 @@ export interface IAuthFormValues {
   agreeToTerms: boolean
 }
 
+export interface IAuthFormParams
+  extends Omit<IAuthFormValues, 'agreeToTerms'> {}
+
 export interface IAccessToken {
   access: string
 }

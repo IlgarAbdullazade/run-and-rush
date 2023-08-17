@@ -1,11 +1,13 @@
-import { HTMLAttributes } from 'react'
+'use client'
 
 import classNames from 'classnames'
+import { HTMLAttributes } from 'react'
 import SimpleBar from 'simplebar-react'
 
 import Button from '@/components/UI/Button'
 
 import ShopItem from '../ShopItem'
+
 import styles from './style.module.scss'
 
 type ShopListPropsType = HTMLAttributes<HTMLDivElement> & {

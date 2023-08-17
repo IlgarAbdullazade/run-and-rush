@@ -1,10 +1,12 @@
+import { GoTriangleDown } from 'react-icons/go'
+import { HiCheckCircle } from 'react-icons/hi'
 import Select, { components } from 'react-select'
 
-import { HiCheckCircle } from 'react-icons/hi'
-import { GoTriangleDown } from 'react-icons/go'
-import { StateManagerProps } from 'node_modules/react-select/dist/declarations/src/useStateManager'
-
-import { CustomOptionType, GroupedOptionType } from './types'
+import type {
+  CustomOptionType,
+  GroupedOptionType,
+  StateManagerProps,
+} from './types'
 
 type CustomReactSelectPropsType = StateManagerProps<
   CustomOptionType,
@@ -12,7 +14,6 @@ type CustomReactSelectPropsType = StateManagerProps<
   GroupedOptionType
 >
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DropdownIndicator = (props: any) => {
   return (
     <components.DropdownIndicator {...props}>
@@ -21,7 +22,6 @@ const DropdownIndicator = (props: any) => {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CustomOption = (props: any) => {
   return (
     <components.Option {...props}>

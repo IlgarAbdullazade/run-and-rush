@@ -1,14 +1,23 @@
+import classNames from 'classnames'
+import Image from 'next/image'
 import { HTMLAttributes } from 'react'
 
-import classNames from 'classnames'
+import { ITransaction } from '@/shared/types/transaction.types'
 
 import coin from '@/assets/icons/coin.svg'
 
 import styles from './style.module.scss'
 
-const TransactionItem: React.FC<HTMLAttributes<HTMLDivElement>> = ({
+type TransactionItemProps = HTMLAttributes<HTMLDivElement> & {
+  transaction: ITransaction
+}
+
+const TransactionItem: React.FC<TransactionItemProps> = ({
   className,
+  transaction,
 }) => {
+  const isWithdraw = transaction.operation_type === 'WITHDRAW'
+
   return (
     <div className={classNames(styles['transaction-item'], className)}>
       <div className={classNames(styles['transaction-item__wrapper'])}>
@@ -16,7 +25,7 @@ const TransactionItem: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <i
             className={classNames(
               styles['transaction-item__icon'],
-              'icon-sell'
+              isWithdraw ? 'icon-sell' : 'icon-buy'
             )}
           ></i>
         </div>
@@ -26,24 +35,24 @@ const TransactionItem: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               11.12.2022, 18:43
             </div>
             <div className={classNames(styles['transaction-item__info--type'])}>
-              Withdraw
+              {transaction.operation_type}
             </div>
           </div>
           <div className={classNames(styles['transaction-item__value'])}>
             <div
               className={classNames(styles['transaction-item__value--type'])}
             >
-              +
+              {isWithdraw ? '-' : '+'}
             </div>
-            <img
+            <Image
               src={coin}
               alt="Run&Rush Coin"
               className={classNames(styles['transaction-item__value--coin'])}
-            ></img>
+            ></Image>
             <div
               className={classNames(styles['transaction-item__value--count'])}
             >
-              2500
+              {transaction.amount}
             </div>
           </div>
         </div>

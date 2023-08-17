@@ -1,4 +1,6 @@
+import { StaticImageData } from 'next/image'
+
 export interface IPartnerItem {
-  logo: string
+  logo: StaticImageData
   name: string
 }

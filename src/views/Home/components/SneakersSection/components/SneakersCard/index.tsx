@@ -1,6 +1,6 @@
-import { HTMLAttributes } from 'react'
-
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes } from 'react'
 
 import sneakersImg from '@/assets/images/shoes/mid-sneakers.png'
 
@@ -13,7 +13,7 @@ const SneakersCard: React.FC<HTMLAttributes<HTMLDivElement>> = ({
     <div className={classNames(styles['sneakers-card'], className)}>
       <div className={classNames(styles['sneakers-card__wrapper'])}>
         <div className={classNames(styles['sneakers-card__rect'])}>
-          <img
+          <Image
             src={sneakersImg}
             alt="Jogger"
             className={classNames(styles['sneakers-card__image'])}

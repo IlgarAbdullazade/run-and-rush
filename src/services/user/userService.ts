@@ -1,19 +1,19 @@
-import axios from 'axios'
-
 import { getUsersUrl } from '@/configs/apiConfig'
 
 import { IUser, IUserFormValues } from '@/store/auth/authTypes'
 
+import axiosInstance from '@/api/interceptors'
+
 export const UserService = {
   async getCurrentUser() {
-    return axios.get<IUser>(getUsersUrl('/me'))
+    return axiosInstance.get<IUser>(getUsersUrl('/me'))
   },
 
   async deleteCurrentUser() {
-    return axios.delete(getUsersUrl('/me'))
+    return axiosInstance.delete(getUsersUrl('/me'))
   },
 
   async updateCurrentUser(values: IUserFormValues) {
-    return axios.patch(getUsersUrl('/me'), values)
+    return axiosInstance.patch(getUsersUrl('/me'), values)
   },
 }

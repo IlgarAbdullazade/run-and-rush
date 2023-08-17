@@ -1,11 +1,17 @@
-import classNames from 'classnames'
-import { useEffect, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
-import { NavLink, useLocation } from 'react-router-dom'
+'use client'
 
-import AppButton from '@/components/UI/AppButton'
+import classNames from 'classnames'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { useMediaQuery } from 'usehooks-ts'
+
 import Logo from '@/components/shared/Logo'
 import Socials from '@/components/shared/Socials'
+import ActiveLink from '@/components/UI/ActiveLink'
+import AppButton from '@/components/UI/AppButton'
+
+import { useClientSideValue } from '@/hooks/useClientSideValue'
 
 import { useAppSelector } from '@/store/hooks'
 
@@ -15,10 +21,9 @@ import styles from './style.module.scss'
 const Header = () => {
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated)
   const [menuIsOpen, setMenuIsOpen] = useState(false)
-  const isTabletOrMobile = useMediaQuery({
-    query: 'not all and (min-width: 1024px)',
-  })
-  const { pathname } = useLocation()
+  const isTabletOrMobileValue = useMediaQuery('not all and (min-width: 1024px)')
+  const isTabletOrMobile = useClientSideValue(isTabletOrMobileValue, false)
+  const pathname = usePathname()
 
   const handleMenuClick = () => {
     setMenuIsOpen(!menuIsOpen)
@@ -67,46 +72,40 @@ const Header = () => {
             >
               <ul className={classNames(styles['header-menu__list'])}>
                 <li className={classNames(styles['header-menu__item'])}>
-                  <NavLink
-                    className={({ isActive }) =>
-                      classNames(
-                        styles['header-menu__link'],
-                        isTabletOrMobile ? 'text-gradient' : '',
-                        isActive ? 'text-gradient' : ''
-                      )
-                    }
-                    to="how-to-play"
+                  <ActiveLink
+                    activeClassName="text-gradient"
+                    className={classNames(
+                      styles['header-menu__link'],
+                      isTabletOrMobile ? 'text-gradient' : ''
+                    )}
+                    href="/how-to-play"
                   >
                     How to play
-                  </NavLink>
+                  </ActiveLink>
                 </li>
                 <li className={classNames(styles['header-menu__item'])}>
-                  <NavLink
-                    className={({ isActive }) =>
-                      classNames(
-                        styles['header-menu__link'],
-                        isTabletOrMobile ? 'text-gradient' : '',
-                        isActive ? 'text-gradient' : ''
-                      )
-                    }
-                    to="whitepaper"
+                  <ActiveLink
+                    activeClassName="text-gradient"
+                    className={classNames(
+                      styles['header-menu__link'],
+                      isTabletOrMobile ? 'text-gradient' : ''
+                    )}
+                    href="/whitepaper"
                   >
                     Whitepaper
-                  </NavLink>
+                  </ActiveLink>
                 </li>
                 <li className={classNames(styles['header-menu__item'])}>
-                  <NavLink
-                    className={({ isActive }) =>
-                      classNames(
-                        styles['header-menu__link'],
-                        isTabletOrMobile ? 'text-gradient' : '',
-                        isActive ? 'text-gradient' : ''
-                      )
-                    }
-                    to="linktree"
+                  <ActiveLink
+                    activeClassName="text-gradient"
+                    className={classNames(
+                      styles['header-menu__link'],
+                      isTabletOrMobile ? 'text-gradient' : ''
+                    )}
+                    href="/linktree"
                   >
                     Linktree
-                  </NavLink>
+                  </ActiveLink>
                 </li>
               </ul>
               {isTabletOrMobile && (
@@ -146,9 +145,9 @@ const Header = () => {
                 />
               )}
             </nav>
-            <NavLink to={''} className={classNames(styles['header__logo'])}>
+            <Link href="/" className={classNames(styles['header__logo'])}>
               <Logo />
-            </NavLink>
+            </Link>
             <div className={classNames(styles['header__rightside'])}>
               {!isAuthenticated && (
                 <div

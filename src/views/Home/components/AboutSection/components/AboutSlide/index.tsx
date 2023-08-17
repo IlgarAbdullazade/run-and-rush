@@ -1,6 +1,8 @@
+import classNames from 'classnames'
+import Image from 'next/image'
 import { HTMLAttributes } from 'react'
 
-import classNames from 'classnames'
+import runnerBgImg from '@/assets/images/runner-bg.png'
 
 import styles from './style.module.scss'
 
@@ -11,9 +13,9 @@ const AboutSlide: React.FC<HTMLAttributes<HTMLDivElement>> = ({
     <div className={classNames(styles['about-slide'], className)}>
       <div className={classNames(styles['about-slide__wrapper'])}>
         <div className={classNames(styles['about-slide__rect'])}>
-          <img
-            src="https://media.istockphoto.com/id/1324624694/photo/fitness-woman-running-training-for-marathon-on-sunny-coast-trail.jpg?s=612x612&w=0&k=20&c=09StrnZiVdHvfR1G9CeBqcMYxSvFSGFQVuNbOzhBQ-c="
-            alt=""
+          <Image
+            src={runnerBgImg}
+            alt="Slide"
             className={classNames(styles['about-slide__image'])}
           />
         </div>

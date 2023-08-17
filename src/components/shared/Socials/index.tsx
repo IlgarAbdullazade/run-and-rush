@@ -1,12 +1,12 @@
+import classNames from 'classnames'
+import Image from 'next/image'
 import { HTMLAttributes } from 'react'
 
-import classNames from 'classnames'
-
+import instagram from '@/assets/images/socials/instagram.png'
 import reddit from '@/assets/images/socials/reddit.png'
+import telegram from '@/assets/images/socials/telegram.png'
 import twitter from '@/assets/images/socials/twitter.png'
 import youtube from '@/assets/images/socials/youtube.png'
-import telegram from '@/assets/images/socials/telegram.png'
-import instagram from '@/assets/images/socials/instagram.png'
 
 import styles from './style.module.scss'
 
@@ -19,7 +19,7 @@ const Socials: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
           target="_blank"
           className={classNames(styles['socials__link'])}
         >
-          <img
+          <Image
             className={classNames(styles['socials__image'])}
             src={twitter}
             alt="Twitter"
@@ -30,7 +30,7 @@ const Socials: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
           target="_blank"
           className={classNames(styles['socials__link'])}
         >
-          <img
+          <Image
             className={classNames(styles['socials__image'])}
             src={telegram}
             alt="Telegram"
@@ -41,7 +41,7 @@ const Socials: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
           target="_blank"
           className={classNames(styles['socials__link'])}
         >
-          <img
+          <Image
             className={classNames(styles['socials__image'])}
             src={instagram}
             alt="Instagram"
@@ -52,7 +52,7 @@ const Socials: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
           target="_blank"
           className={classNames(styles['socials__link'])}
         >
-          <img
+          <Image
             className={classNames(styles['socials__image'])}
             src={reddit}
             alt="Reddit"
@@ -63,7 +63,7 @@ const Socials: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
           target="_blank"
           className={classNames(styles['socials__link'])}
         >
-          <img
+          <Image
             className={classNames(styles['socials__image'])}
             src={youtube}
             alt="YouTube"

@@ -1,7 +1,8 @@
 import classNames from 'classnames'
-import { NavLink } from 'react-router-dom'
+import Link from 'next/link'
 
 import Logo from '@/components/shared/Logo'
+import ActiveLink from '@/components/UI/ActiveLink'
 import AppButton from '@/components/UI/AppButton'
 
 import styles from './style.module.scss'
@@ -12,9 +13,9 @@ const Footer = () => {
       <div className={classNames(styles['footer__container'])}>
         <div className={classNames(styles['footer__wrapper'])}>
           <div className={classNames(styles['footer__body'])}>
-            <NavLink to={''} className={classNames(styles['footer__logo'])}>
+            <Link href="/" className={classNames(styles['footer__logo'])}>
               <Logo />
-            </NavLink>
+            </Link>
             <nav
               className={classNames(
                 styles['footer__menu'],
@@ -23,43 +24,31 @@ const Footer = () => {
             >
               <ul className={classNames(styles['footer-menu__list'])}>
                 <li className={classNames(styles['footer-menu__item'])}>
-                  <NavLink
-                    className={({ isActive }) =>
-                      classNames(
-                        styles['footer-menu__link'],
-                        isActive ? 'text-gradient' : ''
-                      )
-                    }
-                    to="how-to-play"
+                  <ActiveLink
+                    activeClassName="text-gradient"
+                    className={classNames(styles['footer-menu__link'])}
+                    href="/how-to-play"
                   >
                     How to play
-                  </NavLink>
+                  </ActiveLink>
                 </li>
                 <li className={classNames(styles['footer-menu__item'])}>
-                  <NavLink
-                    className={({ isActive }) =>
-                      classNames(
-                        styles['footer-menu__link'],
-                        isActive ? 'text-gradient' : ''
-                      )
-                    }
-                    to="whitepaper"
+                  <ActiveLink
+                    activeClassName="text-gradient"
+                    className={classNames(styles['footer-menu__link'])}
+                    href="/whitepaper"
                   >
                     Whitepaper
-                  </NavLink>
+                  </ActiveLink>
                 </li>
                 <li className={classNames(styles['footer-menu__item'])}>
-                  <NavLink
-                    className={({ isActive }) =>
-                      classNames(
-                        styles['footer-menu__link'],
-                        isActive ? 'text-gradient' : ''
-                      )
-                    }
-                    to="linktree"
+                  <ActiveLink
+                    activeClassName="text-gradient"
+                    className={classNames(styles['footer-menu__link'])}
+                    href="/linktree"
                   >
                     Linktree
-                  </NavLink>
+                  </ActiveLink>
                 </li>
               </ul>
             </nav>

@@ -1,6 +1,6 @@
-import { HTMLAttributes } from 'react'
-
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes } from 'react'
 
 import referralImg from '@/assets/images/home/referral/referral-decoration.png'
 
@@ -22,7 +22,7 @@ const UniquenessSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         </div>
         <div className={classNames(styles['referral__wrapper'])}>
           <div className={classNames(styles['referral__decoration'])}>
-            <img
+            <Image
               src={referralImg}
               alt="Referral"
               className={classNames(styles['referral__decoration-image'])}

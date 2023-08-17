@@ -1,8 +1,9 @@
+import classNames from 'classnames'
+import Image from 'next/image'
 import { HTMLAttributes } from 'react'
 
-import classNames from 'classnames'
-
 import Socials from '@/components/shared/Socials'
+
 import runnersBgImg from '@/assets/images/home/community/runners-bg.png'
 
 import styles from './style.module.scss'
@@ -33,7 +34,7 @@ const CommunitySection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             <Socials className={classNames(styles['community__socials'])} />
           </div>
           <div className={classNames(styles['community__decoration'])}>
-            <img
+            <Image
               src={runnersBgImg}
               alt="Runners"
               className={classNames(styles['community__decoration-image'])}

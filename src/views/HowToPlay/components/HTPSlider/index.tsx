@@ -1,25 +1,28 @@
-import { HTMLAttributes, useRef } from 'react'
+'use client'
 
 import classNames from 'classnames'
-
+import { HTMLAttributes, useRef } from 'react'
 import { register } from 'swiper/element/bundle'
-import { Swiper as SwiperCore } from 'swiper/types'
-import { Navigation, Pagination, EffectFade } from 'swiper/modules'
-
-import HTPSlide from '../HTPSlide'
-import styles from './style.module.scss'
-import { htpSteps } from '../../data'
+import { EffectFade, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
+import { Swiper as SwiperCore } from 'swiper/types'
+import { useMediaQuery } from 'usehooks-ts'
+
 import SwiperNavButtons from '@/components/UI/SwiperNavButtons'
-import { useMediaQuery } from 'react-responsive'
+
+import { useClientSideValue } from '@/hooks/useClientSideValue'
+
+import { htpSteps } from '../../data'
+import HTPSlide from '../HTPSlide'
+
+import styles from './style.module.scss'
 
 register()
 
 const HTPSlider: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
   const swiperRef = useRef<SwiperCore>()
-  const isTabletOrMobile = useMediaQuery({
-    query: 'not all and (min-width: 1024px)',
-  })
+  const isTabletOrMobileValue = useMediaQuery('not all and (min-width: 1024px)')
+  const isTabletOrMobile = useClientSideValue(isTabletOrMobileValue, false)
 
   const params: SwiperProps = {
     modules: [Navigation, Pagination, EffectFade],

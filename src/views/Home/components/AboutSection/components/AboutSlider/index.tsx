@@ -1,22 +1,29 @@
-import { HTMLAttributes, useRef } from 'react'
+'use client'
 
 import classNames from 'classnames'
-
+import { HTMLAttributes, useRef } from 'react'
 import { register } from 'swiper/element/bundle'
-import { Swiper, SwiperSlide } from 'swiper/react'
-
-import { Swiper as SwiperCore } from 'swiper/types'
 import { Navigation, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper as SwiperCore } from 'swiper/types'
+import { useMediaQuery } from 'usehooks-ts'
+
+import SwiperNavButtons from '@/components/UI/SwiperNavButtons'
+
+import { useClientSideValue } from '@/hooks/useClientSideValue'
 
 import AboutSlide from '../AboutSlide'
+
 import styles from './style.module.scss'
-import SwiperNavButtons from '@/components/UI/SwiperNavButtons'
 
 register()
 
 const AboutSlider: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
+  const isDesktopOrLaptopValue = useMediaQuery('(min-width: 1024px)')
+  const isDesktopOrLaptop = useClientSideValue(isDesktopOrLaptopValue, true)
+
   const swiperRef = useRef<SwiperCore>()
 
   const params = {
@@ -38,7 +45,7 @@ const AboutSlider: React.FC<HTMLAttributes<HTMLDivElement>> = ({
       },
     },
   }
-  return (
+  return isDesktopOrLaptop ? (
     <div className={classNames(styles['about-slider'], className)}>
       <div className={classNames(styles['about-slider__wrapper'])}>
         <Swiper
@@ -65,6 +72,8 @@ const AboutSlider: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         className={classNames(styles['about-slider__pagination'])}
       ></div>
     </div>
+  ) : (
+    <></>
   )
 }
 

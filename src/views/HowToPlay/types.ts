@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image'
+
 export interface IHTPFeature {
   title: string
   caption: string
@@ -6,9 +8,9 @@ export interface IHTPFeature {
 export interface IHTPStep {
   title: string
   image: {
-    desktop: string
-    phone: string
+    desktop: StaticImageData
+    phone: StaticImageData
   }
   features: IHTPFeature[]
-  decorationImage?: string
+  decorationImage?: StaticImageData
 }

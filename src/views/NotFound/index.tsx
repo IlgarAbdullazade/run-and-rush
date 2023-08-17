@@ -1,7 +1,8 @@
 import classNames from 'classnames'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 import Button from '@/components/UI/Button'
+
 import runnerBgImg from '@/assets/images/runner-bg.png'
 
 import styles from './style.module.scss'
@@ -14,7 +15,7 @@ const NotFoundView = () => {
           <div
             className={classNames(styles['notfound__background-runner'])}
             style={{
-              backgroundImage: `url(${runnerBgImg})`,
+              backgroundImage: `url(${runnerBgImg.src})`,
             }}
           ></div>
           <div
@@ -44,7 +45,7 @@ const NotFoundView = () => {
               below to go back to home page
             </div>
             <Link
-              to="/"
+              href="/"
               className={classNames(styles['notfound-context__button'])}
             >
               <Button isOutline={true} className="w-full">

@@ -1,11 +1,14 @@
-import { HTMLAttributes } from 'react'
-
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes } from 'react'
+import { useMediaQuery } from 'usehooks-ts'
+
+import { useClientSideValue } from '@/hooks/useClientSideValue'
+
+import { IHTPStep } from '../../types'
+import HTPSlideFeature from '../HTPSlideFeature'
 
 import styles from './style.module.scss'
-import HTPSlideFeature from '../HTPSlideFeature'
-import { IHTPStep } from '../../types'
-import { useMediaQuery } from 'react-responsive'
 
 type HTPSlidePropType = HTMLAttributes<HTMLDivElement> & {
   slideData: IHTPStep
@@ -19,9 +22,8 @@ const HTPSlide: React.FC<HTPSlidePropType> = ({
   slideData,
   bigTitle,
 }) => {
-  const isTabletOrMobile = useMediaQuery({
-    query: 'not all and (min-width: 1024px)',
-  })
+  const isTabletOrMobileValue = useMediaQuery('not all and (min-width: 1024px)')
+  const isTabletOrMobile = useClientSideValue(isTabletOrMobileValue, false)
 
   return (
     <section className={classNames(styles['htp-slide'], className)}>
@@ -48,13 +50,13 @@ const HTPSlide: React.FC<HTPSlidePropType> = ({
         <div className={classNames(styles['htp-slide__center'])}>
           <div className={classNames(styles['htp-slide__phone'])}>
             {slideData.decorationImage && (
-              <img
+              <Image
                 src={slideData.decorationImage}
                 alt="Decoration Image"
                 className={classNames(styles['htp-slide__phone--decoration'])}
               />
             )}
-            <img
+            <Image
               src={
                 isTabletOrMobile
                   ? slideData.image.phone

@@ -2,8 +2,8 @@ import classNames from 'classnames'
 
 import runnerBgImg from '@/assets/images/runner-bg.png'
 
-import styles from './style.module.scss'
 import HTPSlider from './components/HTPSlider'
+import styles from './style.module.scss'
 
 const HowToPlayView = () => {
   return (
@@ -13,7 +13,7 @@ const HowToPlayView = () => {
           <div
             className={classNames(styles['htp__background-runner'])}
             style={{
-              backgroundImage: `url(${runnerBgImg})`,
+              backgroundImage: `url(${runnerBgImg.src})`,
             }}
           ></div>
           <div

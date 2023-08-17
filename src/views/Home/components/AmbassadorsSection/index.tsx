@@ -1,22 +1,24 @@
-import { HTMLAttributes } from 'react'
+'use client'
 
 import classNames from 'classnames'
-import { useMediaQuery } from 'react-responsive'
+import { HTMLAttributes } from 'react'
+import { useMediaQuery } from 'usehooks-ts'
 
-import mapImg from '@/assets/images/home/ambassadors/map.png'
+import { useClientSideValue } from '@/hooks/useClientSideValue'
+
 import davisImg from '@/assets/images/home/ambassadors/davis.png'
-import ivanovImg from '@/assets/images/home/ambassadors/ivanov.jpg'
 import gonzalezImg from '@/assets/images/home/ambassadors/gonzalez.jpg'
+import ivanovImg from '@/assets/images/home/ambassadors/ivanov.jpg'
+import mapImg from '@/assets/images/home/ambassadors/map.png'
 
-import styles from './style.module.scss'
 import AmbassadorsItem from './components/AmbassadorsItem'
+import styles from './style.module.scss'
 
 const AmbassadorsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const isTabletOrMobile = useMediaQuery({
-    query: 'not all and (min-width: 1024px)',
-  })
+  const isTabletOrMobileValue = useMediaQuery('not all and (min-width: 1024px)')
+  const isTabletOrMobile = useClientSideValue(isTabletOrMobileValue, false)
 
   return (
     <section className={classNames(styles['ambassadors'], className)}>
@@ -37,7 +39,7 @@ const AmbassadorsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             <div
               className={classNames(styles['ambassadors__map'])}
               style={{
-                backgroundImage: `url(${mapImg})`,
+                backgroundImage: `url(${mapImg.src})`,
               }}
             ></div>
             <div className={classNames(styles['ambassadors__items'])}>

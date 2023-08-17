@@ -1,19 +1,21 @@
-import { HTMLAttributes } from 'react'
+'use client'
 
 import classNames from 'classnames'
-import { useMediaQuery } from 'react-responsive'
+import { HTMLAttributes } from 'react'
+import { useMediaQuery } from 'usehooks-ts'
 
 import { MembersGrid } from '@/components/shared/Members'
 import MembersSlider from '@/components/shared/Members/MembersSlider'
+
+import { useClientSideValue } from '@/hooks/useClientSideValue'
 
 import styles from './style.module.scss'
 
 const TeamSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const isTabletOrMobile = useMediaQuery({
-    query: 'not all and (min-width: 768px)',
-  })
+  const isTabletOrMobileValue = useMediaQuery('not all and (min-width: 768px)')
+  const isTabletOrMobile = useClientSideValue(isTabletOrMobileValue, false)
 
   return (
     <section className={classNames(styles['team'], className)}>

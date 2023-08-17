@@ -1,17 +1,18 @@
-import axios from 'axios'
+import Cookies from 'js-cookie'
 
-import { API_URL, getAuthUrl } from '@/configs/apiConfig'
+import { getAuthUrl } from '@/configs/apiConfig'
 
-import { IAuthFormValues, IAuthResponse } from '@/store/auth/authTypes'
+import { IAuthFormParams, IAuthResponse } from '@/store/auth/authTypes'
 
 import { IAccessToken } from './../../store/auth/authTypes'
 import { removeTokensStorage, saveToStorage } from './authHelper'
 import { getContentType } from '@/api/helpers'
+import axiosInstance from '@/api/interceptors'
 
 export const AuthService = {
-  async loginOrSignUp(credentials: IAuthFormValues) {
-    const response = await axios.post<IAuthResponse>(
-      `${API_URL}${getAuthUrl('/login_or_signup')}`,
+  async loginOrSignUp(credentials: IAuthFormParams) {
+    const response = await axiosInstance.post<IAuthResponse>(
+      `${getAuthUrl('/login_or_signup')}`,
       credentials
     )
 
@@ -22,8 +23,8 @@ export const AuthService = {
     return response
   },
   async sendCode(email: string) {
-    const response = await axios.post<IAuthResponse>(
-      `${API_URL}${getAuthUrl('/send_code')}`,
+    const response = await axiosInstance.post<IAuthResponse>(
+      `${getAuthUrl('/send_code')}`,
       { email }
     )
 
@@ -38,19 +39,16 @@ export const AuthService = {
     localStorage.removeItem('user')
   },
   async verifyToken() {
-    const accessToken = localStorage.get('accessToken')
-    const response = await axios.post(
-      `${API_URL}${getAuthUrl('/jwt/verify')}`,
-      {
-        token: accessToken,
-      }
-    )
+    const accessToken = Cookies.get('accessToken')
+    const response = await axiosInstance.post(`${getAuthUrl('/jwt/verify')}`, {
+      token: accessToken,
+    })
     return response
   },
   async refreshToken() {
-    const refreshToken = localStorage.get('refreshToken')
-    const response = await axios.post<IAccessToken>(
-      `${API_URL}${getAuthUrl('/jwt/refresh')}`,
+    const refreshToken = Cookies.get('refreshToken')
+    const response = await axiosInstance.post<IAccessToken>(
+      `${getAuthUrl('/jwt/refresh')}`,
       {
         refresh: refreshToken,
       },
@@ -60,7 +58,7 @@ export const AuthService = {
     )
 
     if (response.data.access) {
-      localStorage.setItem('accessToken', response.data.access)
+      Cookies.set('accessToken', response.data.access)
     }
 
     return response

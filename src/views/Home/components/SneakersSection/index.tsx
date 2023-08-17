@@ -1,11 +1,10 @@
-import { HTMLAttributes } from 'react'
-
 import classNames from 'classnames'
+import { HTMLAttributes } from 'react'
 
 import gridBgImg from '@/assets/images/grid-bg.png'
 
-import styles from './style.module.scss'
 import SneakersCard from './components/SneakersCard'
+import styles from './style.module.scss'
 
 const SneakersSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -17,7 +16,7 @@ const SneakersSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <div
             className={classNames(styles['sneakers__background-grid'])}
             style={{
-              backgroundImage: `url(${gridBgImg})`,
+              backgroundImage: `url(${gridBgImg.src})`,
             }}
           ></div>
           <div
@@ -39,9 +38,9 @@ const SneakersSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               About <strong className="text-gradient">Sneakers</strong>
             </h1>
             <p className={classNames(styles['sneakers-context__text'])}>
-              All Sneakers have a limited "service life" and do not apply any
-              cumulative pressure on the tokenomics. Sneakers have two main
-              parameters:
+              All Sneakers have a limited &quot;ervice life&quot; and do not
+              apply any cumulative pressure on the tokenomics. Sneakers have two
+              main parameters:
             </p>
             <div
               className={classNames(

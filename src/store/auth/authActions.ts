@@ -3,6 +3,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { AuthService } from '@/services/auth/authService'
 import { UserService } from '@/services/user/userService'
 
+import { showToast } from '@/utils/toast/showToast'
+import { toastError } from '@/utils/toast/toastError'
+
 import {
   IAccessToken,
   IAuthFormValues,
@@ -19,6 +22,7 @@ export const loginOrSignUp = createAsyncThunk<IAuthResponse, IAuthFormValues>(
       const response = await AuthService.loginOrSignUp(credentials)
       return response.data
     } catch (error: any) {
+      toastError(error)
       return thunkAPI.rejectWithValue(error.response?.data)
     }
   }
@@ -29,9 +33,11 @@ export const sendCode = createAsyncThunk<IAuthResponse, string>(
   async (email, thunkAPI) => {
     try {
       const response = await AuthService.sendCode(email)
+      showToast('success', 'The code has been successfully sent')
       return response.data
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error)
+    } catch (error: any) {
+      toastError(error)
+      return thunkAPI.rejectWithValue(error.response?.data)
     }
   }
 )
@@ -46,7 +52,7 @@ export const verifyToken = createAsyncThunk<IAuthResponse>(
     try {
       const response = await AuthService.verifyToken()
       return response.data
-    } catch (error) {
+    } catch (error: any) {
       thunkAPI.dispatch(refreshToken())
     }
   }

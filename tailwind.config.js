@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */ export default {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
@@ -7,8 +8,8 @@
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Avenir-BlackOblique'],
-        secondary: ['Avenir-BookOblique'],
+        primary: ['var(--font-black-oblique)'],
+        secondary: ['var(--font-book-oblique)'],
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(145deg,#54E3F5 0%, #08A3CA 100%)',
@@ -41,6 +42,10 @@
         stroke: '#174956',
         background: '#101113',
         error: '#FF3B30',
+        toastInfo: '#509af8',
+        toastSuccess: '#84d65a',
+        toastWarning: '#f7c752',
+        toastError: '#ef665b',
       },
       transitionDuration: {
         DEFAULT: '300ms',

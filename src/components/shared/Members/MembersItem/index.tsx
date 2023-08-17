@@ -1,6 +1,6 @@
-import { HTMLAttributes } from 'react'
-
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes } from 'react'
 
 import humanImg from '@/assets/images/human.png'
 
@@ -24,7 +24,7 @@ const MembersItem: React.FC<MembersItemType> = ({
               skewClass
             )}
           ></div>
-          <img
+          <Image
             src={humanImg}
             alt="Human"
             className={classNames(styles['members-item__image'])}

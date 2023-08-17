@@ -1,6 +1,6 @@
-import { HTMLAttributes } from 'react'
-
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes } from 'react'
 
 import burnerIcon from '@/assets/images/home/steps/burner.svg'
 import distanceIcon from '@/assets/images/home/steps/distance.svg'
@@ -33,11 +33,11 @@ const StepsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                   styles['steps-counter']
                 )}
               >
-                <img
+                <Image
                   src={distanceIcon}
                   alt="Distance Icon"
                   className={classNames(styles['steps-counter__icon'])}
-                ></img>
+                ></Image>
                 <div className={classNames(styles['steps-counter__info'])}>
                   <h3
                     className={classNames(
@@ -59,11 +59,11 @@ const StepsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 )}
               >
                 <div className={classNames(styles['steps-counter__leading'])}>
-                  <img
+                  <Image
                     src={burnerIcon}
                     alt="Burner Icon"
                     className={classNames(styles['steps-counter__icon'])}
-                  ></img>
+                  ></Image>
                 </div>
                 <div className={classNames(styles['steps-counter__info'])}>
                   <h3
@@ -82,7 +82,7 @@ const StepsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             </div>
           </div>
           <div className={classNames(styles['steps__decoration'])}>
-            <img
+            <Image
               className={classNames(styles['steps__decoration-image'])}
               src={runnerWithShoesImg}
               alt="Run&Rush App"

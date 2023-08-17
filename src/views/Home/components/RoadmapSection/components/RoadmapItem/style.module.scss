@@ -10,7 +10,7 @@
   // .roadmap-item__icon-image
 
   &__icon-image {
-    @apply h-full select-none max-lg:max-h-[4.5rem] relative z-10;
+    @apply relative z-10 select-none;
   }
 
   // .roadmap-item__caption

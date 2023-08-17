@@ -1,20 +1,14 @@
-import { HTMLAttributes } from 'react'
-
 import classNames from 'classnames'
-import { useMediaQuery } from 'react-responsive'
+import { HTMLAttributes } from 'react'
 
 import aboutBgImg from '@/assets/images/home/about/about-bg.png'
 
-import styles from './style.module.scss'
 import AboutSlider from './components/AboutSlider'
+import styles from './style.module.scss'
 
 const AboutSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1024px)',
-  })
-
   return (
     <section className={classNames(styles['about'], className)}>
       <div className={classNames(styles['about__container'])}>
@@ -28,7 +22,7 @@ const AboutSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             <div
               className={classNames(styles['about-context__background'])}
               style={{
-                backgroundImage: `url(${aboutBgImg})`,
+                backgroundImage: `url(${aboutBgImg.src})`,
               }}
             ></div>
             <p className={classNames(styles['about-context__text'])}>
@@ -41,9 +35,7 @@ const AboutSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               participate in it.
             </p>
           </div>
-          {isDesktopOrLaptop && (
-            <AboutSlider className={classNames(styles['about__slider'])} />
-          )}
+          <AboutSlider className={classNames(styles['about__slider'])} />
         </div>
       </div>
     </section>

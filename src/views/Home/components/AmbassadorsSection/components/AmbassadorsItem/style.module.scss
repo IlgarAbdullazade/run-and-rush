@@ -22,7 +22,7 @@
   // .ambassadors-item__image
 
   &__image {
-    @apply absolute object-cover h-full -translate-x-1/2 -translate-y-1/2 skew-x-6 max-w-none top-1/2 left-1/2;
+    //@apply skew-x-6;
   }
 
   // .ambassadors-item__context

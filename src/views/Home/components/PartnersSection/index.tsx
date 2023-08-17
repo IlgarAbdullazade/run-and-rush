@@ -1,12 +1,11 @@
-import { HTMLAttributes } from 'react'
-
 import classNames from 'classnames'
+import { HTMLAttributes } from 'react'
 
 import topographyImg from '@/assets/images/topography.png'
 
+import PartnersItem from './components/PartnersItem'
 import { partners } from './data'
 import styles from './style.module.scss'
-import PartnersItem from './components/PartnersItem'
 
 const PartnersSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -18,7 +17,7 @@ const PartnersSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <div
             className={classNames(styles['partners__background-topography'])}
             style={{
-              backgroundImage: `url(${topographyImg})`,
+              backgroundImage: `url(${topographyImg.src})`,
             }}
           ></div>
         </div>

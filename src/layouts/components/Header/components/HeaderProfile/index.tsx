@@ -1,8 +1,9 @@
 import classNames from 'classnames'
+import { useRouter } from 'next-nprogress-bar'
+import { usePathname } from 'next/navigation'
 import React, { HTMLAttributes, useEffect, useState } from 'react'
 import { IoCloseSharp } from 'react-icons/io5'
 import Modal from 'react-responsive-modal'
-import { useLocation, useNavigate } from 'react-router-dom'
 
 import Auth from '@/components/shared/Auth'
 
@@ -15,12 +16,12 @@ const HeaderProfile: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated)
+  const user = useAppSelector((state) => state.auth.user)
 
   const dispatch = useAppDispatch()
-  const navigate = useNavigate()
-
+  const router = useRouter()
+  const pathname = usePathname()
   const [showModal, setShowModal] = useState(false)
-  const { pathname } = useLocation()
 
   const handleShow = () => {
     setShowModal(true)
@@ -31,7 +32,7 @@ const HeaderProfile: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   }
 
   const handleLogout = () => {
-    navigate('/')
+    router.replace('/')
     dispatch(logout())
   }
 
@@ -44,7 +45,9 @@ const HeaderProfile: React.FC<HTMLAttributes<HTMLDivElement>> = ({
       <div className={classNames(styles['header-profile'], className)}>
         <div className={classNames(styles['header-profile__wrapper'])}>
           <div
-            onClick={isAuthenticated ? () => navigate('/account') : handleShow}
+            onClick={
+              isAuthenticated ? () => router.push('/account') : handleShow
+            }
             className={classNames(
               styles['header-profile__leading'],
               styles['header-profile-leading']
@@ -68,7 +71,7 @@ const HeaderProfile: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           {isAuthenticated && (
             <div className={classNames(styles['header-profile__body'])}>
               <div className={classNames(styles['header-profile__name'])}>
-                oooof_fuck@yahoo.com
+                {user?.email}
               </div>
               <button
                 type="button"

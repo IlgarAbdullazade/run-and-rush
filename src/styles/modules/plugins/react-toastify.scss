@@ -1,0 +1,18 @@
+@import 'react-toastify/scss/main';
+
+:root {
+  --toastify-color-light: #fff;
+  --toastify-color-dark: #0f0f13;
+  --toastify-color-info: #509af8;
+  --toastify-color-success: #84d65a;
+  --toastify-color-warning: #f7c752;
+  --toastify-color-error: #ef665b;
+}
+
+.Toastify__toast {
+  @apply p-4 shadow-border rounded-3xl;
+}
+
+.Toastify__toast-body {
+  @apply p-0;
+}

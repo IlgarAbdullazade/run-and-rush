@@ -1,6 +1,6 @@
-import { HTMLAttributes } from 'react'
-
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes } from 'react'
 
 import coin from '@/assets/icons/coin.svg'
 
@@ -32,11 +32,11 @@ const ReferralItem: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             </div>
           </div>
           <div className={classNames(styles['referral-item__value'])}>
-            <img
+            <Image
               src={coin}
               alt="Run&Rush Coin"
               className={classNames(styles['referral-item__value--coin'])}
-            ></img>
+            ></Image>
             <div className={classNames(styles['referral-item__value--count'])}>
               75
             </div>

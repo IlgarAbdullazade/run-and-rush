@@ -1,17 +1,18 @@
 import classNames from 'classnames'
 import { FormikProps, useFormik } from 'formik'
+import { useRouter } from 'next-nprogress-bar'
 import { HTMLAttributes, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useCountdown } from 'usehooks-ts'
 import { boolean, object, Schema, string } from 'yup'
 
 import Button from '@/components/UI/Button'
 import CustomCheckbox from '@/components/UI/CustomCheckbox'
 import CustomInput from '@/components/UI/CustomInput'
+import Loader from '@/components/UI/Loader'
 
 import { loginOrSignUp, sendCode } from '@/store/auth/authActions'
 import { IAuthFormValues } from '@/store/auth/authTypes'
-import { useAppDispatch } from '@/store/hooks'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
 
 import styles from './style.module.scss'
 
@@ -33,7 +34,10 @@ const validationSchema = object().shape<SchemaObject>({
 
 const Auth: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
   const [hasSent, setHasSent] = useState(false)
-  const navigate = useNavigate()
+  const [codeIsLoading, setCodeIsLoading] = useState(false)
+  const isLoading = useAppSelector((state) => state.auth.isLoading)
+
+  const router = useRouter()
   const dispatch = useAppDispatch()
   const [count, { startCountdown, resetCountdown }] = useCountdown({
     countStart: 30,
@@ -54,18 +58,27 @@ const Auth: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
       agreeToTerms: false,
     },
     validationSchema: validationSchema,
-    onSubmit: (values: IAuthFormValues) => {
-      formik.resetForm()
-      dispatch(loginOrSignUp(values))
-      navigate('/account')
+    onSubmit: async (values: IAuthFormValues) => {
+      const response = await dispatch(loginOrSignUp(values))
+      if (response.type === loginOrSignUp.fulfilled.type) {
+        formik.resetForm()
+        router.replace('/account')
+      }
+      if (response.type === loginOrSignUp.rejected.type) {
+        values.code = ''
+      }
     },
   })
 
-  const sendCodeDispatch = () => {
+  const sendCodeDispatch = async () => {
+    setCodeIsLoading(true)
     const email = formik.values.email
-    dispatch(sendCode(email))
-    setHasSent(true)
-    startCountdown()
+    const response = await dispatch(sendCode(email))
+    if (response.type === sendCode.fulfilled.type) {
+      setHasSent(true)
+      startCountdown()
+    }
+    setCodeIsLoading(false)
   }
 
   return (
@@ -107,13 +120,20 @@ const Auth: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
                   <button
                     type="button"
                     disabled={
-                      !formik.values.email || !!formik.errors.email || hasSent
+                      !formik.values.email ||
+                      !!formik.errors.email ||
+                      hasSent ||
+                      codeIsLoading
                     }
                     onClick={sendCodeDispatch}
                   >
-                    {hasSent
-                      ? `00:${count.toString().padStart(2, '0')}`
-                      : 'Send Code'}
+                    {hasSent ? (
+                      `00:${count.toString().padStart(2, '0')}`
+                    ) : codeIsLoading ? (
+                      <Loader loading={codeIsLoading} />
+                    ) : (
+                      'Send Code'
+                    )}
                   </button>
                 }
               />
@@ -146,9 +166,13 @@ const Auth: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
             <Button
               className={classNames(styles['auth-form__submit'])}
               type="submit"
-              disabled={formik.isSubmitting}
+              disabled={isLoading}
             >
-              Login / Sign Up
+              {isLoading ? (
+                <Loader loading={isLoading} color="#fff" />
+              ) : (
+                'Login / Sign Up'
+              )}
             </Button>
           </form>
         </div>

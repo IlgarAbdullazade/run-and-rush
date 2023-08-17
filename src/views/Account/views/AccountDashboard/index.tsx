@@ -1,16 +1,23 @@
-import { HTMLAttributes } from 'react'
+'use client'
 
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes, useEffect } from 'react'
 
 import coin from '@/assets/icons/coin.svg'
 import sneakersImg from '@/assets/images/shoes/mid-sneakers.png'
 
-import styles from './style.module.scss'
+import { useAppSelector } from '@/store/hooks'
+
 import ProgressBar from './components/ProgressBar'
+import styles from './style.module.scss'
 
 const AccountDashboard: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
+  const user = useAppSelector((state) => state.auth.user)
+  const account = useAppSelector((state) => state.account.account)
+
   return (
     <section className={classNames(styles['dashboard'], className)}>
       <div className={classNames(styles['dashboard__wrapper'])}>
@@ -21,15 +28,15 @@ const AccountDashboard: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           )}
         >
           <h2 className={classNames(styles['dashboard-user__name'])}>
-            Hello, Andrew
+            Hello, {user?.first_name.trim() ? user?.first_name : user?.email}
           </h2>
           <div className={classNames(styles['dashboard-user__balance'])}>
-            <img
+            <Image
               className={classNames(styles['dashboard-user__balance-coin'])}
               src={coin}
               alt="Run&Rush Coin"
             />
-            <span>0.0025</span>
+            <span>{account?.balance}</span>
           </div>
         </div>
         <div
@@ -48,7 +55,7 @@ const AccountDashboard: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               </span>
             </div>
             <div className={classNames(styles['dashboard-sneaker__rect'])}>
-              <img
+              <Image
                 src={sneakersImg}
                 alt="Jogger"
                 className={classNames(styles['dashboard-sneaker__image'])}

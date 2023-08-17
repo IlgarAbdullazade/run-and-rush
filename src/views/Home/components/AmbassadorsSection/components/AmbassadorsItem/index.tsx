@@ -1,13 +1,13 @@
-import { HTMLAttributes, ReactElement } from 'react'
-
 import classNames from 'classnames'
+import Image, { StaticImageData } from 'next/image'
+import { HTMLAttributes, ReactElement } from 'react'
 
 import styles from './style.module.scss'
 
 type AmbassadorsItemType = HTMLAttributes<HTMLDivElement> & {
   name: string
   location: string
-  image: string
+  image: StaticImageData
   stroke: ReactElement
 }
 
@@ -23,9 +23,12 @@ const AmbassadorsItem: React.FC<AmbassadorsItemType> = ({
       <div className={classNames(styles['ambassadors-item__wrapper'])}>
         <div className={classNames(styles['ambassadors-item__leading'])}>
           <div className={classNames(styles['ambassadors-item__rect'])}>
-            <img
+            <Image
+              fill
               src={image}
               alt={name}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{ objectFit: 'cover' }}
               className={classNames(styles['ambassadors-item__image'])}
             />
           </div>

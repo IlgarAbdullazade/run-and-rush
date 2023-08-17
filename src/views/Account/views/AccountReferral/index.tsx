@@ -1,13 +1,16 @@
-import { HTMLAttributes } from 'react'
+'use client'
 
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes } from 'react'
 import SimpleBar from 'simplebar-react'
 
-import coin from '@/assets/icons/coin.svg'
 import Button from '@/components/UI/Button'
 
-import styles from './style.module.scss'
+import coin from '@/assets/icons/coin.svg'
+
 import ReferralItem from './components/ReferralItem'
+import styles from './style.module.scss'
 
 const AccountReferral: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -32,7 +35,7 @@ const AccountReferral: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             </div>
             <div className={classNames(styles['referral-info__column'])}>
               <div className={classNames(styles['referral-info__title'])}>
-                <img
+                <Image
                   className={classNames(styles['referral-info__title-coin'])}
                   src={coin}
                   alt="Run&Rush Coin"
@@ -56,8 +59,8 @@ const AccountReferral: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               Refer friends. <br /> Earn Money
             </h3>
             <p className={classNames(styles['referral-context__text'])}>
-              Invite friends to sign up using your link and you'll get 10% of
-              their purchase
+              Invite friends to sign up using your link and you&apos;ll get 10%
+              of their purchase
             </p>
             <div className={classNames(styles['referral-context__textfield'])}>
               <div

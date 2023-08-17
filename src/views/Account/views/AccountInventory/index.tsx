@@ -1,6 +1,7 @@
-import { HTMLAttributes, useState } from 'react'
+'use client'
 
 import classNames from 'classnames'
+import { HTMLAttributes, useState } from 'react'
 
 import CustomReactSelect from '@/components/UI/CustomReactSelect'
 import {
@@ -8,9 +9,10 @@ import {
   CustomSelectOnChangeTypes,
 } from '@/components/UI/CustomReactSelect/types'
 
-import styles from './style.module.scss'
-import ShopList from '../../components/ShopList'
 import AccountTabs from '../../components/AccountTabs'
+import ShopList from '../../components/ShopList'
+
+import styles from './style.module.scss'
 
 const AccountInventory: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,

@@ -1,14 +1,14 @@
-import { HTMLAttributes, useRef } from 'react'
+'use client'
 
 import classNames from 'classnames'
-
+import { HTMLAttributes, useRef } from 'react'
 import { register } from 'swiper/element/bundle'
 import { Swiper, SwiperSlide } from 'swiper/react'
-
 import { Swiper as SwiperCore } from 'swiper/types'
 
-import styles from './style.module.scss'
 import GmtItem from '../GmtItem'
+
+import styles from './style.module.scss'
 
 register()
 

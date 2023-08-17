@@ -1,0 +1,74 @@
+.toast {
+  // .toast__wrapper
+
+  &__wrapper {
+    @apply flex justify-between gap-3 items-center;
+  }
+
+  // .toast__body
+
+  &__body {
+    @apply flex gap-3 items-center;
+  }
+
+  // .toast__leading
+
+  &__leading {
+    @apply text-2xl;
+    &--success {
+      @apply text-toastSuccess;
+    }
+
+    &--error {
+      @apply text-toastError;
+    }
+
+    &--warning {
+      @apply text-toastWarning;
+    }
+
+    &--info {
+      @apply text-toastInfo;
+    }
+  }
+
+  // .toast__context
+
+  &__context {
+    @apply flex-1;
+  }
+
+  // .toast__title
+
+  &__title {
+    @apply text-xl font-primary;
+
+    &--success {
+      @apply text-toastSuccess;
+    }
+
+    &--error {
+      @apply text-toastError;
+    }
+
+    &--warning {
+      @apply text-toastWarning;
+    }
+
+    &--info {
+      @apply text-toastInfo;
+    }
+  }
+
+  // .toast__text
+
+  &__text {
+    @apply text-sm;
+  }
+
+  // .toast__close
+
+  &__close {
+    @apply text-xl p-2 -m-2;
+  }
+}

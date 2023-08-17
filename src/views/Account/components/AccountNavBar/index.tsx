@@ -1,7 +1,7 @@
+import classNames from 'classnames'
 import { HTMLAttributes } from 'react'
 
-import classNames from 'classnames'
-import { NavLink } from 'react-router-dom'
+import ActiveLink from '@/components/UI/ActiveLink'
 
 import styles from './style.module.scss'
 
@@ -13,54 +13,49 @@ const AccountNavBar: React.FC<HTMLAttributes<HTMLDivElement>> = ({
       <div className={classNames(styles['account-navbar__wrapper'])}>
         <ul className={classNames(styles['account-navbar__list'])}>
           <li className={classNames(styles['account-navbar__item'])}>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? 'text-gradient' : 'text-gradient-hover'
-              }
-              to="dashboard"
+            <ActiveLink
+              activeClassName="text-gradient"
+              className="text-gradient-hover"
+              href="/account"
             >
               Dashboard
-            </NavLink>
+            </ActiveLink>
           </li>
           <li className={classNames(styles['account-navbar__item'])}>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? 'text-gradient' : 'text-gradient-hover'
-              }
-              to="balance"
+            <ActiveLink
+              activeClassName="text-gradient"
+              className="text-gradient-hover"
+              href="/account/balance"
             >
               Balance
-            </NavLink>
+            </ActiveLink>
           </li>
           <li className={classNames(styles['account-navbar__item'])}>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? 'text-gradient' : 'text-gradient-hover'
-              }
-              to="inventory"
+            <ActiveLink
+              activeClassName="text-gradient"
+              className="text-gradient-hover"
+              href="/account/inventory"
             >
               Inventory
-            </NavLink>
+            </ActiveLink>
           </li>
           <li className={classNames(styles['account-navbar__item'])}>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? 'text-gradient' : 'text-gradient-hover'
-              }
-              to="shop"
+            <ActiveLink
+              activeClassName="text-gradient"
+              className="text-gradient-hover"
+              href="/account/shop"
             >
               Shop
-            </NavLink>
+            </ActiveLink>
           </li>
           <li className={classNames(styles['account-navbar__item'])}>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? 'text-gradient' : 'text-gradient-hover'
-              }
-              to="referral-program"
+            <ActiveLink
+              activeClassName="text-gradient"
+              className="text-gradient-hover"
+              href="/account/referral-program"
             >
               Referral program
-            </NavLink>
+            </ActiveLink>
           </li>
         </ul>
       </div>

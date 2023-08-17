@@ -1,18 +1,20 @@
-import { HTMLAttributes } from 'react'
+'use client'
 
 import classNames from 'classnames'
-import { useMediaQuery } from 'react-responsive'
+import { HTMLAttributes } from 'react'
+import { useMediaQuery } from 'usehooks-ts'
 
-import styles from './style.module.scss'
+import { useClientSideValue } from '@/hooks/useClientSideValue'
+
 import RoadmapItem from './components/RoadmapItem'
 import RoadmapSlider from './components/RoadmapSlider'
+import styles from './style.module.scss'
 
 const RoadmapSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const isTabletOrMobile = useMediaQuery({
-    query: 'not all and (min-width: 1024px)',
-  })
+  const isTabletOrMobileValue = useMediaQuery('not all and (min-width: 1024px)')
+  const isTabletOrMobile = useClientSideValue(isTabletOrMobileValue, false)
 
   return (
     <section className={classNames(styles['roadmap'], className)}>

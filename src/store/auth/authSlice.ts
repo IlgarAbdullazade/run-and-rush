@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { loginOrSignUp, logout } from './authActions'
+import { getCurrentUser, loginOrSignUp, logout } from './authActions'
 import { IAuthErrorResponse, IAuthResponse, IUser } from './authTypes'
 
 interface AuthState {
@@ -46,6 +46,24 @@ const authSlice = createSlice({
         state.isLoading = false
         state.error = null
         state.user = null
+      })
+      .addCase(
+        getCurrentUser.fulfilled,
+        (state, action: PayloadAction<IUser>) => {
+          state.isAuthenticated = true
+          state.isLoading = false
+          state.error = null
+          state.user = action.payload
+        }
+      )
+      .addCase(getCurrentUser.pending, (state) => {
+        state.isLoading = true
+        state.error = null
+      })
+      .addCase(getCurrentUser.rejected, (state, action: any) => {
+        state.isAuthenticated = false
+        state.isLoading = false
+        state.error = action.payload
       })
   },
 })

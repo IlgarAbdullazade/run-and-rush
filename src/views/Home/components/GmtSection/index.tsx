@@ -1,29 +1,31 @@
-import { HTMLAttributes } from 'react'
+'use client'
 
 import classNames from 'classnames'
-import { useMediaQuery } from 'react-responsive'
+import { HTMLAttributes } from 'react'
+import { useMediaQuery } from 'usehooks-ts'
+
+import { useClientSideValue } from '@/hooks/useClientSideValue'
 
 import gridBgImg from '@/assets/images/grid-bg.png'
 import comingSoon from '@/assets/images/home/gmt/coming-soon.png'
 import floatingCoins from '@/assets/images/home/gmt/flaoting-coins.png'
 
-import styles from './style.module.scss'
 import GmtItem from './components/GmtItem'
 import GmtSlider from './components/GmtSlider'
+import styles from './style.module.scss'
 
 const GmtSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const isTabletOrMobile = useMediaQuery({
-    query: 'not all and (min-width: 768px)',
-  })
+  const isTabletOrMobileValue = useMediaQuery('not all and (min-width: 768px)')
+  const isTabletOrMobile = useClientSideValue(isTabletOrMobileValue, false)
 
   return (
     <section className={classNames(styles['gmt'], className)}>
       <div className={classNames(styles['gmt__tapes'], styles['gmt-tapes'])}>
         <div
           style={{
-            backgroundImage: `url(${comingSoon})`,
+            backgroundImage: `url(${comingSoon.src})`,
           }}
           className={classNames(
             styles['gmt-tapes__item'],
@@ -32,7 +34,7 @@ const GmtSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         ></div>
         <div
           style={{
-            backgroundImage: `url(${comingSoon})`,
+            backgroundImage: `url(${comingSoon.src})`,
           }}
           className={classNames(
             styles['gmt-tapes__item'],
@@ -46,7 +48,7 @@ const GmtSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <div
             className={classNames(styles['gmt__background-grid'])}
             style={{
-              backgroundImage: `url(${gridBgImg})`,
+              backgroundImage: `url(${gridBgImg.src})`,
             }}
           ></div>
           <div
@@ -59,7 +61,7 @@ const GmtSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         <div
           className={classNames(styles['gmt__floating-coins'])}
           style={{
-            backgroundImage: `url(${floatingCoins})`,
+            backgroundImage: `url(${floatingCoins.src})`,
           }}
         ></div>
 

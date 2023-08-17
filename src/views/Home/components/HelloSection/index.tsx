@@ -1,15 +1,16 @@
+import classNames from 'classnames'
+import Image from 'next/image'
+import Link from 'next/link'
 import { HTMLAttributes } from 'react'
 
-import classNames from 'classnames'
-
 import AppButton from '@/components/UI/AppButton'
-import runnerBgImg from '@/assets/images/runner-bg.png'
-import merTickerImg from '@/assets/images/mer-ticker.png'
+import Button from '@/components/UI/Button'
+
 import appsImg from '@/assets/images/home/hello/apps.png'
+import merTickerImg from '@/assets/images/mer-ticker.png'
+import runnerBgImg from '@/assets/images/runner-bg.png'
 
 import styles from './style.module.scss'
-import Button from '@/components/UI/Button'
-import { Link } from 'react-router-dom'
 
 const HelloSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -21,7 +22,7 @@ const HelloSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <div
             className={classNames(styles['hello__background-runner'])}
             style={{
-              backgroundImage: `url(${runnerBgImg})`,
+              backgroundImage: `url(${runnerBgImg.src})`,
             }}
           ></div>
           <div
@@ -41,7 +42,7 @@ const HelloSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             <h1 className={classNames(styles['hello-context__title'])}>
               <strong className={classNames('text-gradient')}>Run&Rush </strong>
               App
-              <br /> Let's{' '}
+              <br /> Let&apos;s{' '}
               <strong className={classNames('text-gradient')}>
                 Move To Earn
               </strong>
@@ -71,7 +72,7 @@ const HelloSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 store="ios"
               />
               <Link
-                to="how-to-play"
+                href="/how-to-play"
                 className={classNames(styles['hello-actions__item'])}
               >
                 <Button icon="icon-play" isOutline={true}>
@@ -81,7 +82,7 @@ const HelloSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             </div>
           </div>
           <div className={classNames(styles['hello__decoration'])}>
-            <img
+            <Image
               className={classNames(styles['hello__decoration-image'])}
               src={appsImg}
               alt="Run&Rush App"
@@ -93,7 +94,7 @@ const HelloSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         <div
           className={classNames(styles['hello__ticker-image'])}
           style={{
-            backgroundImage: `url(${merTickerImg})`,
+            backgroundImage: `url(${merTickerImg.src})`,
           }}
         ></div>
       </div>

@@ -1,6 +1,6 @@
-import { HTMLAttributes, ReactNode } from 'react'
-
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes, ReactNode } from 'react'
 
 import coin from '@/assets/icons/coin.svg'
 import sneakersImg from '@/assets/images/shoes/mid-sneakers.png'
@@ -16,7 +16,7 @@ const ShopItem: React.FC<ShopItemPropsType> = ({ className, button }) => {
     <div className={classNames(styles['shop-item'], className)}>
       <div className={classNames(styles['shop-item__wrapper'])}>
         <div className={classNames(styles['shop-item__rect'])}>
-          <img
+          <Image
             src={sneakersImg}
             alt="Jogger"
             className={classNames(styles['shop-item__image'])}
@@ -30,7 +30,7 @@ const ShopItem: React.FC<ShopItemPropsType> = ({ className, button }) => {
           <div className={classNames(styles['shop-item__id'])}>#145265874</div>
 
           <div className={classNames(styles['shop-item__bonus'])}>
-            <img
+            <Image
               className={classNames(styles['shop-item__bonus-coin'])}
               src={coin}
               alt="Run&Rush Coin"

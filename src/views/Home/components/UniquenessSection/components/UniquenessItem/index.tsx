@@ -1,14 +1,15 @@
 import classNames from 'classnames'
+import Image, { StaticImageData } from 'next/image'
+import { HTMLAttributes } from 'react'
 
 import styles from './style.module.scss'
-import { HTMLAttributes } from 'react'
 
 type UniquenessItemType = HTMLAttributes<HTMLDivElement> & {
   title: string
   caption: string
   text: string
   links: Array<{ title: string; href: string }>
-  image: string
+  image: StaticImageData
 }
 
 const UniquenessItem: React.FC<UniquenessItemType> = ({
@@ -50,7 +51,7 @@ const UniquenessItem: React.FC<UniquenessItemType> = ({
             ))}
           </div>
           <div className={classNames(styles['uniqueness-item__decoration'])}>
-            <img
+            <Image
               src={image}
               alt="Data privacy"
               className={classNames(

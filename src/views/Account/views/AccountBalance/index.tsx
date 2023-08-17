@@ -1,17 +1,25 @@
-import { HTMLAttributes } from 'react'
+'use client'
 
 import classNames from 'classnames'
+import Image from 'next/image'
+import { HTMLAttributes } from 'react'
 import SimpleBar from 'simplebar-react'
 
-import coin from '@/assets/icons/coin.svg'
 import Button from '@/components/UI/Button'
 
-import styles from './style.module.scss'
+import coin from '@/assets/icons/coin.svg'
+
+import { useAppSelector } from '@/store/hooks'
+
 import TransactionItem from './components/TransactionItem'
+import TransactionList from './components/TransactionList'
+import styles from './style.module.scss'
 
 const AccountBalance: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
+  const account = useAppSelector((state) => state.account.account)
+
   return (
     <section className={classNames(styles['balance'], className)}>
       <div className={classNames(styles['balance__wrapper'])}>
@@ -23,12 +31,12 @@ const AccountBalance: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         >
           <div className={classNames(styles['balance-info__wrapper'])}>
             <div className={classNames(styles['balance-info__title'])}>
-              <img
+              <Image
                 className={classNames(styles['balance-info__title-coin'])}
                 src={coin}
                 alt="Run&Rush Coin"
               />
-              <span>273.54</span>
+              <span>{account?.balance}</span>
             </div>
             <div className={classNames(styles['balance-info__actions'])}>
               <Button
@@ -57,14 +65,9 @@ const AccountBalance: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               Transaction History
             </h3>
             <div className={classNames(styles['balance-transactions__body'])}>
-              <SimpleBar>
-                {Array.from(Array(20), (_, i) => (
-                  <TransactionItem
-                    key={i}
-                    className={classNames(styles['balance-transactions__item'])}
-                  />
-                ))}
-              </SimpleBar>
+              <TransactionList
+                className={classNames(styles['balance-transactions__list'])}
+              />
             </div>
           </div>
         </div>
