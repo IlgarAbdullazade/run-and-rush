@@ -2,6 +2,8 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import { HTMLAttributes } from 'react'
 
+import DateString from '@/components/UI/DateString'
+
 import { ITransaction } from '@/shared/types/transaction.types'
 
 import coin from '@/assets/icons/coin.svg'
@@ -32,7 +34,7 @@ const TransactionItem: React.FC<TransactionItemProps> = ({
         <div className={classNames(styles['transaction-item__body'])}>
           <div className={classNames(styles['transaction-item__info'])}>
             <div className={classNames(styles['transaction-item__info--date'])}>
-              11.12.2022, 18:43
+              <DateString>{transaction.updated_at}</DateString>
             </div>
             <div className={classNames(styles['transaction-item__info--type'])}>
               {transaction.operation_type}

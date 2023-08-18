@@ -3,7 +3,6 @@
 import classNames from 'classnames'
 import Image from 'next/image'
 import { HTMLAttributes } from 'react'
-import SimpleBar from 'simplebar-react'
 
 import Button from '@/components/UI/Button'
 
@@ -11,7 +10,6 @@ import coin from '@/assets/icons/coin.svg'
 
 import { useAppSelector } from '@/store/hooks'
 
-import TransactionItem from './components/TransactionItem'
 import TransactionList from './components/TransactionList'
 import styles from './style.module.scss'
 
