@@ -4,18 +4,17 @@ import { isTokenValid } from '@/utils/jwt/jwt'
 
 import { API_URL, getAuthUrl } from '@/configs/apiConfig'
 
-export const config = { matcher: ['/account/:path*'] }
-
-export async function middleware(req: NextRequest) {
-  const url = req.nextUrl.clone()
+export async function middleware(request: NextRequest) {
+  const url = request.nextUrl.clone()
   url.pathname = '/'
+  const { cookies } = request
 
-  const { cookies } = req
-  const token = cookies?.get('token')?.value
+  const protectedRoutes = request.nextUrl.pathname.startsWith('/account')
+  const accessToken = cookies?.get('accessToken')?.value
   const refreshToken = cookies?.get('refreshToken')?.value
   const newResponse = NextResponse.next()
 
-  let tokenIsValid = isTokenValid(token)
+  let tokenIsValid = isTokenValid(accessToken)
 
   if (!tokenIsValid && !!refreshToken) {
     const response = await fetch(`${API_URL}${getAuthUrl('/jwt/refresh')}`, {
@@ -28,9 +27,15 @@ export async function middleware(req: NextRequest) {
       }),
     })
     const { access } = await response.json()
+
     newResponse.cookies.set('accessToken', access)
+    console.log(access)
     tokenIsValid = true
   }
 
-  return tokenIsValid ? newResponse : NextResponse.redirect(url)
+  if (protectedRoutes) {
+    return tokenIsValid ? newResponse : NextResponse.redirect(url)
+  }
+
+  return newResponse
 }

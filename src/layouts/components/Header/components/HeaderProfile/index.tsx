@@ -85,7 +85,7 @@ const HeaderProfile: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         </div>
       </div>
       <Modal closeIcon={<IoCloseSharp />} open={showModal} onClose={handleHide}>
-        <Auth />
+        <Auth setClose={handleHide} />
       </Modal>
     </>
   )

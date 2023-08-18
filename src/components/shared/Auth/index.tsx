@@ -16,6 +16,9 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks'
 
 import styles from './style.module.scss'
 
+type AuthPropsType = HTMLAttributes<HTMLDivElement> & {
+  setClose: React.Dispatch<React.SetStateAction<boolean>>
+}
 type SchemaObject = {
   [key in keyof IAuthFormValues]: Schema<unknown>
 }
@@ -32,7 +35,7 @@ const validationSchema = object().shape<SchemaObject>({
   ),
 })
 
-const Auth: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
+const Auth: React.FC<AuthPropsType> = ({ setClose, className }) => {
   const [hasSent, setHasSent] = useState(false)
   const [codeIsLoading, setCodeIsLoading] = useState(false)
   const isLoading = useAppSelector((state) => state.auth.isLoading)
@@ -62,6 +65,7 @@ const Auth: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
       const response = await dispatch(loginOrSignUp(values))
       if (response.type === loginOrSignUp.fulfilled.type) {
         formik.resetForm()
+        setClose(false)
         router.replace('/account')
       }
       if (response.type === loginOrSignUp.rejected.type) {

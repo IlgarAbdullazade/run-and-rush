@@ -4,7 +4,7 @@ import { IAuthResponse, ITokens } from '@/store/auth/authTypes'
 
 export const saveTokensStorage = (data: ITokens) => {
   Cookies.set('accessToken', data.access)
-  Cookies.set('refreshToken', data.refresh)
+  Cookies.set('refreshToken', data.refresh, { expires: 30 })
 }
 
 export const saveToStorage = (data: IAuthResponse) => {
