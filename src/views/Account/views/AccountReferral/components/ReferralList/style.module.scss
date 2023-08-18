@@ -1,0 +1,13 @@
+.referral-history-list {
+  // .referral-history-list__wrapper
+
+  > [data-simplebar] {
+    @apply lg:max-h-[14rem] max-h-[calc(100vh-23.5rem)] -mx-8 px-8 max-lg:-mr-4 max-lg:pr-4;
+  }
+
+  // .referral-history-list__item
+
+  &__item {
+    @apply mb-4;
+  }
+}

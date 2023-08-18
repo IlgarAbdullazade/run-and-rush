@@ -3,18 +3,23 @@
 import classNames from 'classnames'
 import Image from 'next/image'
 import { HTMLAttributes } from 'react'
-import SimpleBar from 'simplebar-react'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import Button from '@/components/UI/Button'
 
 import coin from '@/assets/icons/coin.svg'
 
-import ReferralItem from './components/ReferralItem'
+import { showToast } from '@/utils/toast/showToast'
+
+import ReferralList from './components/ReferralList'
+import { useReferralProfile } from './hooks/useReferralProfile'
 import styles from './style.module.scss'
 
 const AccountReferral: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
+  const { data: referralProfile } = useReferralProfile()
+
   return (
     <section className={classNames(styles['referral'], className)}>
       <div className={classNames(styles['referral__wrapper'])}>
@@ -27,7 +32,7 @@ const AccountReferral: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <div className={classNames(styles['referral-info__wrapper'])}>
             <div className={classNames(styles['referral-info__column'])}>
               <div className={classNames(styles['referral-info__title'])}>
-                14
+                {referralProfile?.referrals_count}
               </div>
               <div className={classNames(styles['referral-info__caption'])}>
                 Referrals
@@ -40,7 +45,7 @@ const AccountReferral: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                   src={coin}
                   alt="Run&Rush Coin"
                 />
-                <span>273.54</span>
+                <span> {referralProfile?.balance}</span>
               </div>
               <div className={classNames(styles['referral-info__caption'])}>
                 Earned (for all time)
@@ -75,7 +80,7 @@ const AccountReferral: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                   styles['referral-context__textfield--block']
                 )}
               >
-                345465
+                {referralProfile?.code}
               </div>
               <div
                 className={classNames(
@@ -85,9 +90,18 @@ const AccountReferral: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 Friends must use your ID when sign up!
               </div>
             </div>
-            <Button className={classNames(styles['referral-context__button'])}>
-              Copy Link
-            </Button>
+            <CopyToClipboard
+              text={referralProfile?.code ?? ''}
+              onCopy={() => {
+                showToast('success', 'Referral code copied to clipboard')
+              }}
+            >
+              <Button
+                className={classNames(styles['referral-context__button'])}
+              >
+                Copy Link
+              </Button>
+            </CopyToClipboard>
           </div>
         </div>
         <div
@@ -101,14 +115,9 @@ const AccountReferral: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               Reward From Referrals
             </h3>
             <div className={classNames(styles['referral-history__body'])}>
-              <SimpleBar>
-                {Array.from(Array(20), (_, i) => (
-                  <ReferralItem
-                    key={i}
-                    className={classNames(styles['referral-history__item'])}
-                  />
-                ))}
-              </SimpleBar>
+              <ReferralList
+                className={classNames(styles['referral-history__list'])}
+              />
             </div>
           </div>
         </div>

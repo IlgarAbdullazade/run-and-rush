@@ -2,12 +2,21 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import { HTMLAttributes } from 'react'
 
+import DateString from '@/components/UI/DateString'
+
+import { IReferralReward } from '@/shared/types/referral.types'
+
 import coin from '@/assets/icons/coin.svg'
 
 import styles from './style.module.scss'
 
-const ReferralItem: React.FC<HTMLAttributes<HTMLDivElement>> = ({
+type TransactionItemProps = HTMLAttributes<HTMLDivElement> & {
+  referral: IReferralReward
+}
+
+const ReferralItem: React.FC<TransactionItemProps> = ({
   className,
+  referral,
 }) => {
   return (
     <div className={classNames(styles['referral-item'], className)}>
@@ -25,10 +34,10 @@ const ReferralItem: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         <div className={classNames(styles['referral-item__body'])}>
           <div className={classNames(styles['referral-item__info'])}>
             <div className={classNames(styles['referral-item__info--date'])}>
-              11.12.2022, 18:43
+              <DateString>{referral.created_at}</DateString>
             </div>
             <div className={classNames(styles['referral-item__info--mail'])}>
-              some@email.com
+              {referral.user_from_email}
             </div>
           </div>
           <div className={classNames(styles['referral-item__value'])}>
@@ -38,7 +47,7 @@ const ReferralItem: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               className={classNames(styles['referral-item__value--coin'])}
             ></Image>
             <div className={classNames(styles['referral-item__value--count'])}>
-              75
+              {referral.amount}
             </div>
           </div>
         </div>

@@ -1,8 +1,9 @@
 .referral {
+  @apply h-full;
   // referral__wrapper
 
   &__wrapper {
-    @apply p-4;
+    @apply p-4 flex h-full flex-col;
   }
 
   // .referral__context
@@ -20,6 +21,7 @@
   // .referral__history
 
   &__history {
+    @apply flex-auto;
   }
 }
 
@@ -103,7 +105,7 @@
   // referral-history__wrapper
 
   &__wrapper {
-    @apply px-6 max-lg:px-0;
+    @apply px-6 max-lg:px-0 flex flex-col h-full;
   }
 
   // referral-history__title
@@ -115,14 +117,10 @@
   // referral-history__body
 
   &__body {
-    > [data-simplebar] {
-      @apply lg:max-h-[14rem] max-h-[calc(100vh-23.5rem)] -mx-8 px-8 max-lg:-mr-4 max-lg:pr-4;
-    }
+    @apply flex-auto;
   }
+  // referral-history__list
 
-  // referral-history__item
-
-  &__item {
-    @apply mb-4;
+  &__list {
   }
 }
