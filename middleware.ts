@@ -29,7 +29,6 @@ export async function middleware(request: NextRequest) {
     const { access } = await response.json()
 
     newResponse.cookies.set('accessToken', access)
-    console.log(access)
     tokenIsValid = true
   }
 

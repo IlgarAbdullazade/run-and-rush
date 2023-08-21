@@ -1,42 +1,81 @@
 'use client'
 
 import classNames from 'classnames'
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, ReactNode } from 'react'
 import SimpleBar from 'simplebar-react'
 
 import Button from '@/components/UI/Button'
+import Loader from '@/components/UI/Loader'
+
+import {
+  ISneaker,
+  ISneakerProduct,
+  isSneakerProduct,
+} from '@/shared/types/sneakers.types'
 
 import ShopItem from '../ShopItem'
 
 import styles from './style.module.scss'
 
+type ListType = 'inventory' | 'shop'
+
 type ShopListPropsType = HTMLAttributes<HTMLDivElement> & {
-  count: number
-  dressed?: boolean
+  items: ISneaker[] | ISneakerProduct[] | undefined
+  isLoading: boolean
+  listType: ListType
+  buttonAction: (sneaker: ISneaker) => Promise<void>
 }
 
 const ShopList: React.FC<ShopListPropsType> = ({
   className,
-  count,
-  dressed = false,
+  isLoading,
+  listType,
+  items,
+  buttonAction,
 }) => {
+  const shopItemButton = (item: ISneaker | ISneakerProduct): ReactNode => {
+    const handleClick = () => {
+      if (listType === 'inventory' && !isSneakerProduct(item)) {
+        buttonAction(item)
+      } else {
+        const product = item as ISneakerProduct
+        buttonAction(product.sneaker)
+      }
+    }
+
+    const buttonText =
+      listType === 'inventory' && !isSneakerProduct(item)
+        ? item.is_dressed
+          ? 'Dressed'
+          : 'Put'
+        : 'Buy'
+
+    return (
+      <Button
+        onClick={handleClick}
+        isOutline={
+          listType === 'inventory' && !isSneakerProduct(item) && item.is_dressed
+        }
+        className={classNames(styles['shop-item__button'])}
+      >
+        {buttonText}
+      </Button>
+    )
+  }
+
+  if (isLoading) return <Loader loading size={16} />
+
   return (
     <section className={classNames(styles['shop-list'], className)}>
       <div className={classNames(styles['shop-list__wrapper'])}>
         <SimpleBar>
           <div className={classNames(styles['shop-list__body'])}>
-            {Array.from(Array(count), (_, i) => (
+            {items?.map((item) => (
               <ShopItem
-                key={i}
+                key={item.id}
+                item={item}
                 className={classNames(styles['shop-list__item'])}
-                button={
-                  <Button
-                    isOutline={i % 3 === 0 || dressed}
-                    className={classNames(styles['shop-item__button'])}
-                  >
-                    {i % 3 === 0 || dressed ? 'Dressed' : 'Put'}
-                  </Button>
-                }
+                button={shopItemButton(item)}
               />
             ))}
           </div>

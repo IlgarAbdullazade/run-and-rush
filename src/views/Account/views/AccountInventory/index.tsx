@@ -1,53 +1,85 @@
 'use client'
 
 import classNames from 'classnames'
-import { HTMLAttributes, useState } from 'react'
+import { HTMLAttributes, useEffect, useState } from 'react'
 
 import CustomReactSelect from '@/components/UI/CustomReactSelect'
+import { CustomOptionType } from '@/components/UI/CustomReactSelect/types'
+
 import {
-  CustomOptionType,
-  CustomSelectOnChangeTypes,
-} from '@/components/UI/CustomReactSelect/types'
+  SneakerDressStatusType,
+  SneakerEarnedOrderingType,
+} from '@/shared/types/sneakers.types'
 
 import AccountTabs from '../../components/AccountTabs'
 import ShopList from '../../components/ShopList'
 
+import { useInventories } from './hooks/useInventories'
 import styles from './style.module.scss'
 
 const AccountInventory: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const options: CustomOptionType[] = [
-    { value: 'low_price', label: 'Lower Price' },
-    { value: 'higher_price', label: 'Higher Price' },
-    { value: 'newest_first', label: 'Newest First' },
+  const {
+    isLoading,
+    data: inventories,
+    setQueryParams,
+    sneakerPutOnOrTakeOff,
+  } = useInventories()
+
+  const orderingOptions: CustomOptionType<SneakerEarnedOrderingType>[] = [
+    { value: 'LOWER', label: 'Lower Price' },
+    { value: 'HIGHER', label: 'Higher Price' },
+    //{ value: 'newest_first', label: 'Newest First' },
   ]
 
-  const [selectedOption, setSelectedOption] =
-    useState<CustomSelectOnChangeTypes>(options[0])
+  const tabs: CustomOptionType<SneakerDressStatusType>[] = [
+    { value: 'ALL', label: 'All' },
+    { value: 'DRESSED', label: 'Dressed' },
+  ]
 
-  const handleSelectChange = (option: CustomSelectOnChangeTypes) => {
+  const [selectedOption, setSelectedOption] = useState(orderingOptions[0])
+
+  const [selectedTab, setSelectedTab] = useState(tabs[0])
+
+  const handleSelectChange = (option: any) => {
     setSelectedOption(option)
-    console.log(option)
   }
+
+  useEffect(() => {
+    setQueryParams({
+      dress_status: selectedTab.value,
+      earned_amount_ordering: selectedOption!.value,
+      offset: 0,
+    })
+  }, [selectedOption, selectedTab, setQueryParams])
 
   return (
     <div className={classNames(styles['inventory'], className)}>
       <div className={classNames(styles['inventory__wrapper'])}>
         <div className={classNames(styles['inventory__tabs'])}>
           <AccountTabs
+            defaultIndex={0}
+            onSelect={(index) => setSelectedTab(tabs[index])}
+            tabs={tabs.map((tab) => tab.label)}
             select={
               <CustomReactSelect
                 value={selectedOption}
-                options={options}
+                options={orderingOptions}
                 isSearchable={false}
                 onChange={handleSelectChange}
               />
             }
-            tabs={['All', 'Dressed']}
           >
-            <ShopList count={15} />
-            <ShopList count={5} dressed />
+            {tabs.map((tab) => (
+              <ShopList
+                key={tab.value}
+                buttonAction={sneakerPutOnOrTakeOff}
+                listType="inventory"
+                isLoading={isLoading}
+                items={inventories}
+              />
+            ))}
           </AccountTabs>
         </div>
       </div>
