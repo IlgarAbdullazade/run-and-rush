@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import { GoTriangleDown } from 'react-icons/go'
 import { HiCheckCircle } from 'react-icons/hi'
 import Select, { components } from 'react-select'
@@ -41,6 +42,7 @@ const CustomReactSelect: React.FC<CustomReactSelectPropsType> = ({
       unstyled
       className="react-select"
       classNamePrefix="react-select"
+      instanceId={useId()}
       components={{ Option: CustomOption, DropdownIndicator }}
       {...props}
     />

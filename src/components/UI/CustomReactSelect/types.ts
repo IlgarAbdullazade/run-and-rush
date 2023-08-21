@@ -27,9 +27,9 @@ export declare type StateManagerProps<
 > = SelectPropsWithOptionalStateManagedProps<Option, IsMulti, Group> &
   StateManagerAdditionalProps<Option>
 
-export type CustomOptionType = {
+export type CustomOptionType<T extends string = string> = {
   label: string
-  value: string
+  value: T
 }
 
 export type GroupedOptionType = {
