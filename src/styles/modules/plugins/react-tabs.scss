@@ -17,19 +17,18 @@
     }
 
     &--disabled {
-      cursor: default;
+      @apply opacity-20 cursor-default;
     }
 
     &:focus {
-      outline: none;
+      @apply outline-none;
     }
   }
 
   &__tab-panel {
-    display: none;
-
+    @apply hidden;
     &--selected {
-      display: block;
+      @apply block;
     }
   }
 }

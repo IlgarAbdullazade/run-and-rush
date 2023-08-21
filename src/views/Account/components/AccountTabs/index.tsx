@@ -1,11 +1,6 @@
-import { ReactNode } from 'react'
-import { Tab, Tabs, TabList, TabPanel, TabsProps } from 'react-tabs'
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 
-type AccountTabsPropsType = TabsProps & {
-  select: ReactNode
-  tabs: string[]
-  children: ReactNode[]
-}
+import { AccountTabsPropsType } from './types'
 
 const AccountTabs: React.FC<AccountTabsPropsType> = ({
   select,
@@ -19,7 +14,9 @@ const AccountTabs: React.FC<AccountTabsPropsType> = ({
         {select}
         <TabList>
           {tabs.map((tab, index) => (
-            <Tab key={index}>{tab}</Tab>
+            <Tab key={index} disabled={tab.disabled}>
+              {tab.label}
+            </Tab>
           ))}
         </TabList>
       </div>
