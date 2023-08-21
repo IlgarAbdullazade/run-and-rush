@@ -1,8 +1,8 @@
 import type {
   ISneaker,
-  ISneakerInventroiesParams,
-  SneakerDressStatusType,
-  SneakerEarnedOrderingType,
+  ISneakerInventoriesParams,
+  ISneakerProduct,
+  ISneakerShopParams,
 } from '@/shared/types/sneakers.types'
 
 import { getSneakersUrl } from '@/configs/apiConfig'
@@ -10,7 +10,7 @@ import { getSneakersUrl } from '@/configs/apiConfig'
 import axiosInstance from '@/api/interceptors'
 
 export const SneakersService = {
-  async getSneakerInventories(params: ISneakerInventroiesParams) {
+  async getSneakerInventories(params: ISneakerInventoriesParams) {
     return axiosInstance.get<ISneaker[]>(getSneakersUrl('/inventories'), {
       params: {
         ...params,
@@ -31,5 +31,33 @@ export const SneakersService = {
         id,
       }
     )
+  },
+
+  async getSellingSneakers(params: ISneakerShopParams) {
+    return axiosInstance.get<ISneakerProduct[]>(
+      getSneakersUrl('/selling_orders'),
+      {
+        params: {
+          ...params,
+        },
+      }
+    )
+  },
+
+  async getSellingSneaker(id: string) {
+    return axiosInstance.get<ISneakerProduct[]>(
+      getSneakersUrl(`/selling_orders/${id}`),
+      {
+        params: {
+          id,
+        },
+      }
+    )
+  },
+
+  async buySneaker(id: string) {
+    return axiosInstance.post<ISneaker>(getSneakersUrl('/buy_sneaker'), {
+      id,
+    })
   },
 }

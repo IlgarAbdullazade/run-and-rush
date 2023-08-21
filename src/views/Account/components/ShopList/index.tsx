@@ -23,7 +23,7 @@ type ShopListPropsType = HTMLAttributes<HTMLDivElement> & {
   items: ISneaker[] | ISneakerProduct[] | undefined
   isLoading: boolean
   listType: ListType
-  buttonAction: (sneaker: ISneaker) => Promise<void>
+  buttonAction: (sneaker: any) => Promise<void>
 }
 
 const ShopList: React.FC<ShopListPropsType> = ({
@@ -39,7 +39,7 @@ const ShopList: React.FC<ShopListPropsType> = ({
         buttonAction(item)
       } else {
         const product = item as ISneakerProduct
-        buttonAction(product.sneaker)
+        buttonAction(product)
       }
     }
 

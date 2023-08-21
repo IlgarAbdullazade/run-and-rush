@@ -48,9 +48,7 @@ const ShopItem: React.FC<ShopItemPropsType> = ({ className, button, item }) => {
               alt="Run&Rush Coin"
             />
             <span>
-              {isSneakerProduct(item)
-                ? item.sneaker.earned_amount
-                : item.earned_amount}
+              {isSneakerProduct(item) ? item.price : item.earned_amount}
             </span>
           </div>
         </div>

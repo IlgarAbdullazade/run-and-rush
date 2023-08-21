@@ -1,3 +1,5 @@
+import { IListParams } from './common.types'
+
 export interface ISneaker {
   id: string
   created_at: Date
@@ -18,10 +20,9 @@ export interface ISneakerProduct {
   is_closed: true
 }
 
-export interface ISneakerInventroiesParams {
+export interface ISneakerInventoriesParams extends IListParams {
   dress_status: SneakerDressStatusType
   earned_amount_ordering: SneakerEarnedOrderingType
-  offset: number
 }
 
 export type SneakerDressStatusType = 'ALL' | 'DRESSED' | 'NOT_DRESSED'
@@ -33,3 +34,11 @@ export function isSneakerProduct(
 ): item is ISneakerProduct {
   return 'price' in item
 }
+
+export interface ISneakerShopParams extends IListParams {
+  price_ordering: SneakerPriceOrderingType
+}
+
+export type SneakerPriceOrderingType = 'LOWER' | 'HIGHER'
+
+export type SneakerActionType = 'BUY' | 'SELL'

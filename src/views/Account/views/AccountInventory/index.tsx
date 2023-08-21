@@ -7,11 +7,13 @@ import CustomReactSelect from '@/components/UI/CustomReactSelect'
 import { CustomOptionType } from '@/components/UI/CustomReactSelect/types'
 
 import {
+  SneakerActionType,
   SneakerDressStatusType,
   SneakerEarnedOrderingType,
 } from '@/shared/types/sneakers.types'
 
 import AccountTabs from '../../components/AccountTabs'
+import { TabType } from '../../components/AccountTabs/types'
 import ShopList from '../../components/ShopList'
 
 import { useInventories } from './hooks/useInventories'
@@ -30,10 +32,9 @@ const AccountInventory: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   const orderingOptions: CustomOptionType<SneakerEarnedOrderingType>[] = [
     { value: 'LOWER', label: 'Lower Price' },
     { value: 'HIGHER', label: 'Higher Price' },
-    //{ value: 'newest_first', label: 'Newest First' },
   ]
 
-  const tabs: CustomOptionType<SneakerDressStatusType>[] = [
+  const tabs: TabType<SneakerDressStatusType>[] = [
     { value: 'ALL', label: 'All' },
     { value: 'DRESSED', label: 'Dressed' },
   ]
@@ -61,7 +62,7 @@ const AccountInventory: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <AccountTabs
             defaultIndex={0}
             onSelect={(index) => setSelectedTab(tabs[index])}
-            tabs={tabs.map((tab) => tab.label)}
+            tabs={tabs}
             select={
               <CustomReactSelect
                 value={selectedOption}

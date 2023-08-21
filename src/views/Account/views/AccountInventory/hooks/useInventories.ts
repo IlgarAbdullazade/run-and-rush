@@ -3,19 +3,17 @@ import { useState } from 'react'
 
 import {
   ISneaker,
-  ISneakerInventroiesParams,
+  ISneakerInventoriesParams,
 } from '@/shared/types/sneakers.types'
 
 import { SneakersService } from '@/services/sneakers/sneakersService'
-
-import { toastError } from '@/utils/toast/toastError'
 
 const QUERY_KEY = 'inventories'
 
 export const useInventories = () => {
   const queryClient = useQueryClient()
 
-  const [queryParams, setQueryParams] = useState<ISneakerInventroiesParams>({
+  const [queryParams, setQueryParams] = useState<ISneakerInventoriesParams>({
     dress_status: 'ALL',
     earned_amount_ordering: 'LOWER',
     offset: 0,
@@ -25,9 +23,6 @@ export const useInventories = () => {
     queryKey: [QUERY_KEY, queryParams],
     queryFn: () => SneakersService.getSneakerInventories(queryParams),
     select: ({ data }) => data,
-    onError(error: any) {
-      toastError(error)
-    },
   })
 
   const putOnMutation = useMutation({
@@ -78,7 +73,7 @@ export const useInventories = () => {
         context?.previousSneaker
       )
     },
-    onSettled: (data) => {
+    onSettled: () => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEY] })
     },
   })
