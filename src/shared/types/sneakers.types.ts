@@ -1,11 +1,14 @@
-import { IListParams } from './common.types'
+import { IUser } from '@/store/auth/authTypes'
 
-export interface ISneaker {
+export interface ISneakerBase {
   id: string
-  created_at: Date
-  updated_at: Date
   title: string
   image_url: string
+}
+
+export interface ISneaker extends ISneakerBase {
+  created_at: Date
+  updated_at: Date
   owner_id: string
   sneaker_id: string
   earned_amount: string
@@ -20,7 +23,7 @@ export interface ISneakerProduct {
   is_closed: true
 }
 
-export interface ISneakerInventoriesParams extends IListParams {
+export interface ISneakerInventoriesParams {
   dress_status: SneakerDressStatusType
   earned_amount_ordering: SneakerEarnedOrderingType
 }
@@ -35,10 +38,20 @@ export function isSneakerProduct(
   return 'price' in item
 }
 
-export interface ISneakerShopParams extends IListParams {
+export interface ISneakerShopParams {
   price_ordering: SneakerPriceOrderingType
 }
 
 export type SneakerPriceOrderingType = 'LOWER' | 'HIGHER'
 
 export type SneakerActionType = 'BUY' | 'SELL'
+
+export interface IWalkingProfile {
+  user: IUser
+  sneakers: ISneakerBase[]
+  balance: string
+  energy: string
+  distance: number
+  energy_max: string
+  distance_max: number
+}

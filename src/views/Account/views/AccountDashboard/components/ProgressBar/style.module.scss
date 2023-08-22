@@ -22,5 +22,6 @@
   // .progress-bar__text
 
   &__text {
+    @apply uppercase;
   }
 }

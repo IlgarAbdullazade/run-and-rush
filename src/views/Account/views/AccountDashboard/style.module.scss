@@ -53,7 +53,7 @@
   // .dashboard-sneaker__wrapper
 
   &__wrapper {
-    @apply flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-black/30 backdrop-blur-2xl bg-blend-overlay max-lg:px-7;
+    @apply flex items-center justify-center gap-3 px-8 py-2 rounded-2xl bg-black/30 backdrop-blur-2xl bg-blend-overlay max-lg:px-7;
   }
 
   // .dashboard-sneaker__info
@@ -77,20 +77,28 @@
   // .dashboard-sneaker__rect
 
   &__rect {
+    @apply relative w-[6rem];
   }
 
   // .dashboard-sneaker__image
 
   &__image {
-    @apply max-w-[6rem];
   }
 }
+.dashboard-sneaker-add {
+  @apply flex w-full items-center justify-center transition-colors border-2 border-dashed h-28 rounded-2xl border-primary-300/30 lg:hover:border-primary-300 text-primary-400;
+}
+
 .dashboard-actions {
   @apply grid grid-cols-4 gap-4 max-lg:gap-3;
   // .dashboard-actions__item
 
   &__item {
-    @apply flex items-center justify-center transition-colors border-2 border-dashed h-14 rounded-2xl border-primary-300/30 lg:hover:border-primary-300 text-primary-400;
+    @apply flex  items-center justify-center transition-colors h-14 rounded-2xl bg-black/30 backdrop-blur-2xl;
+
+    &--add {
+      @apply bg-transparent backdrop-blur-none border-2 border-dashed border-primary-300/30 lg:hover:border-primary-300 text-primary-400;
+    }
   }
 
   // .dashboard-actions__item--icon

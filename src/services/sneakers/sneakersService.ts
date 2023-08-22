@@ -3,6 +3,7 @@ import type {
   ISneakerInventoriesParams,
   ISneakerProduct,
   ISneakerShopParams,
+  IWalkingProfile,
 } from '@/shared/types/sneakers.types'
 
 import { getSneakersUrl } from '@/configs/apiConfig'
@@ -10,10 +11,14 @@ import { getSneakersUrl } from '@/configs/apiConfig'
 import axiosInstance from '@/api/interceptors'
 
 export const SneakersService = {
-  async getSneakerInventories(params: ISneakerInventoriesParams) {
+  async getSneakerInventories(
+    params: ISneakerInventoriesParams,
+    offset: number
+  ) {
     return axiosInstance.get<ISneaker[]>(getSneakersUrl('/inventories'), {
       params: {
         ...params,
+        offset,
       },
     })
   },
@@ -33,12 +38,13 @@ export const SneakersService = {
     )
   },
 
-  async getSellingSneakers(params: ISneakerShopParams) {
+  async getSellingSneakers(params: ISneakerShopParams, offset: number) {
     return axiosInstance.get<ISneakerProduct[]>(
       getSneakersUrl('/selling_orders'),
       {
         params: {
           ...params,
+          offset,
         },
       }
     )
@@ -59,5 +65,9 @@ export const SneakersService = {
     return axiosInstance.post<ISneaker>(getSneakersUrl('/buy_sneaker'), {
       id,
     })
+  },
+
+  async getWalkingProfile() {
+    return axiosInstance.get<IWalkingProfile>(getSneakersUrl('/walking'))
   },
 }
