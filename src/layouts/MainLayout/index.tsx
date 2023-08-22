@@ -9,7 +9,7 @@ import Preloader from '@/components/shared/Preloader'
 import mainBg from '@/assets/images/main-bg.jpg'
 
 import { getUserAccount } from '@/store/account/accountActions'
-import { getCurrentUser } from '@/store/auth/authActions'
+import { getCurrentUser, logout } from '@/store/auth/authActions'
 import { useAppDispatch } from '@/store/hooks'
 
 import Header from '../components/Header'
@@ -21,22 +21,26 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const token = Cookies.get('accessToken')
   const dispatch = useAppDispatch()
 
-  const getUserData = async () => {
+  const getUserData = useCallback(async () => {
     if (token) {
       try {
-        await dispatch(getCurrentUser())
-        await dispatch(getUserAccount())
+        await Promise.all([
+          dispatch(getCurrentUser()),
+          dispatch(getUserAccount()),
+        ])
+      } catch (error) {
+        dispatch(logout())
       } finally {
         setLoading(false)
       }
     } else {
       setLoading(false)
     }
-  }
+  }, [token, dispatch])
 
   useEffect(() => {
     getUserData()
-  })
+  }, [token, getUserData])
 
   return (
     <>
