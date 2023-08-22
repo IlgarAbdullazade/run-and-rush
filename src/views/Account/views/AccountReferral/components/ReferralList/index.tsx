@@ -49,15 +49,13 @@ const ReferralList: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             next={() => fetchNextPage()}
             hasMore={hasNextPage ?? false}
           >
-            <div className={classNames(styles['shop-list__body'])}>
-              {referrals?.map((referral) => (
-                <ReferralItem
-                  key={referral.id}
-                  referral={referral}
-                  className={classNames(styles['referral-history-list__item'])}
-                />
-              ))}
-            </div>
+            {referrals?.map((referral) => (
+              <ReferralItem
+                key={referral.id}
+                referral={referral}
+                className={classNames(styles['referral-history-list__item'])}
+              />
+            ))}
           </InfiniteScroll>
         </SimpleBar>
       ) : (
