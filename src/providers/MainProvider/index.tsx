@@ -1,17 +1,30 @@
 'use client'
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import {
+  MutationCache,
+  QueryCache,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { AppProgressBar as ProgressBar } from 'next-nprogress-bar'
 import { Provider } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 import resolveConfig from 'tailwindcss/resolveConfig'
 
+import { toastError } from '@/utils/toast/toastError'
+
 import tailwindConfig from '../../../tailwind.config.js'
 import MainLayout from '../../layouts/MainLayout'
 import { store } from '../../store/index'
 
 const queryClient = new QueryClient({
+  queryCache: new QueryCache({
+    onError: (error) => toastError(error),
+  }),
+  mutationCache: new MutationCache({
+    onError: (error) => toastError(error),
+  }),
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
