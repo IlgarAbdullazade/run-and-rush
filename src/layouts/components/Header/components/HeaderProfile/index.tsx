@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { useRouter } from 'next-nprogress-bar'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import React, { HTMLAttributes, useEffect, useState } from 'react'
 import { IoCloseSharp } from 'react-icons/io5'
@@ -56,16 +57,30 @@ const HeaderProfile: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             <div
               className={classNames(styles['header-profile-leading__wrapper'])}
             >
-              <div
-                className={classNames(styles['header-profile-leading__circle'])}
-              >
-                <i
+              {user?.avatar_url ? (
+                <Image
+                  src={user.avatar_url}
+                  alt={user.email}
+                  width={56}
+                  height={56}
                   className={classNames(
-                    styles['header-profile-leading__icon'],
-                    'icon-avatar'
+                    styles['header-profile-leading__image']
                   )}
-                ></i>
-              </div>
+                />
+              ) : (
+                <div
+                  className={classNames(
+                    styles['header-profile-leading__circle']
+                  )}
+                >
+                  <i
+                    className={classNames(
+                      styles['header-profile-leading__icon'],
+                      'icon-avatar'
+                    )}
+                  ></i>
+                </div>
+              )}
             </div>
           </div>
           {isAuthenticated && (
