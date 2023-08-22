@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-import { isTokenValid } from '@/utils/jwt/jwt'
+import { isTokenValid } from '@/utils/jwt'
 
 import { API_URL, getAuthUrl } from '@/configs/apiConfig'
 
