@@ -11,7 +11,7 @@ export const AccountService = {
     return axiosInstance.get<IAccount>(getAccountUrl(''))
   },
 
-  async getUserTransactions(offset: number = 0) {
+  async getUserTransactions(offset: number) {
     return axiosInstance.get<ITransaction[]>(getAccountUrl('/transactions'), {
       params: {
         offset,

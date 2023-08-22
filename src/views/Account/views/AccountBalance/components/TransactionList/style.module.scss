@@ -1,4 +1,5 @@
 .balance-transaction-list {
+  @apply h-full;
   // .balance-transaction-list__wrapper
 
   > [data-simplebar] {
@@ -9,5 +10,11 @@
 
   &__item {
     @apply mb-4;
+  }
+
+  // .balance-transaction-list__empty
+
+  &__empty {
+    @apply flex items-center justify-center h-full text-center;
   }
 }
