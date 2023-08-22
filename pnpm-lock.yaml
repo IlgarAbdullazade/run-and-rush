@@ -29,6 +29,9 @@ dependencies:
   formik:
     specifier: ^2.4.3
     version: 2.4.3(react@18.2.0)
+  js-abbreviation-number:
+    specifier: ^1.4.0
+    version: 1.4.0
   js-cookie:
     specifier: ^3.0.5
     version: 3.0.5
@@ -50,6 +53,9 @@ dependencies:
   react-icons:
     specifier: ^4.10.1
     version: 4.10.1(react@18.2.0)
+  react-infinite-scroll-component:
+    specifier: ^6.1.0
+    version: 6.1.0(react@18.2.0)
   react-moment:
     specifier: ^1.1.3
     version: 1.1.3(moment@2.29.4)(prop-types@15.8.1)(react@18.2.0)
@@ -139,6 +145,9 @@ devDependencies:
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3
+  type-fest:
+    specifier: ^4.2.0
+    version: 4.2.0
   typescript:
     specifier: ^5.1.6
     version: 5.1.6
@@ -2282,6 +2291,10 @@ packages:
     hasBin: true
     dev: true
 
+  /js-abbreviation-number@1.4.0:
+    resolution: {integrity: sha512-4sSNspIdfSjCrKm97JZRFgaNgkwBIiVL+hb+piWXqmFW9HaixGa+3G+dSClZvryUZqlcFhMOG3gCeUuAP6lLig==}
+    dev: false
+
   /js-cookie@3.0.5:
     resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
     engines: {node: '>=14'}
@@ -2884,6 +2897,15 @@ packages:
       react: '*'
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /react-infinite-scroll-component@6.1.0(react@18.2.0):
+    resolution: {integrity: sha512-SQu5nCqy8DxQWpnUVLx7V7b7LcA37aM7tvoWjTLZp1dk6EJibM5/4EJKzOnl07/BsM1Y40sKLuqjCwwH/xV0TQ==}
+    peerDependencies:
+      react: '>=16.0.0'
+    dependencies:
+      react: 18.2.0
+      throttle-debounce: 2.3.0
     dev: false
 
   /react-is@16.13.1:
@@ -3500,6 +3522,11 @@ packages:
       any-promise: 1.3.0
     dev: true
 
+  /throttle-debounce@2.3.0:
+    resolution: {integrity: sha512-H7oLPV0P7+jgvrk+6mwwwBDmxTaxnu9HMXmloNLXwnNO0ZxZ31Orah2n8lU1eMPvsaowP2CX+USCgyovXfdOFQ==}
+    engines: {node: '>=8'}
+    dev: false
+
   /tiny-case@1.0.3:
     resolution: {integrity: sha512-Eet/eeMhkO6TX8mnUteS9zgPbUMQa4I6Kkp5ORiBD5476/m+PIRiumP5tmh5ioJpH7k51Kehawy2UDfsnxxY8Q==}
     dev: false
@@ -3574,6 +3601,11 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
     dev: false
+
+  /type-fest@4.2.0:
+    resolution: {integrity: sha512-5zknd7Dss75pMSED270A1RQS3KloqRJA9XbXLe0eCxyw7xXFb3rd+9B0UQ/0E+LQT6lnrLviEolYORlRWamn4w==}
+    engines: {node: '>=16'}
+    dev: true
 
   /typed-array-buffer@1.0.0:
     resolution: {integrity: sha512-Y8KTSIglk9OZEr8zywiIHG/kmQ7KWyjseXs1CbSo8vC42w7hg2HgYTxSWwP0+is7bWDc1H+Fo026CpHFwm8tkw==}
