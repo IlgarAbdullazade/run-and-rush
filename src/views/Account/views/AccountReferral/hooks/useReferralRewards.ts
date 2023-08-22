@@ -1,16 +1,21 @@
-import { useQuery } from '@tanstack/react-query'
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
 
 import { ReferralService } from '@/services/referral/referralService'
 
-import { toastError } from '@/utils/toast/toastError'
+const QUERY_KEY = 'referral rewards'
 
 export const useReferralRewards = () => {
-  const queryData = useQuery({
-    queryKey: ['referral rewards'],
-    queryFn: () => ReferralService.getReferralRewards(),
-    select: ({ data }) => data,
-    onError(error: any) {
-      toastError(error)
+  const queryData = useInfiniteQuery({
+    queryKey: [QUERY_KEY],
+    queryFn: ({ pageParam = 0 }) =>
+      ReferralService.getReferralRewards(pageParam),
+    getNextPageParam: (lastPage, allPages) => {
+      const { data } = lastPage
+      if (!data.length) return false
+      const itemsLength = allPages.reduce((acc, page) => {
+        return acc + page.data.length
+      }, 0)
+      return itemsLength
     },
   })
 

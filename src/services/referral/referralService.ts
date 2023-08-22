@@ -12,7 +12,7 @@ export const ReferralService = {
     return axiosInstance.get<IReferralProfile>(getReferralUrl('/profile'))
   },
 
-  async getReferralRewards(offset: number = 0) {
+  async getReferralRewards(offset: number) {
     return axiosInstance.get<IReferralReward[]>(getReferralUrl('/rewards'), {
       params: {
         offset,
