@@ -61,8 +61,10 @@ const HeaderProfile: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 <Image
                   src={user.avatar_url}
                   alt={user.email}
-                  width={56}
-                  height={56}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{ width: 'auto', height: 'auto' }}
                   className={classNames(
                     styles['header-profile-leading__image']
                   )}
