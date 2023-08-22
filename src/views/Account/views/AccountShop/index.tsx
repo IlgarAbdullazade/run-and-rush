@@ -28,6 +28,7 @@ const AccountShop: React.FC<HTMLAttributes<HTMLDivElement>> = ({
     setQueryParams,
     submitBuySneaker,
     fetchNextPage,
+    isFetchingNextPage,
     hasNextPage,
   } = useShop()
 
@@ -85,6 +86,7 @@ const AccountShop: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 dataLength={products?.length || 0}
                 next={() => fetchNextPage()}
                 hasMore={hasNextPage ?? false}
+                hideListLoading={isFetchingNextPage}
                 items={products}
               />
             ))}

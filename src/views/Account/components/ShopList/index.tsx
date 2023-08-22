@@ -27,6 +27,7 @@ type ShopListPropsType = HTMLAttributes<HTMLDivElement> &
     items: ISneaker[] | ISneakerProduct[] | undefined
     isLoading: boolean
     listType: ListType
+    hideListLoading: boolean
     buttonAction: (sneaker: any) => Promise<void>
   }
 
@@ -35,6 +36,7 @@ const ShopList: React.FC<ShopListPropsType> = ({
   isLoading,
   listType,
   items,
+  hideListLoading,
   buttonAction,
   ...infiniteScrollProps
 }) => {
@@ -77,7 +79,10 @@ const ShopList: React.FC<ShopListPropsType> = ({
           <SimpleBar scrollableNodeProps={{ id: 'simpleBar' }}>
             <InfiniteScroll
               loader={
-                <div className="mt-10">
+                <div
+                  style={{ visibility: hideListLoading ? 'visible' : 'hidden' }}
+                  className="mt-10"
+                >
                   <Loader loading size={12} />
                 </div>
               }

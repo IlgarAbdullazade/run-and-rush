@@ -28,6 +28,7 @@ const AccountInventory: React.FC<HTMLAttributes<HTMLDivElement>> = ({
     setQueryParams,
     sneakerPutOnOrTakeOff,
     fetchNextPage,
+    isFetchingNextPage,
     hasNextPage,
   } = useInventories()
 
@@ -87,6 +88,7 @@ const AccountInventory: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 dataLength={inventories?.length || 0}
                 next={() => fetchNextPage()}
                 hasMore={hasNextPage ?? false}
+                hideListLoading={isFetchingNextPage}
                 items={inventories}
               />
             ))}
