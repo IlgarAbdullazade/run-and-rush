@@ -1,4 +1,9 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import {
+  useInfiniteQuery,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from '@tanstack/react-query'
 import { useState } from 'react'
 
 import {
@@ -16,13 +21,20 @@ export const useInventories = () => {
   const [queryParams, setQueryParams] = useState<ISneakerInventoriesParams>({
     dress_status: 'ALL',
     earned_amount_ordering: 'LOWER',
-    offset: 0,
   })
 
-  const queryData = useQuery({
+  const queryData = useInfiniteQuery({
     queryKey: [QUERY_KEY, queryParams],
-    queryFn: () => SneakersService.getSneakerInventories(queryParams),
-    select: ({ data }) => data,
+    queryFn: ({ pageParam = 0 }) =>
+      SneakersService.getSneakerInventories(queryParams, pageParam),
+    getNextPageParam: (lastPage, allPages) => {
+      const { data } = lastPage
+      if (!data.length) return false
+      const inventoriesLength = allPages.reduce((acc, page) => {
+        return acc + page.data.length
+      }, 0)
+      return inventoriesLength
+    },
   })
 
   const putOnMutation = useMutation({
@@ -31,13 +43,10 @@ export const useInventories = () => {
     onMutate: async (sneaker) => {
       await queryClient.cancelQueries({ queryKey: [QUERY_KEY, sneaker.id] })
 
-      // Snapshot the previous value
       const previousSneaker = queryClient.getQueryData([QUERY_KEY, sneaker.id])
 
-      // Optimistically update to the new value
       queryClient.setQueryData([QUERY_KEY, sneaker.id], sneaker)
 
-      // Return a context with the previous and new sneaker
       return { previousSneaker, sneaker }
     },
     onError: (_, __, context) => {
@@ -46,7 +55,7 @@ export const useInventories = () => {
         context?.previousSneaker
       )
     },
-    onSettled: (data) => {
+    onSettled: () => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEY] })
     },
   })
@@ -58,13 +67,10 @@ export const useInventories = () => {
     onMutate: async (sneaker) => {
       await queryClient.cancelQueries({ queryKey: [QUERY_KEY, sneaker.id] })
 
-      // Snapshot the previous value
       const previousSneaker = queryClient.getQueryData([QUERY_KEY, sneaker.id])
 
-      // Optimistically update to the new value
       queryClient.setQueryData([QUERY_KEY, sneaker.id], sneaker)
 
-      // Return a context with the previous and new todo
       return { previousSneaker, sneaker }
     },
     onError: (_, __, context) => {

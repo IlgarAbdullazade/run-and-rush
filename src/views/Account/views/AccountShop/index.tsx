@@ -4,9 +4,10 @@ import classNames from 'classnames'
 import { HTMLAttributes, useEffect, useState } from 'react'
 
 import CustomReactSelect from '@/components/UI/CustomReactSelect'
-import { CustomOptionType } from '@/components/UI/CustomReactSelect/types'
+import type { CustomOptionType } from '@/components/UI/CustomReactSelect/types'
 
 import {
+  ISneakerProduct,
   SneakerActionType,
   SneakerPriceOrderingType,
 } from '@/shared/types/sneakers.types'
@@ -23,9 +24,11 @@ const AccountShop: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   const {
     isLoading,
-    data: products,
+    data,
     setQueryParams,
     submitBuySneaker,
+    fetchNextPage,
+    hasNextPage,
   } = useShop()
 
   const orderingOptions: CustomOptionType<SneakerPriceOrderingType>[] = [
@@ -49,9 +52,12 @@ const AccountShop: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   useEffect(() => {
     setQueryParams({
       price_ordering: selectedOption!.value,
-      offset: 0,
     })
   }, [selectedOption, selectedTab, setQueryParams])
+
+  const products = data?.pages.reduce((acc, page) => {
+    return [...acc, ...page.data]
+  }, [] as ISneakerProduct[])
 
   return (
     <div className={classNames(styles['shop'], className)}>
@@ -74,8 +80,11 @@ const AccountShop: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               <ShopList
                 key={tab.value}
                 buttonAction={submitBuySneaker}
-                listType="shop"
+                listType="inventory"
                 isLoading={isLoading}
+                dataLength={products?.length || 0}
+                next={() => fetchNextPage()}
+                hasMore={hasNextPage ?? false}
                 items={products}
               />
             ))}

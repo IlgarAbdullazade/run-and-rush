@@ -7,7 +7,7 @@ import CustomReactSelect from '@/components/UI/CustomReactSelect'
 import { CustomOptionType } from '@/components/UI/CustomReactSelect/types'
 
 import {
-  SneakerActionType,
+  ISneaker,
   SneakerDressStatusType,
   SneakerEarnedOrderingType,
 } from '@/shared/types/sneakers.types'
@@ -24,9 +24,11 @@ const AccountInventory: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   const {
     isLoading,
-    data: inventories,
+    data,
     setQueryParams,
     sneakerPutOnOrTakeOff,
+    fetchNextPage,
+    hasNextPage,
   } = useInventories()
 
   const orderingOptions: CustomOptionType<SneakerEarnedOrderingType>[] = [
@@ -48,12 +50,16 @@ const AccountInventory: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   }
 
   useEffect(() => {
-    setQueryParams({
+    setQueryParams((prevParams) => ({
+      ...prevParams,
       dress_status: selectedTab.value,
       earned_amount_ordering: selectedOption!.value,
-      offset: 0,
-    })
+    }))
   }, [selectedOption, selectedTab, setQueryParams])
+
+  const inventories = data?.pages.reduce((acc, page) => {
+    return [...acc, ...page.data]
+  }, [] as ISneaker[])
 
   return (
     <div className={classNames(styles['inventory'], className)}>
@@ -78,6 +84,9 @@ const AccountInventory: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 buttonAction={sneakerPutOnOrTakeOff}
                 listType="inventory"
                 isLoading={isLoading}
+                dataLength={inventories?.length || 0}
+                next={() => fetchNextPage()}
+                hasMore={hasNextPage ?? false}
                 items={inventories}
               />
             ))}

@@ -1,4 +1,8 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import {
+  useInfiniteQuery,
+  useMutation,
+  useQueryClient,
+} from '@tanstack/react-query'
 import { useState } from 'react'
 
 import {
@@ -15,13 +19,20 @@ export const useShop = () => {
 
   const [queryParams, setQueryParams] = useState<ISneakerShopParams>({
     price_ordering: 'LOWER',
-    offset: 0,
   })
 
-  const queryData = useQuery({
+  const queryData = useInfiniteQuery({
     queryKey: [QUERY_KEY, queryParams],
-    queryFn: () => SneakersService.getSellingSneakers(queryParams),
-    select: ({ data }) => data,
+    queryFn: ({ pageParam = 0 }) =>
+      SneakersService.getSellingSneakers(queryParams, pageParam),
+    getNextPageParam: (lastPage, allPages) => {
+      const { data } = lastPage
+      if (!data.length) return false
+      const inventoriesLength = allPages.reduce((acc, page) => {
+        return acc + page.data.length
+      }, 0)
+      return inventoriesLength
+    },
   })
 
   const buySneaker = useMutation({

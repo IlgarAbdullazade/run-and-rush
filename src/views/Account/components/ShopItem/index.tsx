@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import { HTMLAttributes, ReactNode } from 'react'
 
-import splitUUID from '@/shared/splitUUID'
 import {
   ISneaker,
   ISneakerProduct,
@@ -10,6 +9,8 @@ import {
 } from '@/shared/types/sneakers.types'
 
 import coin from '@/assets/icons/coin.svg'
+
+import { Helpers } from '@/utils/helpers'
 
 import styles from './style.module.scss'
 
@@ -38,7 +39,10 @@ const ShopItem: React.FC<ShopItemPropsType> = ({ className, button, item }) => {
             <h3>{isSneakerProduct(item) ? item.sneaker.title : item.title}</h3>
           </div>
           <div className={classNames(styles['shop-item__id'])}>
-            #{splitUUID(isSneakerProduct(item) ? item.sneaker.id : item.id)}
+            #
+            {Helpers.splitUUID(
+              isSneakerProduct(item) ? item.sneaker.id : item.id
+            )}
           </div>
 
           <div className={classNames(styles['shop-item__bonus'])}>
