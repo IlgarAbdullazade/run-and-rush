@@ -30,10 +30,10 @@ export const useInventories = () => {
     getNextPageParam: (lastPage, allPages) => {
       const { data } = lastPage
       if (!data.length) return false
-      const inventoriesLength = allPages.reduce((acc, page) => {
+      const itemsLength = allPages.reduce((acc, page) => {
         return acc + page.data.length
       }, 0)
-      return inventoriesLength
+      return itemsLength
     },
   })
 
