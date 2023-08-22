@@ -1,5 +1,6 @@
 .react-tabs {
   -webkit-tap-highlight-color: transparent;
+  @apply h-full;
 
   &__header {
     @apply flex items-center justify-between gap-10 px-4 mb-4 max-lg:px-2;
@@ -17,7 +18,7 @@
     }
 
     &--disabled {
-      @apply opacity-20 cursor-default;
+      @apply cursor-default opacity-20;
     }
 
     &:focus {
@@ -26,7 +27,7 @@
   }
 
   &__tab-panel {
-    @apply hidden;
+    @apply hidden h-full;
     &--selected {
       @apply block;
     }
