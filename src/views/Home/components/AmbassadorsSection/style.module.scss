@@ -63,20 +63,12 @@
   // .ambassadors__item--first
 
   &__item--first {
-    //@include adaptiveValue('left', 170, 40);
-    //@include adaptiveValue('bottom', 245, -92);
-    //@media (min-width: 1024px) {
-    //  @include adaptiveValue('left', 294, 100);
-    //  @include adaptiveValue('top', 24, -50);
-    //  svg {
-    //    @include adaptiveValue('width', 126, 60);
-    //    @include adaptiveValue('top', 64, 0);
-    //  }
-    //}
-    //svg {
-    //  @apply lg:right-full bottom-full;
-    //}
-    @apply 2xl:left-[290px] 2xl:top-[25px] xl:left-[265px] xl:-top-[16px] lg:left-[238px] lg:-top-[48px] top-auto md:left-[85px] md:bottom-[25px] sm:left-[74px] sm:-bottom-[18px];
+    @apply left-[35px] -top-[80px];
+    @apply sm:left-[35px] sm:top-[30px];
+    @apply md:left-[75px] md:top-[30px];
+    @apply lg:left-[190px] lg:top-[50px];
+    @apply xl:left-[210px] xl:top-[60px];
+    @apply 2xl:left-[250px] 2xl:top-[60px];
     svg {
       @apply lg:right-full bottom-full;
     }
@@ -88,7 +80,12 @@
   // .ambassadors__item--second
 
   &__item--second {
-    @apply 2xl:left-[582px] 2xl:top-[290px] xl:left-[483px] xl:top-[256px] lg:left-[387px] lg:top-[225px];
+    @apply -right-[25%] top-[70px];
+    @apply sm:left-[270px] sm:top-[130px];
+    @apply md:left-[330px] md:top-[145px];
+    @apply lg:left-[335px] lg:top-[195px];
+    @apply xl:left-[575px] xl:top-[255px];
+    @apply 2xl:left-[680px] 2xl:top-[310px];
     svg {
       @apply left-1/2 bottom-full;
     }
@@ -97,7 +94,13 @@
   // .ambassadors__item--third
 
   &__item--third {
-    @apply 2xl:top-[14px] 2xl:right-[36px] xl:-right-[60px] xl:top-[8px] lg:-right-[155px] lg:top-[9px] md:right-[165px] md:-top-[100px] sm:right-[120px] sm:-top-[106px];
+    @apply hidden;
+
+    @apply sm:block sm:-right-[95px] sm:-top-[5px];
+    @apply md:-right-[45px] md:top-[15px];
+    @apply lg:-right-[77px] lg:top-[40px];
+    @apply xl:right-[15px] xl:top-[50px];
+    @apply 2xl:top-[50px] 2xl:right-[110px];
     svg {
       @apply max-lg:left-full max-lg:top-full max-lg:-translate-x-10 right-full top-1/2 lg:-translate-y-1/2;
     }

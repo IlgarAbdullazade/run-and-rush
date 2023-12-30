@@ -1,17 +1,20 @@
-import classNames from 'classnames'
-import Image from 'next/image'
 import { HTMLAttributes } from 'react'
 
-import humanImg from '@/assets/images/human.png'
+import classNames from 'classnames'
 
+import Image from 'next/image'
+
+import { IMemberItem } from '../types'
 import styles from './style.module.scss'
 
 type MembersItemType = HTMLAttributes<HTMLDivElement> & {
-  skewClass?: string
+  skewClass?: string,
+  member: IMemberItem
 }
 
 const MembersItem: React.FC<MembersItemType> = ({
   className,
+  member,
   skewClass = 'skew-x-8',
 }) => {
   return (
@@ -25,18 +28,18 @@ const MembersItem: React.FC<MembersItemType> = ({
             )}
           ></div>
           <Image
-            src={humanImg}
-            alt="Human"
+            src={member.image}
+            alt={member.name}
             className={classNames(styles['members-item__image'])}
           />
         </div>
         <div className={classNames(styles['members-item__info'])}>
           <div className={classNames(styles['members-item__name'])}>
-            Ajay French
+            {member.name}
           </div>
-          <div className={classNames(styles['members-item__position'])}>
-            CEO
-          </div>
+          {member.position && <div className={classNames(styles['members-item__position'])}>
+            {member.position}
+          </div>}
         </div>
       </div>
     </div>

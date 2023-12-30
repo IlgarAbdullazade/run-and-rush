@@ -12,6 +12,8 @@ import { useClientSideValue } from '@/hooks/useClientSideValue'
 import gridBgImg from '@/assets/images/grid-bg.png'
 import merTickerImg from '@/assets/images/mer-ticker.png'
 
+import { advisors } from './data'
+
 import styles from './style.module.scss'
 
 const AdvisorsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -41,11 +43,7 @@ const AdvisorsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <h1 className={classNames(styles['advisors__title'])}>
             The <strong className="text-gradient">Advisors</strong>
           </h1>
-          {isTabletOrMobile ? (
-            <MembersSlider className={classNames(styles['advisors__slider'])} />
-          ) : (
-            <MembersGrid className={classNames(styles['advisors__members'])} />
-          )}
+          <MembersSlider skewClass='-skew-x-8' members={advisors} className={classNames(styles['advisors__slider'])} />
         </div>
       </div>
       <div className={classNames(styles['advisors__ticker'])}>

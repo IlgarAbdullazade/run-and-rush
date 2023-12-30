@@ -3,7 +3,7 @@ import { HTMLAttributes } from 'react'
 
 import aboutBgImg from '@/assets/images/home/about/about-bg.png'
 
-import AboutSlider from './components/AboutSlider'
+// import AboutSlider from './components/AboutSlider'
 import styles from './style.module.scss'
 
 const AboutSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -35,7 +35,7 @@ const AboutSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               participate in it.
             </p>
           </div>
-          <AboutSlider className={classNames(styles['about__slider'])} />
+          {/* <AboutSlider className={classNames(styles['about__slider'])} /> */}
         </div>
       </div>
     </section>

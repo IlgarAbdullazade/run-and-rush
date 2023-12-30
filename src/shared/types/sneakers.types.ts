@@ -55,3 +55,9 @@ export interface IWalkingProfile {
   energy_max: string
   distance_max: number
 }
+
+export interface ISneakerStatistic {
+  distance_run: number
+  calories_burned: number
+  last_update: string
+}

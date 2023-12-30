@@ -1,16 +1,25 @@
+'use client'
+
 import classNames from 'classnames'
 import Image from 'next/image'
+import React from 'react'
 import { HTMLAttributes } from 'react'
+
+import Loader from '@/components/UI/Loader'
 
 import burnerIcon from '@/assets/images/home/steps/burner.svg'
 import distanceIcon from '@/assets/images/home/steps/distance.svg'
 import runnerWithShoesImg from '@/assets/images/home/steps/runner-with-shoes.png'
 
+import StepsCounter from './components/StepsCounter'
+import { useSteps } from './hooks/useSteps'
 import styles from './style.module.scss'
 
 const StepsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
+  const { isLoading, data } = useSteps()
+
   return (
     <section className={classNames(styles['steps'], className)}>
       <div className={classNames(styles['steps__container'])}>
@@ -26,60 +35,29 @@ const StepsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               your
               <strong className="text-gradient"> steps count!</strong>
             </h1>
-            <div className={classNames(styles['steps-context__body'])}>
-              <div
-                className={classNames(
-                  styles['steps-context__counter'],
-                  styles['steps-counter']
-                )}
-              >
-                <Image
-                  src={distanceIcon}
-                  alt="Distance Icon"
-                  className={classNames(styles['steps-counter__icon'])}
-                ></Image>
-                <div className={classNames(styles['steps-counter__info'])}>
-                  <h3
-                    className={classNames(
-                      styles['steps-counter__title'],
-                      'text-gradient'
-                    )}
-                  >
-                    198,090,598,986.71
-                  </h3>
-                  <div className={classNames(styles['steps-counter__caption'])}>
-                    Distance Run (M)
-                  </div>
-                </div>
+            {isLoading ? (
+              <Loader loading size={16} />
+            ) : (
+              <div className={classNames(styles['steps-context__body'])}>
+                <StepsCounter
+                  className={classNames(styles['steps-counter'])}
+                  initialCount={data!.distance_run}
+                  min={300000}
+                  max={500000}
+                  icon={distanceIcon}
+                  title="Distance Run (M)"
+                />
+                <StepsCounter
+                  className={classNames(styles['steps-counter'])}
+                  initialCount={data!.calories_burned}
+                  duration={150}
+                  min={5000}
+                  max={15000}
+                  icon={burnerIcon}
+                  title="Calories Burned (kCal)"
+                />
               </div>
-              <div
-                className={classNames(
-                  styles['steps-context__counter'],
-                  styles['steps-counter']
-                )}
-              >
-                <div className={classNames(styles['steps-counter__leading'])}>
-                  <Image
-                    src={burnerIcon}
-                    alt="Burner Icon"
-                    className={classNames(styles['steps-counter__icon'])}
-                  ></Image>
-                </div>
-                <div className={classNames(styles['steps-counter__info'])}>
-                  <h3
-                    className={classNames(
-                      styles['steps-counter__title'],
-                      'text-gradient'
-                    )}
-                  >
-                    198,090,598,986.71
-                  </h3>
-                  <div className={classNames(styles['steps-counter__caption'])}>
-                    Calories Burned (kCal)
-                  </div>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
           <div className={classNames(styles['steps__decoration'])}>
             <Image

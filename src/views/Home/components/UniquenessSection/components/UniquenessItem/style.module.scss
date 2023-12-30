@@ -28,7 +28,7 @@
   // .uniqueness-item__text
 
   &__text {
-    @apply text-xl font-secondary text-textSecondary max-xl:text-lg max-sm:text-sm;
+    @apply text-xl font-secondary text-textSecondary max-xl:text-lg max-sm:text-sm whitespace-pre-wrap;
   }
 
   // .uniqueness-item__footer

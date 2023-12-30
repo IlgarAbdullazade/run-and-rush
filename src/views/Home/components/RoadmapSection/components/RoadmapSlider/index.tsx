@@ -1,20 +1,25 @@
-'use client'
+import { HTMLAttributes, useRef } from 'react'
 
 import classNames from 'classnames'
-import { HTMLAttributes, useRef } from 'react'
+
 import { register } from 'swiper/element/bundle'
-import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Swiper as SwiperCore } from 'swiper/types'
+import { Navigation, Pagination } from 'swiper/modules'
 
 import RoadmapItem from '../RoadmapItem'
-
 import styles from './style.module.scss'
+import { IRoadmapBlock } from '../../types'
 
 register()
 
-const RoadmapSlider: React.FC<HTMLAttributes<HTMLDivElement>> = ({
+type RoadmapSliderType = HTMLAttributes<HTMLDivElement> & {
+  roadmaps: IRoadmapBlock[],
+}
+
+const RoadmapSlider: React.FC<RoadmapSliderType> = ({
   className,
+  roadmaps
 }) => {
   const swiperRef = useRef<SwiperCore>()
 
@@ -41,12 +46,13 @@ const RoadmapSlider: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         }}
         {...params}
       >
-        {Array.from(Array(4), (_, i) => (
+        {roadmaps.map((roadmap) => (
           <SwiperSlide
-            key={i}
+            key={roadmap.title}
             className={classNames(styles['roadmap-slider__slide'])}
           >
             <RoadmapItem
+              roadmap={roadmap}
               className={classNames(styles['roadmap-slider__item'])}
             />
           </SwiperSlide>

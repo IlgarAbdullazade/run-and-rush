@@ -6,9 +6,9 @@ import { useMediaQuery } from 'usehooks-ts'
 
 import { useClientSideValue } from '@/hooks/useClientSideValue'
 
-import davisImg from '@/assets/images/home/ambassadors/davis.png'
-import gonzalezImg from '@/assets/images/home/ambassadors/gonzalez.jpg'
-import ivanovImg from '@/assets/images/home/ambassadors/ivanov.jpg'
+import liJianhua from '@/assets/images/home/advisors/li_jianhua.png'
+import nikolaiMazanik from '@/assets/images/home/advisors/nikolai_mazanik.png'
+import pascalHartmann from '@/assets/images/home/advisors/pascal_hartmann.png'
 import mapImg from '@/assets/images/home/ambassadors/map.png'
 
 import AmbassadorsItem from './components/AmbassadorsItem'
@@ -48,111 +48,27 @@ const AmbassadorsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                   styles['ambassadors__item'],
                   styles['ambassadors__item--first']
                 )}
-                image={davisImg}
-                name="Anthony Davis"
-                location="Denver, USA"
-                stroke={
-                  isTabletOrMobile ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="52"
-                      height="141"
-                      viewBox="0 0 52 141"
-                      fill="none"
-                    >
-                      <path
-                        d="M1 1.5L33.5 9.5L51 140.5"
-                        stroke="#8784D3"
-                        strokeWidth="1.5"
-                        strokeDasharray="1.5 1.5"
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="126"
-                      height="149"
-                      viewBox="0 0 126 149"
-                      fill="none"
-                    >
-                      <path
-                        d="M126 1H87L1.5 147.5"
-                        stroke="#8784D3"
-                        strokeWidth="2"
-                        strokeDasharray="2 2"
-                      />
-                    </svg>
-                  )
-                }
+                image={pascalHartmann}
+                name={"Pascal\nHartmann-Seidel"}
+                location="Germany"
               />
-              {!isTabletOrMobile && (
                 <AmbassadorsItem
                   className={classNames(
                     styles['ambassadors__item'],
                     styles['ambassadors__item--second']
                   )}
-                  image={gonzalezImg}
-                  name="Raúl González"
-                  location="Madrid, Spain"
-                  stroke={
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="2"
-                      height="90"
-                      viewBox="0 0 2 90"
-                      fill="none"
-                    >
-                      <path
-                        d="M1 0V90"
-                        stroke="#8784D3"
-                        strokeWidth="2"
-                        strokeDasharray="2 2"
-                      />
-                    </svg>
-                  }
+                  image={liJianhua}
+                  name="Li Jianhua"
+                  location="Singapore"
                 />
-              )}
               <AmbassadorsItem
                 className={classNames(
                   styles['ambassadors__item'],
                   styles['ambassadors__item--third']
                 )}
-                image={ivanovImg}
-                name="Konstantin Ivanov"
-                location="Saint Petersburg, Russia"
-                stroke={
-                  isTabletOrMobile ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="156"
-                      height="48"
-                      viewBox="0 0 156 48"
-                      fill="none"
-                    >
-                      <path
-                        d="M1 1.5L128 46.5H156"
-                        stroke="#8784D3"
-                        strokeWidth="1.5"
-                        strokeDasharray="1.5 1.5"
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="78"
-                      height="2"
-                      viewBox="0 0 78 2"
-                      fill="none"
-                    >
-                      <path
-                        d="M78 1L0 1"
-                        stroke="#8784D3"
-                        strokeWidth="2"
-                        strokeDasharray="2 2"
-                      />
-                    </svg>
-                  )
-                }
+                image={nikolaiMazanik}
+                name="Nikolai Mazanik"
+                location="Belarus"
               />
             </div>
           </div>

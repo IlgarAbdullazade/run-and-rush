@@ -3,6 +3,7 @@ import type {
   ISneakerInventoriesParams,
   ISneakerProduct,
   ISneakerShopParams,
+  ISneakerStatistic,
   IWalkingProfile,
 } from '@/shared/types/sneakers.types'
 
@@ -69,5 +70,9 @@ export const SneakersService = {
 
   async getWalkingProfile() {
     return axiosInstance.get<IWalkingProfile>(getSneakersUrl('/walking'))
+  },
+
+  async getSneakerStatistic() {
+    return axiosInstance.post<ISneakerStatistic>(getSneakersUrl('/statistic'))
   },
 }

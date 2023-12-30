@@ -8,6 +8,7 @@ import { useClientSideValue } from '@/hooks/useClientSideValue'
 
 import RoadmapItem from './components/RoadmapItem'
 import RoadmapSlider from './components/RoadmapSlider'
+import { roadmapSections } from './data'
 import styles from './style.module.scss'
 
 const RoadmapSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -32,15 +33,17 @@ const RoadmapSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             Roadmap
           </h1>
           {isTabletOrMobile ? (
-            <RoadmapSlider className={classNames(styles['roadmap__slider'])} />
+            <RoadmapSlider roadmaps={roadmapSections} className={classNames(styles['roadmap__slider'])} />
           ) : (
             <div className={classNames(styles['roadmap__grid'])}>
               <div className={classNames(styles['roadmap__item--empty'])}></div>
-              <RoadmapItem className={classNames(styles['roadmap__item'])} />
-              <RoadmapItem className={classNames(styles['roadmap__item'])} />
-              <RoadmapItem className={classNames(styles['roadmap__item'])} />
-              <RoadmapItem className={classNames(styles['roadmap__item'])} />
-              <RoadmapItem className={classNames(styles['roadmap__item'])} />
+              {roadmapSections.map((roadmap) => (
+                <RoadmapItem
+                  key={roadmap.title}
+                  roadmap={roadmap}
+                  className={classNames(styles['roadmap__item'])}
+                />
+              ))}
             </div>
           )}
         </div>

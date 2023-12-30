@@ -10,19 +10,19 @@
 
   &__leading {
     //@include adaptiveValue('max-width', 148, 72);
-    @apply relative w-full max-w-[144px] max-2xl:max-w-[128px] max-xl:max-w-[96px];
+    @apply relative w-full max-w-[170px] max-2xl:max-w-[128px] max-xl:max-w-[96px];
   }
 
   // .ambassadors-item__rect
 
   &__rect {
-    @apply relative overflow-hidden -skew-x-6 border bg-gradient-135 aspect-square border-secondary;
+    @apply relative overflow-hidden -skew-x-6 border bg-gradient-135 aspect-[0.9] border-secondary;
   }
 
   // .ambassadors-item__image
 
   &__image {
-    //@apply skew-x-6;
+    @apply skew-x-6;
   }
 
   // .ambassadors-item__context
@@ -34,7 +34,7 @@
   // .ambassadors-item__name
 
   &__name {
-    @apply mb-1 text-4xl max-2xl:text-3xl max-xl:text-xl;
+    @apply whitespace-pre-wrap mb-1 text-4xl max-2xl:text-3xl max-xl:text-xl;
   }
 
   // .ambassadors-item__location

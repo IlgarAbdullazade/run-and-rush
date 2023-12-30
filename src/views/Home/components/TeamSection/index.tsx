@@ -8,7 +8,7 @@ import { MembersGrid } from '@/components/shared/Members'
 import MembersSlider from '@/components/shared/Members/MembersSlider'
 
 import { useClientSideValue } from '@/hooks/useClientSideValue'
-
+import {teamMembers} from './data'
 import styles from './style.module.scss'
 
 const TeamSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -32,11 +32,7 @@ const TeamSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <h1 className={classNames(styles['team__title'])}>
             The <strong className="text-gradient">Team</strong>
           </h1>
-          {isTabletOrMobile ? (
-            <MembersSlider className={classNames(styles['team__slider'])} />
-          ) : (
-            <MembersGrid className={classNames(styles['team__members'])} />
-          )}
+          <MembersSlider members={teamMembers} className={classNames(styles['team__slider'])} />
         </div>
       </div>
     </section>

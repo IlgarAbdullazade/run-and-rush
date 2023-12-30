@@ -73,7 +73,7 @@ const GmtSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             )}
           >
             <h1 className={classNames(styles['gmt-context__title'])}>
-              GMT <strong className="text-gradient">Status</strong>
+              RARE <strong className="text-gradient">Status</strong>
             </h1>
             <div className={classNames(styles['gmt-context__caption'])}>
               TBA

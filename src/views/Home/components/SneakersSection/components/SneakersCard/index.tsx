@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import { HTMLAttributes } from 'react'
 
-import sneakersImg from '@/assets/images/shoes/mid-sneakers.png'
+import sneakersImg from '@/assets/images/shoes/orange-sneakers.png'
 
 import styles from './style.module.scss'
 

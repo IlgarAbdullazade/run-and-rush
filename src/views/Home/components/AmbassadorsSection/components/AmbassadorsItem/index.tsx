@@ -8,7 +8,7 @@ type AmbassadorsItemType = HTMLAttributes<HTMLDivElement> & {
   name: string
   location: string
   image: StaticImageData
-  stroke: ReactElement
+  stroke?: ReactElement
 }
 
 const AmbassadorsItem: React.FC<AmbassadorsItemType> = ({

@@ -20,13 +20,12 @@
   // .members-item__image
 
   &__image {
-    @apply relative z-10 px-8 mx-auto select-none;
+    @apply relative z-10 mx-auto select-none;
   }
 
   // .members-item__info
 
   &__info {
-    @apply px-10;
   }
 
   // .members-item__name

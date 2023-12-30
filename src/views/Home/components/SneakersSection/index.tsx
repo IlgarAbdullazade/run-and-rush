@@ -38,7 +38,7 @@ const SneakersSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               About <strong className="text-gradient">Sneakers</strong>
             </h1>
             <p className={classNames(styles['sneakers-context__text'])}>
-              All Sneakers have a limited &quot;ervice life&quot; and do not
+              All Sneakers have a limited &quot;service life&quot; and do not
               apply any cumulative pressure on the tokenomics. Sneakers have two
               main parameters:
             </p>
