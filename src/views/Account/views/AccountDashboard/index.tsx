@@ -15,6 +15,7 @@ import { Helpers } from '@/utils/helpers'
 import { useAppSelector } from '@/store/hooks'
 
 import ProgressBar from './components/ProgressBar'
+import { useTotalCoins } from './hooks/useTotalCoins'
 import { useWalking } from './hooks/useWalking'
 import styles from './style.module.scss'
 
@@ -22,26 +23,27 @@ const AccountDashboard: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
   const router = useRouter()
-  const { isLoading, data: walkingProfile } = useWalking()
+  const { data: walkingProfile } = useWalking()
   const user = useAppSelector((state) => state.auth.user)
   const account = useAppSelector((state) => state.account.account)
+  const coins = useTotalCoins(walkingProfile?.sneakers)
 
   const energyRatio =
     Helpers.roundNumber(walkingProfile?.energy) /
     Helpers.roundNumber(walkingProfile?.energy_max)
 
-  const energyRatioText = ` ${Helpers.roundNumber(walkingProfile?.energy)} /
-   ${Helpers.roundNumber(walkingProfile?.energy_max)}`
+  const energyRatioText = `${Helpers.roundNumber(walkingProfile?.energy)} /
+    ${Helpers.roundNumber(walkingProfile?.energy_max)}`
 
-  const distanceRatio =
+  const totalCoinsRatio =
     Helpers.roundNumber(walkingProfile?.distance) /
     Helpers.roundNumber(walkingProfile?.distance_max)
 
-  const distanceRatioText = `${abbreviateNumber(
-    walkingProfile?.distance ?? 2000,
-    1
+  const totalCoinsText = `${Helpers.roundNumber(
+    (coins / (walkingProfile?.distance_max ?? 2000)) *
+      (walkingProfile?.distance ?? 2000)
   )} /
-${abbreviateNumber(walkingProfile?.distance_max ?? 2000, 1)}`
+    ${Helpers.roundNumber(coins)}`
 
   const goToInventoryPage = () => {
     router.push('account/inventory')
@@ -49,7 +51,10 @@ ${abbreviateNumber(walkingProfile?.distance_max ?? 2000, 1)}`
 
   const sneakerActionItem = (sneaker: ISneakerBase | undefined): ReactNode => {
     return sneaker ? (
-      <div className={classNames(styles['dashboard-actions__item'])}>
+      <div
+        key={sneaker.id}
+        className={classNames(styles['dashboard-actions__item'])}
+      >
         <Image
           src={sneaker.image_url!}
           alt={sneaker.title!}
@@ -148,10 +153,9 @@ ${abbreviateNumber(walkingProfile?.distance_max ?? 2000, 1)}`
             styles['dashboard-actions']
           )}
         >
-          {sneakerActionItem(walkingProfile?.sneakers[1])}
-          {sneakerActionItem(walkingProfile?.sneakers[2])}
-          {sneakerActionItem(walkingProfile?.sneakers[3])}
-          {sneakerActionItem(walkingProfile?.sneakers[4])}
+          {walkingProfile?.sneakers
+            .slice(1, 5)
+            .map((sneaker) => sneakerActionItem(sneaker))}
         </div>
         <div
           className={classNames(
@@ -162,8 +166,8 @@ ${abbreviateNumber(walkingProfile?.distance_max ?? 2000, 1)}`
           <ProgressBar
             className={classNames(styles['dashboard-progress__item'])}
             icon="icon-durability"
-            text={distanceRatioText}
-            progress={distanceRatio}
+            text={totalCoinsText}
+            progress={totalCoinsRatio}
           />
           <ProgressBar
             icon="icon-power"

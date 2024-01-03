@@ -4,6 +4,10 @@ export interface ISneakerBase {
   id: string
   title: string
   image_url: string
+  durability: number,
+  min_speed: number,
+  max_speed: number,
+  coins_for_1000_steps: string
 }
 
 export interface ISneaker extends ISneakerBase {

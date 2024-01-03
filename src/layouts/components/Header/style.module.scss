@@ -21,7 +21,7 @@
   // .header__mobile
 
   &__mobile {
-    @apply flex items-center gap-5 lg:hidden;
+    @apply flex items-center gap-5 lg:hidden flex-1 justify-end;
   }
 
   // .header__menu
@@ -42,7 +42,7 @@
   // .header__rightside
 
   &__rightside {
-    @apply flex items-center gap-10 lg:flex-1 lg:justify-end max-2xl:gap-8 max-xl:gap-5;
+    @apply flex items-center gap-10 lg:flex-1 lg:justify-end max-2xl:gap-8 max-xl:gap-5 flex-1;
   }
 
   // .header__apps
