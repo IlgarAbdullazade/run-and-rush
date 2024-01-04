@@ -40,13 +40,19 @@
 
   // .balance-info__bonus
 
-  &__bonus {
-    @apply flex items-center justify-center gap-2 pt-2 text-center mb-7;
+  &__statistics {
+    @apply pt-2 text-center mb-7;
+  }
+
+  // .balance-info__bonus-item
+
+  &__statistics-item {
+    @apply flex items-center justify-center gap-2 mb-1 last:mb-0;
   }
 
   // .balance-info__bonus-coin
 
-  &__bonus-coin {
+  &__statistics-coin {
     @apply w-4;
   }
 

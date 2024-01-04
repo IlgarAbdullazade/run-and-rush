@@ -11,8 +11,8 @@ export interface ISneakerBase {
 }
 
 export interface ISneaker extends ISneakerBase {
-  created_at: Date
-  updated_at: Date
+  created_at: string
+  updated_at: string
   owner_id: string
   sneaker_id: string
   earned_amount: string
