@@ -11,4 +11,11 @@ export const Helpers = {
     const multiplier = Math.pow(10, precision)
     return Math.round(Number(value) * multiplier) / multiplier
   },
+
+  toFixed(
+    value: string | undefined,
+    precision: number = 2
+  ): string {
+    return parseFloat(value ?? '0').toFixed(precision)
+  },
 }

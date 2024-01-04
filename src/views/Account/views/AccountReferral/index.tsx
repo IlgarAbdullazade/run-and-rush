@@ -9,6 +9,7 @@ import Button from '@/components/UI/Button'
 
 import coin from '@/assets/icons/coin.svg'
 
+import { Helpers } from '@/utils/helpers'
 import { showToast } from '@/utils/toast/showToast'
 
 import ReferralList from './components/ReferralList'
@@ -45,7 +46,7 @@ const AccountReferral: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                   src={coin}
                   alt="Run&Rush Coin"
                 />
-                <span> {referralProfile?.balance}</span>
+                <span>{Helpers.toFixed(referralProfile?.balance)}</span>
               </div>
               <div className={classNames(styles['referral-info__caption'])}>
                 Earned (for all time)

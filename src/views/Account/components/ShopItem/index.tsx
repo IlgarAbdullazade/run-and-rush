@@ -52,7 +52,7 @@ const ShopItem: React.FC<ShopItemPropsType> = ({ className, button, item }) => {
               alt="Run&Rush Coin"
             />
             <span>
-              {isSneakerProduct(item) ? item.price : item.earned_amount}
+              {Helpers.toFixed(isSneakerProduct(item) ? item.price : item.earned_amount)}
             </span>
           </div>
         </div>

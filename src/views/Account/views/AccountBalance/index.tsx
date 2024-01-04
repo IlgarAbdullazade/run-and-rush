@@ -12,6 +12,7 @@ import { useAppSelector } from '@/store/hooks'
 
 import TransactionList from './components/TransactionList'
 import styles from './style.module.scss'
+import { Helpers } from '@/utils/helpers'
 
 const AccountBalance: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -34,20 +35,20 @@ const AccountBalance: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 src={coin}
                 alt="Run&Rush Coin"
               />
-              <span>{account?.balance}</span>
+              <span>{Helpers.toFixed(account?.balance)}</span>
             </div>
             <div className={classNames(styles['balance-info__actions'])}>
               <Button
                 className={classNames(styles['balance-info__button'])}
                 icon="icon-buy"
               >
-                Buy
+                <a href='https://t.me/runrush' target="_blank">Buy</a>
               </Button>
               <Button
                 className={classNames(styles['balance-info__button'])}
                 icon="icon-sell"
               >
-                Sell
+                <a href='https://t.me/runrush' target="_blank">Sell</a>
               </Button>
             </div>
           </div>

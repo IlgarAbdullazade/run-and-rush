@@ -8,6 +8,8 @@ import { ITransaction } from '@/shared/types/transaction.types'
 
 import coin from '@/assets/icons/coin.svg'
 
+import { Helpers } from '@/utils/helpers'
+
 import styles from './style.module.scss'
 
 type TransactionItemProps = HTMLAttributes<HTMLDivElement> & {
@@ -54,7 +56,7 @@ const TransactionItem: React.FC<TransactionItemProps> = ({
             <div
               className={classNames(styles['transaction-item__value--count'])}
             >
-              {transaction.amount}
+              <span>{Helpers.toFixed(transaction.amount)}</span>
             </div>
           </div>
         </div>

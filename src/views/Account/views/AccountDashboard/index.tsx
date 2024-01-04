@@ -100,7 +100,7 @@ const AccountDashboard: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               src={coin}
               alt="Run&Rush Coin"
             />
-            <span>{account?.balance}</span>
+            <span>{Helpers.toFixed(account?.balance)}</span>
           </div>
         </div>
         {walkingProfile?.sneakers[0] ? (

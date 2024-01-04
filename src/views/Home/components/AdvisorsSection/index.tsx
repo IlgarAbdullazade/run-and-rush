@@ -4,7 +4,6 @@ import classNames from 'classnames'
 import { HTMLAttributes } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
 
-import { MembersGrid } from '@/components/shared/Members'
 import MembersSlider from '@/components/shared/Members/MembersSlider'
 
 import { useClientSideValue } from '@/hooks/useClientSideValue'
@@ -20,7 +19,6 @@ const AdvisorsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
   const isTabletOrMobileValue = useMediaQuery('not all and (min-width: 768px)')
-  const isTabletOrMobile = useClientSideValue(isTabletOrMobileValue, false)
 
   return (
     <section className={classNames(styles['advisors'], className)}>

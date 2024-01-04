@@ -23,7 +23,7 @@ export const advisors: IMemberItem[] = [
   },
   {
     image: rustemovnaGaisa,
-    name: 'Rustemovna Gaisa'
+    name: 'Rustemov Gais'
   },
   {
     image: eddyNii,

@@ -9,6 +9,7 @@ import { IReferralReward } from '@/shared/types/referral.types'
 import coin from '@/assets/icons/coin.svg'
 
 import styles from './style.module.scss'
+import { Helpers } from '@/utils/helpers'
 
 type TransactionItemProps = HTMLAttributes<HTMLDivElement> & {
   referral: IReferralReward
@@ -47,7 +48,7 @@ const ReferralItem: React.FC<TransactionItemProps> = ({
               className={classNames(styles['referral-item__value--coin'])}
             ></Image>
             <div className={classNames(styles['referral-item__value--count'])}>
-              {referral.amount}
+              {Helpers.toFixed(referral.amount)}
             </div>
           </div>
         </div>

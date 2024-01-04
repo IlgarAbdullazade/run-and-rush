@@ -4,7 +4,7 @@ import AboutSection from './components/AboutSection'
 import AdvisorsSection from './components/AdvisorsSection'
 import AmbassadorsSection from './components/AmbassadorsSection'
 import CommunitySection from './components/CommunitySection'
-import GmtSection from './components/GmtSection'
+// import GmtSection from './components/GmtSection'
 import HelloSection from './components/HelloSection'
 import PartnersSection from './components/PartnersSection'
 import ReferralSection from './components/ReferralSection'
@@ -25,7 +25,7 @@ const HomeView = () => {
         <SneakersSection className={classNames(styles['home__sneakers'])} />
         <StepsSection className={classNames(styles['home__steps'])} />
         <TeamSection className={classNames(styles['home__team'])} />
-        <GmtSection className={classNames(styles['home__gmt'])} />
+        {/* <GmtSection className={classNames(styles['home__gmt'])} /> */}
         <AdvisorsSection className={classNames(styles['home__advisors'])} />
         <UniquenessSection className={classNames(styles['home__uniqueness'])} />
         <AmbassadorsSection
