@@ -2,7 +2,7 @@
   // .transaction-item__wrapper
 
   &__wrapper {
-    @apply flex items-center gap-1 py-3 border-b border-tertiary;
+    @apply flex items-center gap-1 py-3 px-0.5 border-b border-tertiary;
   }
 
   // .transaction-item__leading

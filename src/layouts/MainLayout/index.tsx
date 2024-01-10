@@ -6,8 +6,6 @@ import { useCallback, useEffect, useState } from 'react'
 
 import Preloader from '@/components/shared/Preloader'
 
-import mainBg from '@/assets/images/main-bg.jpg'
-
 import { getUserAccount } from '@/store/account/accountActions'
 import { getCurrentUser, logout } from '@/store/auth/authActions'
 import { useAppDispatch } from '@/store/hooks'
@@ -47,9 +45,6 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       <Preloader className={loading ? 'visible' : 'invisible opacity-0'} />
       <div
         className={classNames(styles['page'])}
-        style={{
-          backgroundImage: `url(${mainBg.src})`,
-        }}
       >
         <Header />
         <main className={classNames(styles['page__main'])}>{children}</main>

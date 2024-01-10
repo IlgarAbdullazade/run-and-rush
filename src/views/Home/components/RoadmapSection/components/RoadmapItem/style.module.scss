@@ -1,5 +1,5 @@
 .roadmap-item {
-  @apply flex flex-col gap-6;
+  @apply flex flex-col gap-5;
   // .roadmap-item__icon
 
   &__icon {
@@ -16,7 +16,7 @@
   // .roadmap-item__caption
 
   &__caption {
-    @apply pr-10 text-xl font-secondary text-textSecondary;
+    @apply pr-10 text-base font-secondary text-textSecondary;
   }
 
   // .roadmap-item__todo
@@ -36,7 +36,7 @@
   // .todo-item__wrapper
 
   &__wrapper {
-    @apply flex items-center gap-5 max-lg:gap-4;
+    @apply flex gap-5 max-lg:gap-4;
   }
 
   // .todo-item__leading
@@ -47,7 +47,7 @@
   // .todo-item__rect
 
   &__rect {
-    @apply relative flex items-center justify-center w-10 p-3 max-lg:w-7 max-lg:p-2 -skew-x-6 max-xl:p-2.5 max-xl:w-8 aspect-square bg-gradient-135 from-tertiary to-gray-700;
+    @apply relative flex items-center justify-center w-8 p-2 max-lg:w-6 max-lg:p-1.5 -skew-x-6 aspect-square bg-gradient-135 from-tertiary to-gray-700;
     @apply after:absolute after:content-[''] after:left-0 after:p-0.5 after:bg-clip-content after:bottom-0 after:w-full after:h-full after:bg-[#1D1E20] after:backdrop-blur-2xl after:z-0;
   }
 
@@ -60,6 +60,6 @@
   // .todo-item__text
 
   &__text {
-    @apply text-4xl max-2xl:text-3xl max-xl:text-2xl max-lg:text-lg;
+    @apply text-2xl max-2xl:text-xl max-xl:text-xl max-lg:text-lg;
   }
 }
