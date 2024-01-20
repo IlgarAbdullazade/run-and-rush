@@ -41,7 +41,7 @@ const RoadmapSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 <RoadmapItem
                   key={roadmap.title}
                   roadmap={roadmap}
-                  className={classNames(styles['roadmap__item'])}
+                  className={classNames(styles['roadmap__item'], `${roadmap.showLine ? styles['roadmap__item--line'] : ""}`)}
                 />
               ))}
             </div>

@@ -1,0 +1,42 @@
+.privacy {
+  // .privacy__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .privacy__wrapper
+
+  &__wrapper {
+    @apply py-10;
+  }
+
+  // .privacy__title
+
+  &__title {
+    @apply text-center mb-10 max-lg:mb-10 pr-4 pb-4;
+  }
+
+  // .privacy__body
+
+  &__body {
+    @apply flex flex-col gap-10 mb-10
+  }
+
+  // .privacy__item
+
+  &__item {
+  }
+
+  // .privacy__caption
+
+  &__caption {
+    @apply text-2xl mb-3 inline-block
+  }
+
+  // .privacy__text
+
+  &__text {
+    @apply text-textSecondary font-secondary text-xl
+  }
+}

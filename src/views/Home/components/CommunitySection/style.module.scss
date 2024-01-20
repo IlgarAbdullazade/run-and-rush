@@ -33,6 +33,9 @@
 
   &__title {
     @apply mb-6;
+    strong {
+      @apply pr-1
+    }
   }
 
   // .community__text

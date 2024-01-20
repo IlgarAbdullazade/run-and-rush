@@ -11,10 +11,13 @@ import {
 } from '@/shared/types/sneakers.types'
 
 import { SneakersService } from '@/services/sneakers/sneakersService'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { getUserAccount } from '@/store/account/accountActions'
 
 const QUERY_KEY = 'shop'
 
 export const useShop = () => {
+  const dispatch = useAppDispatch()
   const queryClient = useQueryClient()
 
   const [queryParams, setQueryParams] = useState<ISneakerShopParams>({
@@ -64,6 +67,7 @@ export const useShop = () => {
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEY] })
+      dispatch(getUserAccount())
     },
   })
 

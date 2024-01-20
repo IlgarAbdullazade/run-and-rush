@@ -96,16 +96,13 @@ const Header = () => {
                   </ActiveLink>
                 </li>
                 <li className={classNames(styles['header-menu__item'])}>
-                  <ActiveLink
-                    activeClassName="text-gradient"
-                    className={classNames(
-                      styles['header-menu__link'],
-                      isTabletOrMobile ? 'text-gradient' : ''
-                    )}
-                    href="/linktree"
+                  <a
+                    className={classNames(styles['header-menu__link'])}
+                    href="https://linktr.ee/runrush"
+                    target="_blank"
                   >
                     Linktree
-                  </ActiveLink>
+                  </a>
                 </li>
               </ul>
               {isTabletOrMobile && (

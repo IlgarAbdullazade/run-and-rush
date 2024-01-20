@@ -1,7 +1,6 @@
 'use client'
 
 import classNames from 'classnames'
-import { abbreviateNumber } from 'js-abbreviation-number'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { HTMLAttributes, ReactNode, useEffect } from 'react'

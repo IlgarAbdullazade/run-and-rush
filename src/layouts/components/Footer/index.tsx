@@ -42,12 +42,21 @@ const Footer = () => {
                   </ActiveLink>
                 </li>
                 <li className={classNames(styles['footer-menu__item'])}>
+                  <a
+                    className={classNames(styles['footer-menu__link'])}
+                    href="https://linktr.ee/runrush"
+                    target="_blank"
+                  >
+                    Linktree
+                  </a>
+                </li>
+                <li className={classNames(styles['footer-menu__item'])}>
                   <ActiveLink
                     activeClassName="text-gradient"
                     className={classNames(styles['footer-menu__link'])}
-                    href="/linktree"
+                    href="/privacy-policy"
                   >
-                    Linktree
+                    Privacy Policy
                   </ActiveLink>
                 </li>
               </ul>
@@ -69,7 +78,6 @@ const Footer = () => {
             </div>
           </div>
           <div className={classNames(styles['footer__copyright'])}>
-            © 2023 Run & Rush
           </div>
         </div>
       </div>

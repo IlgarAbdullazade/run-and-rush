@@ -24,7 +24,7 @@ const ShopItem: React.FC<ShopItemPropsType> = ({ className, button, item }) => {
   let availableCoins = 0;
   let availableDays = 0;
   if(!isSneakerProduct(item)) {
-    availableCoins = item.durability * (+item.coins_for_1000_steps * 2)
+    availableCoins = item.durability * (+item.profit * 2)
     let now = new Date();
     let created_at = new Date(item.created_at);
     availableDays = Math.ceil(Math.abs(now.getTime() - created_at.getTime()) / (1000 * 3600 * 24))

@@ -1,5 +1,6 @@
 export interface IRoadmapBlock {
   title: string
+  showLine: boolean 
   items: IRoadmapItem[]
 }
 

@@ -12,7 +12,7 @@ export const useTotalCoins = (sneakers: ISneakerBase[] | undefined) => {
     let calculatedTotalCoins = 0;
 
     sneakers?.forEach((sneaker) => {
-      const coinsFor1000Steps = parseFloat(sneaker.coins_for_1000_steps);
+      const coinsFor1000Steps = parseFloat(sneaker.profit);
       calculatedTotalCoins += coinsFor1000Steps * 2;
     });
 

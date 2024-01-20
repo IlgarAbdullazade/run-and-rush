@@ -41,9 +41,17 @@
 
   &__item {
     @apply relative;
+   
+  }
+
+  // .roadmap__item--line 
+  &__item--line {
     @apply before:h-1 before:w-full before:content-[''] before:absolute before:left-0 before:top-11 before:bg-primary-900 before:z-0 last:before:right-0 last:before:w-screen last:before:bg-gradient-to-r last:before:bg-transparent last:before:from-primary-900 last:before:to-primary-900/5 last:before:left-auto;
     &:nth-child(3n + 3) {
       @apply before:w-screen;
+    }
+    &:nth-child(3n + 1) {
+      @apply before:right-full before:left-auto before:w-screen;
     }
   }
 }

@@ -39,11 +39,7 @@ const TransactionList: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 <Loader loading size={12} />
               </div>
             }
-            endMessage={
-              <div className="mt-10 text-center">
-                <b>Yay! You have seen it all</b>
-              </div>
-            }
+            endMessage={<div className="py-2"></div>}
             scrollableTarget="simpleBar"
             dataLength={transactions?.length || 0}
             next={() => fetchNextPage()}

@@ -7,7 +7,7 @@ export interface ISneakerBase {
   durability: number,
   min_speed: number,
   max_speed: number,
-  coins_for_1000_steps: string
+  profit: string
 }
 
 export interface ISneaker extends ISneakerBase {
