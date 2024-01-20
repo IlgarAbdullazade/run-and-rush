@@ -53,7 +53,7 @@ const UniquenessItem: React.FC<UniquenessItemType> = ({
           <div className={classNames(styles['uniqueness-item__decoration'])}>
             <Image
               src={image}
-              alt="Data privacy"
+              alt={caption}
               className={classNames(
                 styles['uniqueness-item__decoration-image']
               )}
