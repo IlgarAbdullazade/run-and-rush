@@ -46,7 +46,7 @@
   // .footer-menu__list
 
   &__list {
-    @apply flex gap-2.5 max-xl:gap-1 max-lg:flex-col;
+    @apply flex items-center gap-2.5 max-xl:gap-1 max-lg:flex-col;
   }
 
   // .footer-menu__item
@@ -57,7 +57,7 @@
   // .footer-menu__link
 
   &__link {
-    @apply inline-flex p-5 text-xl lg:hover:underline underline-offset-4 max-xl:p-2 max-lg:px-0;
+    @apply inline-flex p-3 text-xl lg:hover:underline underline-offset-4 max-xl:p-2 max-lg:px-0;
   }
 
   // .footer-menu__apps

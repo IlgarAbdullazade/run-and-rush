@@ -1,0 +1,71 @@
+.whitepaper {
+  // .whitepaper__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .whitepaper__wrapper
+
+  &__wrapper {
+    @apply py-10;
+  }
+
+  // .whitepaper__title
+
+  &__title {
+    @apply text-center mb-10 max-lg:mb-10 pr-4 pb-4;
+  }
+
+  // .whitepaper__introduction
+
+  &__introduction {
+    @apply flex flex-col gap-4 mb-10;
+  }
+
+  // .whitepaper__section
+
+  &__section {
+  }
+
+  // .whitepaper__subtitle
+
+  &__subtitle {
+    @apply text-2xl mb-4 inline-block;
+  }
+
+  // .whitepaper__list
+
+  &__list {
+    @apply list-disc pl-5
+  }
+
+  // .whitepaper__list--item
+
+  &__list--item {
+    @apply mb-1 last:mb-0
+  }
+
+  // .whitepaper__body
+
+  &__body {
+    @apply flex flex-col gap-10 mb-10;
+  }
+
+  // .whitepaper__item
+
+  &__item {
+  }
+
+  // .whitepaper__caption
+
+  &__caption {
+    @apply text-lg mb-2 block;
+  }
+
+  // .whitepaper__text
+
+  &__text {
+    @apply text-textSecondary font-secondary text-xl mb-4 last:mb-0;
+  }
+}

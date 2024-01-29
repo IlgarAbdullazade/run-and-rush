@@ -1,0 +1,42 @@
+.terms {
+  // .terms__container
+
+  &__container {
+    @apply relative;
+  }
+
+  // .terms__wrapper
+
+  &__wrapper {
+    @apply py-10;
+  }
+
+  // .terms__title
+
+  &__title {
+    @apply text-center mb-10 max-lg:mb-10 pr-4 pb-4;
+  }
+
+  // .terms__body
+
+  &__body {
+    @apply flex flex-col gap-10 mb-10
+  }
+
+  // .terms__item
+
+  &__item {
+  }
+
+  // .terms__caption
+
+  &__caption {
+    @apply text-2xl mb-3 inline-block
+  }
+
+  // .terms__text
+
+  &__text {
+    @apply text-textSecondary font-secondary text-xl
+  }
+}

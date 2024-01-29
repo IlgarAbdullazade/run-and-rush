@@ -59,6 +59,15 @@ const Footer = () => {
                     Privacy Policy
                   </ActiveLink>
                 </li>
+                <li className={classNames(styles['footer-menu__item'])}>
+                  <ActiveLink
+                    activeClassName="text-gradient"
+                    className={classNames(styles['footer-menu__link'])}
+                    href="/terms-of-use"
+                  >
+                    Terms of Use
+                  </ActiveLink>
+                </li>
               </ul>
             </nav>
             <div
@@ -77,8 +86,7 @@ const Footer = () => {
               />
             </div>
           </div>
-          <div className={classNames(styles['footer__copyright'])}>
-          </div>
+          <div className={classNames(styles['footer__copyright'])}></div>
         </div>
       </div>
     </footer>
