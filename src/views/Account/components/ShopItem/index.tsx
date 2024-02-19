@@ -8,8 +8,8 @@ import {
   isSneakerProduct,
 } from '@/shared/types/sneakers.types'
 
-import coin from '@/assets/icons/coin.svg'
 import calendar from '@/assets/icons/calendar.svg'
+import coin from '@/assets/icons/coin.svg'
 
 import { Helpers } from '@/utils/helpers'
 
@@ -21,15 +21,6 @@ type ShopItemPropsType = HTMLAttributes<HTMLDivElement> & {
 }
 
 const ShopItem: React.FC<ShopItemPropsType> = ({ className, button, item }) => {
-  let availableCoins = 0;
-  let availableDays = 0;
-  if(!isSneakerProduct(item)) {
-    availableCoins = item.durability * (+item.profit * 2)
-    let now = new Date();
-    let created_at = new Date(item.created_at);
-    availableDays = Math.ceil(Math.abs(now.getTime() - created_at.getTime()) / (1000 * 3600 * 24))
-  }
-  
   return (
     <div className={classNames(styles['shop-item'], className)}>
       <div className={classNames(styles['shop-item__wrapper'])}>
@@ -63,7 +54,14 @@ const ShopItem: React.FC<ShopItemPropsType> = ({ className, button, item }) => {
                 alt="Run&Rush Coin"
               />
               <span>
-                {isSneakerProduct(item) ? Helpers.toFixed(item.price) : `${Helpers.toFixed(item.earned_amount)} / ${availableCoins}`}
+                {isSneakerProduct(item)
+                  ? Helpers.toFixed(item.price)
+                  : `${Helpers.toFixed(
+                      item.earned_amount.toString()
+                    )} / ${Helpers.toFixed(
+                      item.max_earned_amount.toString(),
+                      0
+                    )}`}
               </span>
             </div>
             {isSneakerProduct(item) ? (
@@ -75,9 +73,7 @@ const ShopItem: React.FC<ShopItemPropsType> = ({ className, button, item }) => {
                   src={calendar}
                   alt="Run&Rush Calendar"
                 />
-                <span>
-                  {`${availableDays} / ${item.durability}`}
-                </span>
+                <span>{`${item.durability} / ${item.max_durability}`}</span>
               </div>
             )}
           </div>

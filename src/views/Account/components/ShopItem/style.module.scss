@@ -9,7 +9,7 @@
   // .shop-item__rect
 
   &__rect {
-    @apply w-full p-4 mb-3 border-2 border-dashed border-stroke rounded-2xl aspect-[12/11];
+    @apply w-full mb-3 border-2 border-dashed border-stroke rounded-2xl aspect-[12/11];
   }
 
   // .shop-item__image
@@ -27,7 +27,7 @@
   // .shop-item__title
 
   &__title {
-    @apply flex gap-1.5 mb-2;
+    @apply mb-2 ;
     span {
       @apply font-secondary;
     }

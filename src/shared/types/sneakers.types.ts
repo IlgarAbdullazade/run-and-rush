@@ -4,20 +4,24 @@ export interface ISneakerBase {
   id: string
   title: string
   image_url: string
-  durability: number,
-  min_speed: number,
-  max_speed: number,
+  durability: number
+  max_speed: number
   profit: string
 }
 
 export interface ISneaker extends ISneakerBase {
-  created_at: string
-  updated_at: string
+  created_at: Date
+  updated_at: Date
   owner_id: string
   sneaker_id: string
-  earned_amount: string
+  earned_amount: number
+  max_earned_amount: number
   steps_amount: number
   is_dressed: boolean
+  max_durability: number
+  distance: number
+  max_distance: number
+  expired_at: Date
 }
 
 export interface ISneakerProduct {

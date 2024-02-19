@@ -39,10 +39,12 @@ const AccountDashboard: React.FC<HTMLAttributes<HTMLDivElement>> = ({
     Helpers.roundNumber(walkingProfile?.distance_max)
 
   const totalCoinsText = `${Helpers.roundNumber(
-    (coins / (walkingProfile?.distance_max ?? 2000)) *
-      (walkingProfile?.distance ?? 2000)
+    Math.ceil(
+      (coins / (walkingProfile?.distance_max ?? 2000)) *
+        (walkingProfile?.distance ?? 2000)
+    )
   )} /
-    ${Helpers.roundNumber(coins)}`
+    ${Helpers.roundNumber(Math.ceil(coins))}`
 
   const goToInventoryPage = () => {
     router.push('account/inventory')
