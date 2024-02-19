@@ -21,6 +21,11 @@ const AppButton: React.FC<AppButtonPropsType> = ({
   return (
     <a
       target="_blank"
+      href={
+        store === 'android'
+          ? 'https://play.google.com/store/apps/details?id=com.runandrush.app'
+          : '#'
+      }
       className={classNames(styles['app-button'], className)}
       {...rest}
     >

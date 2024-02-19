@@ -24,7 +24,11 @@ type SchemaObject = {
 }
 
 const validationSchema = object().shape<SchemaObject>({
-  email: string().email('Invalid email').required('Email is required'),
+  email: string()
+    .lowercase()
+    .trim()
+    .email('Invalid email')
+    .required('Email is required'),
   code: string()
     .min(6, 'Verification code must be 6 characters')
     .required('Verification code is required'),
@@ -62,7 +66,9 @@ const Auth: React.FC<AuthPropsType> = ({ setClose, className }) => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values: IAuthFormValues) => {
-      const response = await dispatch(loginOrSignUp(values))
+      const response = await dispatch(
+        loginOrSignUp({ ...values, email: values.email.toLowerCase() })
+      )
       if (response.type === loginOrSignUp.fulfilled.type) {
         formik.resetForm()
         setClose(false)
@@ -76,7 +82,7 @@ const Auth: React.FC<AuthPropsType> = ({ setClose, className }) => {
 
   const sendCodeDispatch = async () => {
     setCodeIsLoading(true)
-    const email = formik.values.email
+    const email = formik.values.email.toLowerCase()
     const response = await dispatch(sendCode(email))
     if (response.type === sendCode.fulfilled.type) {
       setHasSent(true)

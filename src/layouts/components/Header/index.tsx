@@ -124,12 +124,10 @@ const Header = () => {
                       Download the app
                     </h3>
                     <AppButton
-                      href=""
                       className={classNames(styles['header-menu-apps__item'])}
                       store="android"
                     />
                     <AppButton
-                      href=""
                       className={classNames(styles['header-menu-apps__item'])}
                       store="ios"
                     />
@@ -154,12 +152,10 @@ const Header = () => {
                   )}
                 >
                   <AppButton
-                    href=""
                     className={classNames(styles['header-apps__button'])}
                     store="android"
                   />
                   <AppButton
-                    href=""
                     className={classNames(styles['header-apps__button'])}
                     store="ios"
                   />

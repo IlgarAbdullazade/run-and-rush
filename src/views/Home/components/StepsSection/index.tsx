@@ -41,7 +41,7 @@ const StepsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               <div className={classNames(styles['steps-context__body'])}>
                 <StepsCounter
                   className={classNames(styles['steps-counter'])}
-                  initialCount={data!.distance_run}
+                  initialCount={data?.distance_run ?? 20000000}
                   min={300000}
                   max={500000}
                   icon={distanceIcon}
@@ -49,7 +49,7 @@ const StepsSection: React.FC<HTMLAttributes<HTMLDivElement>> = ({
                 />
                 <StepsCounter
                   className={classNames(styles['steps-counter'])}
-                  initialCount={data!.calories_burned}
+                  initialCount={data?.calories_burned ?? 24000000}
                   duration={150}
                   min={5000}
                   max={15000}
